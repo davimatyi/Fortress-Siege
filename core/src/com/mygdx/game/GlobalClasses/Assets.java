@@ -38,56 +38,6 @@ public class Assets {
 	public static final AssetDescriptor<Texture> FLOPPYDISK_TEXTURE
 			= new AssetDescriptor<Texture>("floppy.png", Texture.class);
 
-	public static final AssetDescriptor<Texture> V0_BUTTON_1_TEXTURE
-			= new AssetDescriptor<Texture>("Gombok/v0_buttons/gomb1.png", Texture.class);
-
-	public static final AssetDescriptor<Texture> V0_BUTTONDOWN_1_TEXTURE
-			= new AssetDescriptor<Texture>("Gombok/v0_buttons/gomb1_down.png", Texture.class);
-
-	public static final AssetDescriptor<Texture> V0_BUTTON_2_TEXTURE
-			= new AssetDescriptor<Texture>("Gombok/v0_buttons/gomb2.png", Texture.class);
-
-	public static final AssetDescriptor<Texture> V0_BUTTONDOWN_2_TEXTURE
-			= new AssetDescriptor<Texture>("Gombok/v0_buttons/gomb2_down.png", Texture.class);
-
-	public static final AssetDescriptor<Texture> SLIDER_TEXTURE
-			= new AssetDescriptor<Texture>("Gombok/slider/slider.png", Texture.class);
-
-	public static final AssetDescriptor<Texture> KNOB_TEXTURE
-			= new AssetDescriptor<Texture>("Gombok/slider/knob.png", Texture.class);
-
-	public static final AssetDescriptor<Texture> IBM_TEXTURE
-			= new AssetDescriptor<Texture>("ibm_pc.png", Texture.class);
-
-    public static final AssetDescriptor<Texture> DOS1_TEXTURE
-            = new AssetDescriptor<Texture>("DOS1.png", Texture.class);
-
-    public static final AssetDescriptor<Texture> DOS2_TEXTURE
-            = new AssetDescriptor<Texture>("DOS2.png", Texture.class);
-
-    public static final AssetDescriptor<Texture> DOS3_TEXTURE
-            = new AssetDescriptor<Texture>("DOS3.jpg", Texture.class);
-
-	public static final AssetDescriptor<Texture> SZOG_TEXTURE
-			= new AssetDescriptor<Texture>("szog.png", Texture.class);
-
-	public static final AssetDescriptor<Texture> BACKGROUND_TEXTURE
-			= new AssetDescriptor<Texture>("background.png", Texture.class);
-
-	public static final AssetDescriptor<Sound> STAR_SOUND
-			= new AssetDescriptor<Sound>("star.wav", Sound.class);
-
-	public static final AssetDescriptor<Sound> BACKGROUND_SOUND
-			= new AssetDescriptor<Sound>("backgroundmusic.wav", Sound.class);
-
-	public static final AssetDescriptor<Sound> XP_SOUND
-			= new AssetDescriptor<Sound>("xp.wav", Sound.class);
-
-	public static final AssetDescriptor<Sound> FLOPI1_SOUND
-			= new AssetDescriptor<Sound>("flopi1.wav", Sound.class);
-
-	public static final AssetDescriptor<Sound> FLOPI2_SOUND
-			= new AssetDescriptor<Sound>("flopi2.wav", Sound.class);
 
     public static void prepare() {
 		manager = new AssetManager();
@@ -102,41 +52,6 @@ public class Assets {
 
 		manager.load(FLOPPYDISK_TEXTURE);
 
-		manager.load(IBM_TEXTURE);
-
-		manager.load(ARIAL_30_FONT);
-
-		manager.load(STAR_SOUND);
-
-		manager.load(BACKGROUND_SOUND);
-
-		manager.load(XP_SOUND);
-
-		manager.load(FLOPI1_SOUND);
-
-		manager.load(FLOPI2_SOUND);
-
-		manager.load(V0_BUTTON_1_TEXTURE);
-
-		manager.load(V0_BUTTONDOWN_1_TEXTURE);
-
-		manager.load(V0_BUTTON_2_TEXTURE);
-
-		manager.load(V0_BUTTONDOWN_2_TEXTURE);
-
-		manager.load(SLIDER_TEXTURE);
-
-		manager.load(KNOB_TEXTURE);
-
-		manager.load(DOS1_TEXTURE);
-
-		manager.load(DOS2_TEXTURE);
-
-		manager.load(DOS3_TEXTURE);
-
-		manager.load(SZOG_TEXTURE);
-
-		manager.load(BACKGROUND_TEXTURE);
 	}
 
     public static void afterLoaded() {
