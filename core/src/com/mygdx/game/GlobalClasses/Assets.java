@@ -33,10 +33,16 @@ public class Assets {
 	}
 	public static final AssetDescriptor<BitmapFont> ARIAL_30_FONT
 			= new AssetDescriptor<BitmapFont>(fontParameter.fontFileName, BitmapFont.class, fontParameter);
+	;
 
+	public static final AssetDescriptor<Texture> BACKGROUND_TEXTURE
+			= new AssetDescriptor<Texture>("background.png", Texture.class);
 
-	public static final AssetDescriptor<Texture> FLOPPYDISK_TEXTURE
-			= new AssetDescriptor<Texture>("floppy.png", Texture.class);
+	public static final AssetDescriptor<Texture> CASTLE_TEXTURE
+			= new AssetDescriptor<Texture>("castle.png", Texture.class);
+
+	public static final AssetDescriptor<Sound> HATTER_SOUND
+			= new AssetDescriptor<Sound>("zene.mp3", Sound.class);
 
 
     public static void prepare() {
@@ -50,7 +56,9 @@ public class Assets {
 		manager.setLoader(BitmapFont.class, ".ttf", new FreetypeFontLoader(resolver));
 		manager.setLoader(BitmapFont.class, ".otf", new FreetypeFontLoader(resolver));
 
-		manager.load(FLOPPYDISK_TEXTURE);
+		manager.load(BACKGROUND_TEXTURE);
+		manager.load(CASTLE_TEXTURE);
+		manager.load(HATTER_SOUND);
 
 	}
 
