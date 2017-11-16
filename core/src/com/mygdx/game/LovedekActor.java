@@ -6,6 +6,7 @@ import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.MyBaseClasses.KatonaActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.ShapeType;
+import com.mygdx.game.MyBaseClasses.VarActor;
 
 /**
  * Created by tanulo on 2017. 10. 25..
@@ -20,12 +21,13 @@ public class LovedekActor extends OneSpriteStaticActor {
     GameStage gameStage;
     Ballistics ballistics;
     int indexOfAngles;
+    VarActor varActor;
 
     private float[] pos;
     static int i=0;
 
 
-    public LovedekActor(Ballistics ballistics, int indexOfAngles, GameStage gameStage) {
+    public LovedekActor(Ballistics ballistics, int indexOfAngles, GameStage gameStage, VarActor varActor) {
         super(Assets.manager.get(Assets.LOVEDEK_TEXTURE));
         this.ballistics = ballistics;
         this.indexOfAngles = indexOfAngles;
@@ -33,6 +35,7 @@ public class LovedekActor extends OneSpriteStaticActor {
         i=0;
         this.gameStage = gameStage;
         kiloves.play();
+        this.varActor = varActor;
     }
 
     public void felrobban(){
@@ -63,7 +66,10 @@ public class LovedekActor extends OneSpriteStaticActor {
                 }
             }
         }
-
+        if(varActor.overlaps(ShapeType.Rectangle, this)){
+            becsapodas.play();
+            varActor.decLife(100);
+        }
         //System.out.println("X=" + pos[0]+" Y="  + pos[1]);
     }
 }
