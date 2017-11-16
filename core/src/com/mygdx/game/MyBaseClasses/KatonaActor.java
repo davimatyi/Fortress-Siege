@@ -38,25 +38,16 @@ public class KatonaActor extends OneSpriteStaticActor {
     ControlStage controlStage;
 
 
-    int life = 1000;
+
     public static boolean letrehozta=true;
 
     public int vel(int a, int b) {
         return (int)Math.floor(Math.random()*(b-a+1)+a);
     }
 
-    public void decLife(int life){
-        this.life=-life;
-        if (life==0 || life<0) {
-            osszeomlas.play();
-        }
-        else if(life<251){
-
-        }
-    }
 
     public KatonaActor(float x, float y, InfoLabelActor info, GameStage gameStage) {
-        super(Assets.manager.get(Assets.IBM_TEXTURE));
+        super(Assets.manager.get(Assets.KATONA_TEXTURE));
         this.info = info;
         setSize(1, 1);
         setPosition(x - getWidth() / 2, y - getHeight() / 2);
