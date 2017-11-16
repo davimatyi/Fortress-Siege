@@ -72,6 +72,7 @@ public class Assets {
 		manager.setLoader(BitmapFont.class, ".otf", new FreetypeFontLoader(resolver));
 
 		manager.load(BACKGROUND_TEXTURE);
+
 		manager.load(CASTLE_TEXTURE);
         manager.load(CANNON_TEXTURE);
         manager.load(LOVEDEK_TEXTURE);
