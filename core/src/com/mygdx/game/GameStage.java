@@ -20,6 +20,7 @@ import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 public class GameStage extends MyStage {
 
     Ballistics ballistics;
+    Lagrange lagrange;
 
     public void setControlStage(ControlStage controlStage) {
         this.controlStage = controlStage;
@@ -28,7 +29,7 @@ public class GameStage extends MyStage {
     ControlStage controlStage;
     KatonaActor katonaActor;
     OneSpriteStaticActor bg;
-    OsemberActor osemberActor;
+    VarActor varActor;
     MyActor actor;
     float offsetX = 0.2f;
     float offsetY = 1.8f;
@@ -66,10 +67,25 @@ public class GameStage extends MyStage {
         super(new ExtendViewport(10.24f,7.68f), batch, game);
         bg = new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND_TEXTURE));
         bg.setSize(getViewport().getWorldWidth(), getViewport().getWorldHeight());
+        lagrange = new Lagrange();
+        //lagrange.addpoint(-1, 1.0499998f);
+        lagrange.addpoint(0.07999992f, 1.9499998f);
+        /*lagrange.addpoint(0.9000001f, 2.23f);
+        lagrange.addpoint(2.0f, 2.5f);
+        lagrange.addpoint(2.6799998f, 2.4199996f);
+        lagrange.addpoint(3.27f, 2.4799995f);*/
+        lagrange.addpoint(4.2999997f, 2.59f);
+        /*lagrange.addpoint(5.25f,2.6999998f);
+        lagrange.addpoint(6.1099997f, 2.77f);
+        lagrange.addpoint(7.1499996f, 2.62f);
+        lagrange.addpoint(7.67f, 2.6999998f);
+        lagrange.addpoint(9.299999f, 2.6999998f);*/
+        lagrange.addpoint(10.219999f, 2.6f);
+        //lagrange.addpoint(12.219999f, 2.09998f);
         addActor(bg);
+        addActor(new KatonaActor(0,0, lagrange));
 
-
-        addActor( osemberActor = new OsemberActor(Assets.manager.get(Assets.OSEMBER_TEXTURE)));
+        addActor( varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE)));
         addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -82,19 +98,16 @@ public class GameStage extends MyStage {
                     KatonaActor katonaActor;
 
                     try {
-                        InfoLabelActor infoLabelActor;
-                        controlStage.addActor(infoLabelActor = new InfoLabelActor("Távolság: " + round(x) + " m\n Magasság: "+round(y)+" m \n Szög (1): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[0])+"°°\n Szög (2): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[1])+"°\n Sebesség: " + round(v0) +" m/s", x*100+50, y*100-100, game.getLabelStyle()));
-                        katonaActor = new KatonaActor(x, y, infoLabelActor, getGameStage());
-                        addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, katonaActor, getGameStage()));
-                        addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 1, katonaActor, getGameStage()));
+                        //InfoLabelActor infoLabelActor;
+                        //controlStage.addActor(infoLabelActor = new InfoLabelActor("Távolság: " + x + " m\n Magasság: "+y+" m \n Szög (1): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[0])+"°°\n Szög (2): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[1])+"°\n Sebesség: " + round(v0) +" m/s", x*100+50, y*100-100, game.getLabelStyle()));
+                        addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, getGameStage()));
+                        //addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 1, getGameStage()));
 
-                        addActor(katonaActor);
                     }
                     catch (Exception e)
                     {
                         System.out.println(e.toString());
                         katonaActor = null;
-                        osemberActor.doAngry(getGameStage());
                     }
 
                 }
@@ -103,6 +116,14 @@ public class GameStage extends MyStage {
         });
         setCameraResetToLeftBottomOfScreen();
 
+
+        addListener(new ClickListener(){
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                System.out.println("x=" + x + "  y=" + y);
+            }
+        });
         //setDebugAll(true);
     }
 

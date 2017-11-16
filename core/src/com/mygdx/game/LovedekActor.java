@@ -32,6 +32,11 @@ public class LovedekActor extends OneSpriteStaticActor {
         setSize(0.50f,0.50f);
         i=0;
         this.gameStage = gameStage;
+        kiloves.play();
+    }
+
+    public void felrobban(){
+
     }
 
 

@@ -11,10 +11,10 @@ import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.mygdx.game.Ballistics;
 import com.mygdx.game.ControlStage;
-import com.mygdx.game.FloppyActor;
 import com.mygdx.game.GameStage;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.InfoLabelActor;
+import com.mygdx.game.Lagrange;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteActor;
@@ -36,6 +36,7 @@ public class KatonaActor extends OneSpriteStaticActor {
     Ballistics ballistics;
     GameStage gameStage;
     ControlStage controlStage;
+    Lagrange lagrange;
 
 
 
@@ -46,9 +47,10 @@ public class KatonaActor extends OneSpriteStaticActor {
     }
 
 
-    public KatonaActor(float x, float y, InfoLabelActor info, GameStage gameStage) {
-        super(Assets.manager.get(Assets.KATONA_TEXTURE));
+    public KatonaActor(float x, float y, Lagrange lagrange) {
+        super(Assets.manager.get(Assets.CASTLE_TEXTURE));
         this.info = info;
+        this.lagrange = lagrange;
         setSize(1, 1);
         setPosition(x - getWidth() / 2, y - getHeight() / 2);
         this.gameStage = gameStage;
@@ -130,7 +132,10 @@ public class KatonaActor extends OneSpriteStaticActor {
     @Override
     public void act(float delta) {
         super.act(delta);
-        setSize(getWidth() + (float)Math.cos(elapsedTime*10)/40, getHeight() + (float)Math.sin(elapsedTime*10)/40);
+        setX(elapsedTime);
+        setY(lagrange.getY(elapsedTime));
+
+        //setSize(getWidth() + (float)Math.cos(elapsedTime*10)/40, getHeight() + (float)Math.sin(elapsedTime*10)/40);
      /*   if(!letrehozta) {
             getStage().getActors().removeValue(this, true);
             letrehozta = true;

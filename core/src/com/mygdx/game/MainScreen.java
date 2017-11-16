@@ -28,7 +28,8 @@ public class MainScreen extends MyScreen {
 
         gameStage = new GameStage(spriteBatch, game);
         controlStage = new ControlStage(spriteBatch, game, gameStage);
-        sound.loop(10);
+        sound.setVolume(1, -100f);
+        sound.loop();
         InputMultiplexer im = new InputMultiplexer();
         im.addProcessor(controlStage);
         im.addProcessor(gameStage);
