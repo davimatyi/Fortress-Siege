@@ -38,8 +38,17 @@ public class Assets {
 	public static final AssetDescriptor<Texture> BACKGROUND_TEXTURE
 			= new AssetDescriptor<Texture>("background.png", Texture.class);
 
+	public static final AssetDescriptor<Texture> KNOB_TEXTURE
+			= new AssetDescriptor<Texture>("slider/knob.png", Texture.class);
+
+	public static final AssetDescriptor<Texture> SLIDER_TEXTURE
+			= new AssetDescriptor<Texture>("slider/slider.png", Texture.class);
+
 	public static final AssetDescriptor<Texture> CASTLE_TEXTURE
 			= new AssetDescriptor<Texture>("castle.png", Texture.class);
+
+	public static final AssetDescriptor<Texture> LOVEDEK_TEXTURE
+			= new AssetDescriptor<Texture>("lovedek.png", Texture.class);
 
 	public static final AssetDescriptor<Sound> HATTER_SOUND
 			= new AssetDescriptor<Sound>("zene.mp3", Sound.class);
@@ -58,7 +67,11 @@ public class Assets {
 
 		manager.load(BACKGROUND_TEXTURE);
 		manager.load(CASTLE_TEXTURE);
+		manager.load(KNOB_TEXTURE);
+		manager.load(LOVEDEK_TEXTURE);
+		manager.load(SLIDER_TEXTURE);
 		manager.load(HATTER_SOUND);
+
 
 	}
 

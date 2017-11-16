@@ -1,11 +1,7 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mygdx.game.GlobalClasses.Assets;
-import com.mygdx.game.MyBaseClasses.DosActor;
-import com.mygdx.game.MyBaseClasses.IBMActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.ShapeType;
 
@@ -14,13 +10,12 @@ import com.mygdx.game.MyBaseClasses.Scene2D.ShapeType;
  */
 
 public class LovedekActor extends OneSpriteStaticActor {
-    Sound sound = Assets.manager.get(Assets.STAR_SOUND);
-    Sound soundXP = Assets.manager.get(Assets.XP_SOUND);
+    Sound becsapodas = Assets.manager.get(Assets.BECSAPODAS_SOUND);
+    Sound kiloves = Assets.manager.get(Assets.KILOVES_SOUND);
 
     float elapsedTime2 = 0;
 
     GameStage gameStage;
-    IBMActor ibmActor;
     Ballistics ballistics;
     int indexOfAngles;
 
@@ -28,10 +23,9 @@ public class LovedekActor extends OneSpriteStaticActor {
     static int i=0;
 
 
-    public LovedekActor(Ballistics ballistics, int indexOfAngles, IBMActor ibmActor, GameStage gameStage) {
-        super(Assets.manager.get(Assets.FLOPPYDISK_TEXTURE));
+    public LovedekActor(Ballistics ballistics, int indexOfAngles, GameStage gameStage) {
+        super(Assets.manager.get(Assets.LOVEDEK_TEXTURE));
         this.ballistics = ballistics;
-        this.ibmActor = ibmActor;
         this.indexOfAngles = indexOfAngles;
         setSize(0.50f,0.50f);
         i=0;

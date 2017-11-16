@@ -26,7 +26,7 @@ public class GameStage extends MyStage {
     }
 
     ControlStage controlStage;
-    IBMActor ibmActor;
+    KatonaActor katonaActor;
     OneSpriteStaticActor bg;
     OsemberActor osemberActor;
     MyActor actor;
@@ -75,25 +75,25 @@ public class GameStage extends MyStage {
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
                 for (Actor actor : getActors().toArray()) {
-                    if(actor.toString().equals("IBMActor")) i++;
+                    if(actor.toString().equals("KatonaActor")) i++;
                 }
                 if(i > 3) System.out.println("Nem rakhatsz le többet!");
                 else {
-                    IBMActor ibmActor;
+                    KatonaActor katonaActor;
 
                     try {
                         InfoLabelActor infoLabelActor;
                         controlStage.addActor(infoLabelActor = new InfoLabelActor("Távolság: " + round(x) + " m\n Magasság: "+round(y)+" m \n Szög (1): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[0])+"°°\n Szög (2): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[1])+"°\n Sebesség: " + round(v0) +" m/s", x*100+50, y*100-100, game.getLabelStyle()));
-                        ibmActor = new IBMActor(x, y, infoLabelActor, getGameStage());
-                        addActor(new FloppyActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, ibmActor, getGameStage()));
-                        addActor(new FloppyActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 1, ibmActor, getGameStage()));
+                        katonaActor = new KatonaActor(x, y, infoLabelActor, getGameStage());
+                        addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, katonaActor, getGameStage()));
+                        addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 1, katonaActor, getGameStage()));
 
-                        addActor(ibmActor);
+                        addActor(katonaActor);
                     }
                     catch (Exception e)
                     {
                         System.out.println(e.toString());
-                        ibmActor = null;
+                        katonaActor = null;
                         osemberActor.doAngry(getGameStage());
                     }
 
