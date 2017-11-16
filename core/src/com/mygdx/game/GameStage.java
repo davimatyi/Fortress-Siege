@@ -70,16 +70,16 @@ public class GameStage extends MyStage {
         lagrange = new Lagrange();
         //lagrange.addpoint(-1, 1.0499998f);
         lagrange.addpoint(0.07999992f, 1.9499998f);
-        /*lagrange.addpoint(0.9000001f, 2.23f);
+        lagrange.addpoint(0.9000001f, 2.23f);
         lagrange.addpoint(2.0f, 2.5f);
         lagrange.addpoint(2.6799998f, 2.4199996f);
-        lagrange.addpoint(3.27f, 2.4799995f);*/
+        lagrange.addpoint(3.27f, 2.4799995f);
         lagrange.addpoint(4.2999997f, 2.59f);
-        /*lagrange.addpoint(5.25f,2.6999998f);
+        lagrange.addpoint(5.25f,2.6999998f);
         lagrange.addpoint(6.1099997f, 2.77f);
         lagrange.addpoint(7.1499996f, 2.62f);
         lagrange.addpoint(7.67f, 2.6999998f);
-        lagrange.addpoint(9.299999f, 2.6999998f);*/
+        lagrange.addpoint(9.299999f, 2.6999998f);
         lagrange.addpoint(10.219999f, 2.6f);
         //lagrange.addpoint(12.219999f, 2.09998f);
         addActor(bg);
