@@ -66,7 +66,7 @@ public class Assets {
 			= new AssetDescriptor<Texture>("castle_dmg1.png", Texture.class);
 
     public static final AssetDescriptor<Sound> HATTER_SOUND
-            = new AssetDescriptor<Sound>("zene.mp3", Sound.class);
+            = new AssetDescriptor<Sound>("zene.wav", Sound.class);
 
 	public static final AssetDescriptor<Sound> BECSAPODAS_SOUND
 			= new AssetDescriptor<Sound>("hangok/impact_sound.wav", Sound.class);
