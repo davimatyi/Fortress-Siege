@@ -1,7 +1,9 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.mygdx.game.GlobalClasses.Assets;
+import com.mygdx.game.MyBaseClasses.KatonaActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.ShapeType;
 
@@ -48,10 +50,16 @@ public class LovedekActor extends OneSpriteStaticActor {
             getStage().getActors().removeValue(this, true);
             sound.play();
         }
-        if(ibmActor.overlaps(ShapeType.Rectangle, this)){
-            ibmActor.decLife();
-            getStage().getActors().removeValue(this, true);
+        for (Actor a :getStage().getActors()) {
+            if (a instanceof KatonaActor){
+                if(((KatonaActor)a).overlaps(ShapeType.Rectangle, this)){
+                    //getStage().getActors().removeValue(this, true);
+                    felrobban();
+                    ((KatonaActor)a).halal();
+                }
+            }
         }
+
         //System.out.println("X=" + pos[0]+" Y="  + pos[1]);
     }
 }

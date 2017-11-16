@@ -121,6 +121,11 @@ public class KatonaActor extends OneSpriteStaticActor {
         gameStage.addActor(lblTavolsag);*/
     }
 
+
+    public void halal(){
+
+    }
+
 /*
     public KatonaActor(float x, float y, final GameStage gameStage) {
         super(Assets.manager.get(Assets.IBM_TEXTURE));
