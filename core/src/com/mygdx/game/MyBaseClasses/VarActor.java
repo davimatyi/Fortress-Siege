@@ -16,7 +16,6 @@ public class VarActor extends OneSpriteStaticActor {
     public InfoLabelActor infoLabelActor;
     static int life = 1000;
     Sound osszeolik = Assets.manager.get(Assets.OSSZEOMLAS_SOUND);
-    Texture var3 = Assets.manager.get(Assets.VAR3_TEXTURE);
     Texture var2 = Assets.manager.get(Assets.VAR2_TEXTURE);
     Texture var1 = Assets.manager.get(Assets.VAR1_TEXTURE);
 
@@ -31,13 +30,10 @@ public class VarActor extends OneSpriteStaticActor {
         life -= damage;
         if(life<1){
             osszeolik.play();
-        } else if(life<251){
-            getStage().getActors().removeValue(this, true);
-            new VarActor(var3);
-        } else if(life<501){
+        } else if(life<334){
             getStage().getActors().removeValue(this, true);
             new VarActor(var2);
-        } else if(life<751){
+        } else if(life<667){
             getStage().getActors().removeValue(this, true);
             new VarActor(var1);
         }

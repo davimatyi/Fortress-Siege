@@ -47,8 +47,17 @@ public class Assets {
 	public static final AssetDescriptor<Texture> CASTLE_TEXTURE
 			= new AssetDescriptor<Texture>("castle.png", Texture.class);
 
-	public static final AssetDescriptor<Sound> HATTER_SOUND
-			= new AssetDescriptor<Sound>("zene.mp3", Sound.class);
+    public static final AssetDescriptor<Texture> CANNON_TEXTURE
+            = new AssetDescriptor<Texture>("cannonS.png", Texture.class);
+
+    public static final AssetDescriptor<Texture> LOVEDEK_TEXTURE
+            = new AssetDescriptor<Texture>("cannonBall.png", Texture.class);
+
+    public static final AssetDescriptor<Texture> TENT_TEXTURE
+            = new AssetDescriptor<Texture>("tentS.png", Texture.class);
+
+    public static final AssetDescriptor<Sound> HATTER_SOUND
+            = new AssetDescriptor<Sound>("zene.mp3", Sound.class);
 
 
     public static void prepare() {
