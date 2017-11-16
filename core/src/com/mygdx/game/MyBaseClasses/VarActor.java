@@ -15,21 +15,24 @@ public class VarActor extends OneSpriteStaticActor {
 
     public InfoLabelActor infoLabelActor;
     static int life = 1000;
-    Sound osszeolik = Assets.manager.get(Assets.OSSZEOMLAS_SOUND);
+    //Sound osszeolik = Assets.manager.get(Assets.OSSZEOMLAS_SOUND);
     Texture var2 = Assets.manager.get(Assets.VAR2_TEXTURE);
     Texture var1 = Assets.manager.get(Assets.VAR1_TEXTURE);
+    Texture var3 = Assets.manager.get(Assets.VAR3_TEXTURE);
 
     public VarActor(Texture texture) {
         super(texture);
-        setSize(1.80f, 3.60f);
-        setPosition(0, 0.85f);
+        setSize(2.52f, 3.5f);
+        setPosition(0, 2.1f);
 
     }
 
     public void decLife(int damage){
         life -= damage;
         if(life<1){
-            osszeolik.play();
+            //osszeomlik.play();
+            getStage().getActors().removeValue(this, true);
+            new VarActor(var3);
         } else if(life<334){
             getStage().getActors().removeValue(this, true);
             new VarActor(var2);

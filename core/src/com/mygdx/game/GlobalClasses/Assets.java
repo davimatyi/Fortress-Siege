@@ -56,8 +56,26 @@ public class Assets {
     public static final AssetDescriptor<Texture> TENT_TEXTURE
             = new AssetDescriptor<Texture>("tentS.png", Texture.class);
 
+	public static final AssetDescriptor<Texture> VAR3_TEXTURE
+			= new AssetDescriptor<Texture>("castle_dmg3.png", Texture.class);
+
+	public static final AssetDescriptor<Texture> VAR2_TEXTURE
+			= new AssetDescriptor<Texture>("castle_dmg2.png", Texture.class);
+
+	public static final AssetDescriptor<Texture> VAR1_TEXTURE
+			= new AssetDescriptor<Texture>("castle_dmg1.png", Texture.class);
+
     public static final AssetDescriptor<Sound> HATTER_SOUND
             = new AssetDescriptor<Sound>("zene.mp3", Sound.class);
+
+	public static final AssetDescriptor<Sound> BECSAPODAS_SOUND
+			= new AssetDescriptor<Sound>("hangok/impact_sound.wav", Sound.class);
+
+	public static final AssetDescriptor<Sound> KILOVES_SOUND
+			= new AssetDescriptor<Sound>("hangok/cannon_sound.wav", Sound.class);
+
+	public static final AssetDescriptor<Sound> HOLLO_SOUND
+			= new AssetDescriptor<Sound>("hangok/Raven_sound_.wav", Sound.class);
 
 
     public static void prepare() {
@@ -71,14 +89,22 @@ public class Assets {
 		manager.setLoader(BitmapFont.class, ".ttf", new FreetypeFontLoader(resolver));
 		manager.setLoader(BitmapFont.class, ".otf", new FreetypeFontLoader(resolver));
 
-		manager.load(BACKGROUND_TEXTURE);
 
+		manager.load(ARIAL_30_FONT);
+		manager.load(BACKGROUND_TEXTURE);
 		manager.load(CASTLE_TEXTURE);
         manager.load(CANNON_TEXTURE);
         manager.load(LOVEDEK_TEXTURE);
         manager.load(TENT_TEXTURE);
+		manager.load(VAR1_TEXTURE);
+		manager.load(VAR2_TEXTURE);
+		manager.load(VAR3_TEXTURE);
+		manager.load(KNOB_TEXTURE);
+		manager.load(SLIDER_TEXTURE);
 		manager.load(HATTER_SOUND);
-
+		manager.load(KILOVES_SOUND);
+		manager.load(BECSAPODAS_SOUND);
+		manager.load(HOLLO_SOUND);
 
 	}
 

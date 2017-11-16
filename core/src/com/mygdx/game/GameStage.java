@@ -28,7 +28,7 @@ public class GameStage extends MyStage {
     ControlStage controlStage;
     KatonaActor katonaActor;
     OneSpriteStaticActor bg;
-    OsemberActor osemberActor;
+    VarActor varActor;
     MyActor actor;
     float offsetX = 0.2f;
     float offsetY = 1.8f;
@@ -69,7 +69,7 @@ public class GameStage extends MyStage {
         addActor(bg);
 
 
-        addActor( osemberActor = new OsemberActor(Assets.manager.get(Assets.OSEMBER_TEXTURE)));
+        addActor( varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE)));
         addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -82,19 +82,16 @@ public class GameStage extends MyStage {
                     KatonaActor katonaActor;
 
                     try {
-                        InfoLabelActor infoLabelActor;
-                        controlStage.addActor(infoLabelActor = new InfoLabelActor("Távolság: " + round(x) + " m\n Magasság: "+round(y)+" m \n Szög (1): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[0])+"°°\n Szög (2): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[1])+"°\n Sebesség: " + round(v0) +" m/s", x*100+50, y*100-100, game.getLabelStyle()));
-                        katonaActor = new KatonaActor(x, y, infoLabelActor, getGameStage());
-                        addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, katonaActor, getGameStage()));
-                        addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 1, katonaActor, getGameStage()));
+                        //InfoLabelActor infoLabelActor;
+                        //controlStage.addActor(infoLabelActor = new InfoLabelActor("Távolság: " + x + " m\n Magasság: "+y+" m \n Szög (1): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[0])+"°°\n Szög (2): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[1])+"°\n Sebesség: " + round(v0) +" m/s", x*100+50, y*100-100, game.getLabelStyle()));
+                        addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, getGameStage()));
+                        //addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 1, getGameStage()));
 
-                        addActor(katonaActor);
                     }
                     catch (Exception e)
                     {
                         System.out.println(e.toString());
                         katonaActor = null;
-                        osemberActor.doAngry(getGameStage());
                     }
 
                 }

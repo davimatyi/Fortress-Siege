@@ -11,7 +11,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.mygdx.game.Ballistics;
 import com.mygdx.game.ControlStage;
-import com.mygdx.game.FloppyActor;
 import com.mygdx.game.GameStage;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.InfoLabelActor;
@@ -47,7 +46,7 @@ public class KatonaActor extends OneSpriteStaticActor {
 
 
     public KatonaActor(float x, float y, InfoLabelActor info, GameStage gameStage) {
-        super(Assets.manager.get(Assets.KATONA_TEXTURE));
+        super(Assets.manager.get(Assets.CASTLE_TEXTURE));
         this.info = info;
         setSize(1, 1);
         setPosition(x - getWidth() / 2, y - getHeight() / 2);
