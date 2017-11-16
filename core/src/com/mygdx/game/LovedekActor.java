@@ -1,11 +1,9 @@
 package com.mygdx.game;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.mygdx.game.GlobalClasses.Assets;
-import com.mygdx.game.MyBaseClasses.DosActor;
-import com.mygdx.game.MyBaseClasses.IBMActor;
+import com.mygdx.game.MyBaseClasses.KatonaActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.ShapeType;
 
@@ -14,13 +12,12 @@ import com.mygdx.game.MyBaseClasses.Scene2D.ShapeType;
  */
 
 public class LovedekActor extends OneSpriteStaticActor {
-    Sound sound = Assets.manager.get(Assets.STAR_SOUND);
-    Sound soundXP = Assets.manager.get(Assets.XP_SOUND);
+    Sound becsapodas = Assets.manager.get(Assets.BECSAPODAS_SOUND);
+    Sound kiloves = Assets.manager.get(Assets.KILOVES_SOUND);
 
     float elapsedTime2 = 0;
 
     GameStage gameStage;
-    IBMActor ibmActor;
     Ballistics ballistics;
     int indexOfAngles;
 
@@ -28,10 +25,9 @@ public class LovedekActor extends OneSpriteStaticActor {
     static int i=0;
 
 
-    public LovedekActor(Ballistics ballistics, int indexOfAngles, IBMActor ibmActor, GameStage gameStage) {
-        super(Assets.manager.get(Assets.FLOPPYDISK_TEXTURE));
+    public LovedekActor(Ballistics ballistics, int indexOfAngles, GameStage gameStage) {
+        super(Assets.manager.get(Assets.LOVEDEK_TEXTURE));
         this.ballistics = ballistics;
-        this.ibmActor = ibmActor;
         this.indexOfAngles = indexOfAngles;
         setSize(0.50f,0.50f);
         i=0;
@@ -54,10 +50,16 @@ public class LovedekActor extends OneSpriteStaticActor {
             getStage().getActors().removeValue(this, true);
             sound.play();
         }
-        if(ibmActor.overlaps(ShapeType.Rectangle, this)){
-            ibmActor.decLife();
-            getStage().getActors().removeValue(this, true);
+        for (Actor a :getStage().getActors()) {
+            if (a instanceof KatonaActor){
+                if(((KatonaActor)a).overlaps(ShapeType.Rectangle, this)){
+                    //getStage().getActors().removeValue(this, true);
+                    felrobban();
+                    ((KatonaActor)a).halal();
+                }
+            }
         }
+
         //System.out.println("X=" + pos[0]+" Y="  + pos[1]);
     }
 }

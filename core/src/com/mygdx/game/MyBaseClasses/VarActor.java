@@ -1,7 +1,9 @@
 package com.mygdx.game.MyBaseClasses;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.GameStage;
+import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.InfoLabelActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 
@@ -12,6 +14,10 @@ import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 public class VarActor extends OneSpriteStaticActor {
 
     public InfoLabelActor infoLabelActor;
+    static int life = 1000;
+    Sound osszeolik = Assets.manager.get(Assets.OSSZEOMLAS_SOUND);
+    Texture var2 = Assets.manager.get(Assets.VAR2_TEXTURE);
+    Texture var1 = Assets.manager.get(Assets.VAR1_TEXTURE);
 
     public VarActor(Texture texture) {
         super(texture);
@@ -20,47 +26,16 @@ public class VarActor extends OneSpriteStaticActor {
 
     }
 
-
-
-    public void doAngry(GameStage gameStage){
-        setElapsedTime(0);
-        if (infoLabelActor == null){
-            ((GameStage)getStage()).controlStage.addActor(infoLabelActor = new InfoLabelActor("Nem tudok olyan messze dobni!", 20,300, ((GameStage)getStage()).getLabelStyle()){
-                @Override
-                public void act(float delta) {
-                    super.act(delta);
-                    if (elapsedTime>2){
-                        setVisible(false);
-                    }
-                }
-            });
-        }else{
-            infoLabelActor.setVisible(true);
+    public void decLife(int damage){
+        life -= damage;
+        if(life<1){
+            osszeolik.play();
+        } else if(life<334){
+            getStage().getActors().removeValue(this, true);
+            new VarActor(var2);
+        } else if(life<667){
+            getStage().getActors().removeValue(this, true);
+            new VarActor(var1);
         }
-        /*final Label label = new Label("Nem tudok olyan messze dobni!", gameStage.getLabelStyle()){
-            public float elapsedTime= 0;
-            @Override
-            public void setVisible(boolean visible) {
-                super.setVisible(visible);
-                if (visible){
-                    elapsedTime = 0;
-                }
-            }
-
-            @Override
-            public void act(float delta) {
-                super.act(delta);
-                elapsedTime += delta;
-                if (elapsedTime>2f){
-                    setVisible(false);
-                }
-            }
-        };
-        label.setPosition(0, 1);
-        label.setHeight(1);
-        label.setTouchable(Touchable.disabled);
-        label.setVisible(true);
-        gameStage.addActor(label);
-        */
     }
 }

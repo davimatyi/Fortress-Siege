@@ -29,47 +29,33 @@ import sun.rmi.runtime.Log;
  * Created by tanulo on 2017. 10. 26..
  */
 
-public class IBMActor extends OneSpriteStaticActor {
+public class KatonaActor extends OneSpriteStaticActor {
 
-    Sound soundFlopi1 = Assets.manager.get(Assets.FLOPI1_SOUND);
-    Sound soundFlopi2 = Assets.manager.get(Assets.FLOPI2_SOUND);
-    Sound soundXP = Assets.manager.get(Assets.XP_SOUND);
-    Texture dos1 = Assets.manager.get(Assets.DOS1_TEXTURE);
-    Texture dos2 = Assets.manager.get(Assets.DOS2_TEXTURE);
-    Texture dos3 = Assets.manager.get(Assets.DOS3_TEXTURE);
     InfoLabelActor info;
 
     Ballistics ballistics;
     GameStage gameStage;
     ControlStage controlStage;
 
-    int life = 2, vel=1;
+
+    int life = 1000;
     public static boolean letrehozta=true;
 
     public int vel(int a, int b) {
         return (int)Math.floor(Math.random()*(b-a+1)+a);
     }
 
-    public void decLife(){
-        life--;
-        if (life==1){
-            soundFlopi1.play(400);
+    public void decLife(int life){
+        this.life=-life;
+        if (life==0 || life<0) {
+            osszeomlas.play();
         }
-        if (life==0){
-            soundFlopi2.play(400);
-            soundXP.play();
-            vel = vel(1,3);
-            if(vel==1) {
-                getStage().addActor(new DosActor(dos1, getX(), getY(), gameStage));
-            } else if(vel==2) {
-                getStage().addActor(new DosActor(dos2, getX(), getY(), gameStage));
-            } else getStage().addActor(new DosActor(dos3, getX(), getY(), gameStage));
-            getStage().getActors().removeValue(this, true);
-            info.getStage().getActors().removeValue(info, true);
+        else if(life<251){
+
         }
     }
 
-    public IBMActor(float x, float y, InfoLabelActor info, GameStage gameStage) {
+    public KatonaActor(float x, float y, InfoLabelActor info, GameStage gameStage) {
         super(Assets.manager.get(Assets.IBM_TEXTURE));
         this.info = info;
         setSize(1, 1);
@@ -135,8 +121,13 @@ public class IBMActor extends OneSpriteStaticActor {
         gameStage.addActor(lblTavolsag);*/
     }
 
+
+    public void halal(){
+
+    }
+
 /*
-    public IBMActor(float x, float y, final GameStage gameStage) {
+    public KatonaActor(float x, float y, final GameStage gameStage) {
         super(Assets.manager.get(Assets.IBM_TEXTURE));
         setSize(100, 100);
         setPosition(x - getWidth() / 2, y - getHeight() / 2);
