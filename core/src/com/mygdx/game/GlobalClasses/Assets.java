@@ -56,6 +56,9 @@ public class Assets {
     public static final AssetDescriptor<Texture> TENT_TEXTURE
             = new AssetDescriptor<Texture>("tentS.png", Texture.class);
 
+	public static final AssetDescriptor<Texture> KATONA_TEXTURE
+			= new AssetDescriptor<Texture>("soldierS.png", Texture.class);
+
 	public static final AssetDescriptor<Texture> VAR3_TEXTURE
 			= new AssetDescriptor<Texture>("castle_dmg3.png", Texture.class);
 
@@ -94,6 +97,7 @@ public class Assets {
 		manager.load(BACKGROUND_TEXTURE);
 		manager.load(CASTLE_TEXTURE);
         manager.load(CANNON_TEXTURE);
+		manager.load(KATONA_TEXTURE);
         manager.load(LOVEDEK_TEXTURE);
         manager.load(TENT_TEXTURE);
 		manager.load(VAR1_TEXTURE);

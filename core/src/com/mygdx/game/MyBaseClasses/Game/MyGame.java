@@ -4,7 +4,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyScreen;
-import com.mygdx.game.MyGdxGame;
+import com.mygdx.game.FortressSiege;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Stack;
@@ -22,7 +22,7 @@ abstract public class MyGame extends Game {
 
 	private iBluetooth bluetooth = null;
 
-	public MyGdxGame() {
+	public FortressSiege() {
 		bluetooth = BluetoothSingleton.getInstance().bluetoothManager;
 	}
 */
@@ -43,7 +43,7 @@ abstract public class MyGame extends Game {
     public void setScreenBackByStackPop(){
         if (backButtonStack.size()>1){
             try {
-                setScreen((MyScreen) backButtonStack.pop().getConstructor(MyGdxGame.class).newInstance(this),false);
+                setScreen((MyScreen) backButtonStack.pop().getConstructor(FortressSiege.class).newInstance(this),false);
             } catch (InstantiationException e) {
                 e.printStackTrace();
             } catch (IllegalAccessException e) {

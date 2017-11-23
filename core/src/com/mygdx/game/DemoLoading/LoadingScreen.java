@@ -5,13 +5,13 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.mygdx.game.GlobalClasses.*;
 import com.mygdx.game.MainScreen;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyScreen;
-import com.mygdx.game.MyGdxGame;
+import com.mygdx.game.FortressSiege;
 
 
 public class LoadingScreen extends MyScreen {
 
 
-    public LoadingScreen(MyGdxGame game) {
+    public LoadingScreen(FortressSiege game) {
 		super(game);
     }
 	BitmapFont bitmapFont = new BitmapFont();

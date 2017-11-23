@@ -30,7 +30,7 @@ public class ControlStage extends MyStage {
         return slider_ertek;
     }
 
-    public ControlStage(Batch batch, MyGdxGame game, final GameStage gameStage) {
+    public ControlStage(Batch batch, FortressSiege game, final GameStage gameStage) {
         super(new ExtendViewport(1024,768), batch, game);
         this.gameStage = gameStage;
         gameStage.setControlStage(this);

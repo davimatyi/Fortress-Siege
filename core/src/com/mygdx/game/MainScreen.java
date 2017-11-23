@@ -19,7 +19,7 @@ public class MainScreen extends MyScreen {
     //Texture hatter = Assets.manager.get(Assets.BACKGROUND_TEXTURE);
     //SpriteBatch spriteBatch = new SpriteBatch();
 
-    public MainScreen(MyGdxGame game) {
+    public MainScreen(FortressSiege game) {
         super(game);
         setBackGroundColor(0.5f, 0.2f,0f);
 

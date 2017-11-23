@@ -11,7 +11,7 @@ import com.mygdx.game.DemoLoading.LoadingScreen;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.MyBaseClasses.Game.MyGame;
 
-public class MyGdxGame extends MyGame {
+public class FortressSiege extends MyGame {
 
     public Slider.SliderStyle getSliderStyle(){
         Slider.SliderStyle sliderStyle = new Slider.SliderStyle();

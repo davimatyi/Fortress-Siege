@@ -1,6 +1,8 @@
 package com.mygdx.game;
 
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 
 
@@ -39,9 +41,11 @@ public class Lagrange {
 
     ArrayList<Point> points = new ArrayList<Point>();
 
+
     public ArrayList<Point> getPoints() {
         return points;
     }
+
 
     public void addpoint(float x, float y){
         points.add(new Point(x, y));
@@ -56,6 +60,7 @@ public class Lagrange {
 
 
         });*/
+
     }
 
     public float getY(float x){

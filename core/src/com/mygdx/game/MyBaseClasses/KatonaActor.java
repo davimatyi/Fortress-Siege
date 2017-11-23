@@ -48,7 +48,7 @@ public class KatonaActor extends OneSpriteStaticActor {
 
 
     public KatonaActor(float x, float y, Lagrange lagrange) {
-        super(Assets.manager.get(Assets.CASTLE_TEXTURE));
+        super(Assets.manager.get(Assets.KATONA_TEXTURE));
         this.info = info;
         this.lagrange = lagrange;
         setSize(1, 1);
@@ -132,8 +132,8 @@ public class KatonaActor extends OneSpriteStaticActor {
     @Override
     public void act(float delta) {
         super.act(delta);
-        setX(elapsedTime);
-        setY(lagrange.getY(elapsedTime));
+        setX(10.24f-elapsedTime/2);
+        setY(lagrange.getY(10.24f-elapsedTime/2));
 
         //setSize(getWidth() + (float)Math.cos(elapsedTime*10)/40, getHeight() + (float)Math.sin(elapsedTime*10)/40);
      /*   if(!letrehozta) {

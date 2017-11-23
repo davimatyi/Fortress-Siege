@@ -10,17 +10,17 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.MyBaseClasses.Game.InitableInterface;
-import com.mygdx.game.MyGdxGame;
+import com.mygdx.game.FortressSiege;
 
 
 /**
  * Created by tuskeb on 2016. 09. 30..
  */
 abstract public class MyStage extends Stage implements InitableInterface {
-    public final MyGdxGame game;
+    public final FortressSiege game;
     protected float elapsedTime = 0;
 
-    public MyStage(Viewport viewport, Batch batch, MyGdxGame game) {
+    public MyStage(Viewport viewport, Batch batch, FortressSiege game) {
         super(viewport, batch);
         this.game = game;
         setCameraResetToCenterOfScreen();

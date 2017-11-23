@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -63,7 +64,7 @@ public class GameStage extends MyStage {
         return ((float)((int)(f*10f)))/10f;
     }
 
-    public GameStage(final Batch batch, final MyGdxGame game) {
+    public GameStage(final Batch batch, final FortressSiege game) {
         super(new ExtendViewport(10.24f,7.68f), batch, game);
         bg = new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND_TEXTURE));
         bg.setSize(getViewport().getWorldWidth(), getViewport().getWorldHeight());
@@ -85,7 +86,8 @@ public class GameStage extends MyStage {
         addActor(bg);
         addActor(new KatonaActor(0,0, lagrange));
 
-        addActor( varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE)));
+        addActor( varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE),getGameStage()));
+
         addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -100,7 +102,7 @@ public class GameStage extends MyStage {
                     try {
                         //InfoLabelActor infoLabelActor;
                         //controlStage.addActor(infoLabelActor = new InfoLabelActor("Távolság: " + x + " m\n Magasság: "+y+" m \n Szög (1): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[0])+"°°\n Szög (2): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[1])+"°\n Sebesség: " + round(v0) +" m/s", x*100+50, y*100-100, game.getLabelStyle()));
-                        addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, getGameStage(), varActor));
+                        addActor(new LovedekActor(new Ballistics(10.24f-x - getOffsetX(), y - getOffsetY(), v0), 1, getGameStage(), varActor));
                         //addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 1, getGameStage()));
 
                     }
@@ -134,6 +136,7 @@ public class GameStage extends MyStage {
         style.fontColor = Color.WHITE;
         return style;
     }
+
 
     @Override
     public void init() {

@@ -19,6 +19,7 @@ abstract public class MyActor extends Actor implements InitableInterface {
         //debug();
     }
 
+
     @Override
     public void act(float delta) {
         super.act(delta);

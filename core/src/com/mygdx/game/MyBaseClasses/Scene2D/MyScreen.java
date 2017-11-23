@@ -7,7 +7,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.mygdx.game.MyBaseClasses.Game.InitableInterface;
-import com.mygdx.game.MyGdxGame;
+import com.mygdx.game.FortressSiege;
 
 /**
  * Created by tuskeb on 2016. 09. 30..
@@ -18,11 +18,11 @@ abstract public class MyScreen implements Screen, InitableInterface {
 
     public float r=0,g=0,b=0;
 
-    public final MyGdxGame game;
+    public final FortressSiege game;
 
 
 
-    public MyScreen(MyGdxGame game) {
+    public MyScreen(FortressSiege game) {
         this.game = game;
         init();
     }
