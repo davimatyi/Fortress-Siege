@@ -36,18 +36,14 @@ public class Assets {
 	;
 
 	public static final AssetDescriptor<Texture> BACKGROUND_TEXTURE
-			= new AssetDescriptor<Texture>("background.png", Texture.class);
+			= new AssetDescriptor<Texture>("backgroundShadow.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> KNOB_TEXTURE
 			= new AssetDescriptor<Texture>("slider/knob.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> SLIDER_TEXTURE
 			= new AssetDescriptor<Texture>("slider/slider.png", Texture.class);
-
-	public static final AssetDescriptor<Texture> CASTLE_TEXTURE
-			= new AssetDescriptor<Texture>("castle.png", Texture.class);
-
-    public static final AssetDescriptor<Texture> CANNON_TEXTURE
+public static final AssetDescriptor<Texture> CANNON_TEXTURE
             = new AssetDescriptor<Texture>("cannonS.png", Texture.class);
 
     public static final AssetDescriptor<Texture> LOVEDEK_TEXTURE
@@ -55,6 +51,9 @@ public class Assets {
 
     public static final AssetDescriptor<Texture> TENT_TEXTURE
             = new AssetDescriptor<Texture>("tentS.png", Texture.class);
+
+	public static final AssetDescriptor<Texture> CASTLE_TEXTURE
+			= new AssetDescriptor<Texture>("castle_dark.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> VAR3_TEXTURE
 			= new AssetDescriptor<Texture>("castle_dmg3.png", Texture.class);
