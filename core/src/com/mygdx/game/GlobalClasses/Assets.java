@@ -107,6 +107,7 @@ public static final AssetDescriptor<Texture> CANNON_TEXTURE
 		manager.load(KILOVES_SOUND);
 		manager.load(BECSAPODAS_SOUND);
 		manager.load(HOLLO_SOUND);
+		manager.load(KATONA_TEXTURE);
 
 	}
 
