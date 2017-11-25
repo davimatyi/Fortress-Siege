@@ -38,24 +38,26 @@ public class KatonaActor extends OneSpriteAnimatedActor {
     GameStage gameStage;
     ControlStage controlStage;
     Lagrange lagrange;
+    int v=2;
 
 
 
-    public static boolean letrehozta=true;
+    //public static boolean letrehozta=true;
 
     public int vel(int a, int b) {
         return (int)Math.floor(Math.random()*(b-a+1)+a);
     }
 
 
-    public KatonaActor(float x, float y, Lagrange lagrange) {
+    public KatonaActor(float x, float y, Lagrange lagrange, int v) {
         super(Assets.manager.get(Assets.WALK_TEXTURE));
-        setFps(15);
-        this.info = info;
+        setFps(5);
+        this.v = v;
+        //this.info = info;
         this.lagrange = lagrange;
         setSize(1, 1);
         setPosition(x - getWidth() / 2, y - getHeight() / 2);
-        this.gameStage = gameStage;
+        //this.gameStage = gameStage;
         /*final Label lblMagassag = new Label("", gameStage.getLabelStyle()){
 
             public float elapsedTime= 0;
@@ -134,8 +136,8 @@ public class KatonaActor extends OneSpriteAnimatedActor {
     @Override
     public void act(float delta) {
         super.act(delta);
-        setX(10.24f-elapsedTime/2);
-        setY(lagrange.getY(10.24f-elapsedTime/2));
+        setX(10.24f-elapsedTime/v);
+        setY(lagrange.getY(10.24f-elapsedTime/v));
 
         //setSize(getWidth() + (float)Math.cos(elapsedTime*10)/40, getHeight() + (float)Math.sin(elapsedTime*10)/40);
      /*   if(!letrehozta) {

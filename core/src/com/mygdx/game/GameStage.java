@@ -35,6 +35,7 @@ public class GameStage extends MyStage {
     float offsetX = 0.2f;
     float offsetY = 1.8f;
     float timeScale = 1;
+    long ido1, ido2=0;
 
     public void setTimeScale(float timeScale) {
         this.timeScale = timeScale;
@@ -84,7 +85,7 @@ public class GameStage extends MyStage {
         lagrange.addpoint(10.219999f, 2.6f);
         //lagrange.addpoint(12.219999f, 2.09998f);
         addActor(bg);
-        addActor(new KatonaActor(0,0, lagrange));
+        addActor(new KatonaActor(0,0, lagrange,4));
 
         addActor( varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE),getGameStage()));
 
@@ -102,7 +103,14 @@ public class GameStage extends MyStage {
                     try {
                         //InfoLabelActor infoLabelActor;
                         //controlStage.addActor(infoLabelActor = new InfoLabelActor("Távolság: " + x + " m\n Magasság: "+y+" m \n Szög (1): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[0])+"°°\n Szög (2): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[1])+"°\n Sebesség: " + round(v0) +" m/s", x*100+50, y*100-100, game.getLabelStyle()));
-                        addActor(new LovedekActor(new Ballistics(10.24f-x - getOffsetX(), y - getOffsetY(), v0), 1, getGameStage(), varActor));
+                        ido1 = System.currentTimeMillis();
+                        System.out.println(ido1);
+                        if (ido1 - ido2 > 5000) {
+                            addActor(new LovedekActor(new Ballistics(10.24f-x - getOffsetX(), y - getOffsetY(), v0), 1, getGameStage(), varActor));
+                            ido2=ido1;
+                        }
+
+
                         //addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 1, getGameStage()));
 
                     }
@@ -126,7 +134,7 @@ public class GameStage extends MyStage {
                 System.out.println("x=" + x + "  y=" + y);
             }
         });
-        //setDebugAll(true);
+        setDebugAll(true);
     }
 
     public Label.LabelStyle getLabelStyle() {
