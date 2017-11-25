@@ -18,6 +18,7 @@ import com.mygdx.game.Lagrange;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteActor;
+import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteAnimatedActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 
 import javax.swing.JOptionPane;
@@ -29,7 +30,7 @@ import sun.rmi.runtime.Log;
  * Created by tanulo on 2017. 10. 26..
  */
 
-public class KatonaActor extends OneSpriteStaticActor {
+public class KatonaActor extends OneSpriteAnimatedActor {
 
     InfoLabelActor info;
 
@@ -48,7 +49,8 @@ public class KatonaActor extends OneSpriteStaticActor {
 
 
     public KatonaActor(float x, float y, Lagrange lagrange) {
-        super(Assets.manager.get(Assets.KATONA_TEXTURE));
+        super(Assets.manager.get(Assets.WALK_TEXTURE));
+        setFps(15);
         this.info = info;
         this.lagrange = lagrange;
         setSize(1, 1);

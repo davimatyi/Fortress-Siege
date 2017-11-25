@@ -9,6 +9,7 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGeneratorLoader;
 import com.badlogic.gdx.graphics.g2d.freetype.FreetypeFontLoader;
@@ -64,6 +65,9 @@ public static final AssetDescriptor<Texture> CANNON_TEXTURE
 	public static final AssetDescriptor<Texture> VAR2_TEXTURE
 			= new AssetDescriptor<Texture>("castle_dmg2.png", Texture.class);
 
+	public static final AssetDescriptor<TextureAtlas> WALK_TEXTURE
+			= new AssetDescriptor<TextureAtlas>("walk_01.atlas", TextureAtlas.class);
+
 	public static final AssetDescriptor<Texture> VAR1_TEXTURE
 			= new AssetDescriptor<Texture>("castle_dmg1.png", Texture.class);
 
@@ -103,6 +107,7 @@ public static final AssetDescriptor<Texture> CANNON_TEXTURE
 		manager.load(VAR3_TEXTURE);
 		manager.load(KNOB_TEXTURE);
 		manager.load(SLIDER_TEXTURE);
+		manager.load(WALK_TEXTURE);
 		manager.load(HATTER_SOUND);
 		manager.load(KILOVES_SOUND);
 		manager.load(BECSAPODAS_SOUND);
