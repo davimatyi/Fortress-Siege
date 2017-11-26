@@ -32,6 +32,7 @@ public class GameStage extends MyStage {
     KatonaActor katonaActor;
     OneSpriteStaticActor bg;
     VarActor varActor;
+    SatorActor satorActor;
     MyActor actor;
     float offsetX = 0.23f;
     float offsetY = 5.8f;
@@ -135,7 +136,7 @@ public class GameStage extends MyStage {
         addActor(bg);
         addKatona();
 
-
+        addActor( satorActor = new SatorActor(Assets.manager.get(Assets.TENT_TEXTURE)));
         addActor( varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE),getGameStage()));
 
         addListener(new ClickListener(){
@@ -151,7 +152,7 @@ public class GameStage extends MyStage {
                         ido1 = System.currentTimeMillis();
                         System.out.println(ido1);
                         if (ido1 - ido2 > 5000) {
-                            addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, getGameStage(), varActor));
+                            addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, getGameStage(), varActor, satorActor));
                             ido2=ido1;
                         }
 

@@ -22,12 +22,13 @@ public class LovedekActor extends OneSpriteStaticActor {
     Ballistics ballistics;
     int indexOfAngles;
     VarActor varActor;
+    SatorActor satorActor;
 
     private float[] pos;
     static int i=0;
 
 
-    public LovedekActor(Ballistics ballistics, int indexOfAngles, GameStage gameStage, VarActor varActor) {
+    public LovedekActor(Ballistics ballistics, int indexOfAngles, GameStage gameStage, VarActor varActor, SatorActor satorActor) {
         super(Assets.manager.get(Assets.LOVEDEK_TEXTURE));
         this.ballistics = ballistics;
         this.indexOfAngles = indexOfAngles;
@@ -36,6 +37,7 @@ public class LovedekActor extends OneSpriteStaticActor {
         this.gameStage = gameStage;
         kiloves.play();
         this.varActor = varActor;
+        this.satorActor = satorActor;
     }
 
     public void felrobban(){
@@ -68,6 +70,10 @@ public class LovedekActor extends OneSpriteStaticActor {
             becsapodas.play();
             getStage().getActors().removeValue(this, true);
             varActor.decLife(100);
+        }
+        if(satorActor.overlaps(ShapeType.Rectangle, this)){
+            getStage().getActors().removeValue(this, true);
+                satorActor.decLife(100);
         }
         //System.out.println("X=" + pos[0]+" Y="  + pos[1]);
     }
