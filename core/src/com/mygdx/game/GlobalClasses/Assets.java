@@ -34,7 +34,7 @@ public class Assets {
 	}
 	public static final AssetDescriptor<BitmapFont> ARIAL_30_FONT
 			= new AssetDescriptor<BitmapFont>(fontParameter.fontFileName, BitmapFont.class, fontParameter);
-	;
+
 
 	public static final AssetDescriptor<Texture> BACKGROUND_TEXTURE
 			= new AssetDescriptor<Texture>("backgroundShadow.png", Texture.class);
@@ -44,7 +44,8 @@ public class Assets {
 
 	public static final AssetDescriptor<Texture> SLIDER_TEXTURE
 			= new AssetDescriptor<Texture>("slider/slider.png", Texture.class);
-public static final AssetDescriptor<Texture> CANNON_TEXTURE
+
+	public static final AssetDescriptor<Texture> CANNON_TEXTURE
             = new AssetDescriptor<Texture>("cannonS.png", Texture.class);
 
     public static final AssetDescriptor<Texture> LOVEDEK_TEXTURE
@@ -60,16 +61,16 @@ public static final AssetDescriptor<Texture> CANNON_TEXTURE
 			= new AssetDescriptor<Texture>("soldierS.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> VAR3_TEXTURE
-			= new AssetDescriptor<Texture>("castle_dmg3.png", Texture.class);
+			= new AssetDescriptor<Texture>("castle_dmg3_dark.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> VAR2_TEXTURE
-			= new AssetDescriptor<Texture>("castle_dmg2.png", Texture.class);
+			= new AssetDescriptor<Texture>("castle_dmg2_dark.png", Texture.class);
 
 	public static final AssetDescriptor<TextureAtlas> WALK_TEXTURE
-			= new AssetDescriptor<TextureAtlas>("walk_01.atlas", TextureAtlas.class);
+			= new AssetDescriptor<TextureAtlas>("walk_02.atlas", TextureAtlas.class);
 
 	public static final AssetDescriptor<Texture> VAR1_TEXTURE
-			= new AssetDescriptor<Texture>("castle_dmg1.png", Texture.class);
+			= new AssetDescriptor<Texture>("castle_dmg1_dark.png", Texture.class);
 
     public static final AssetDescriptor<Sound> HATTER_SOUND
             = new AssetDescriptor<Sound>("zene.wav", Sound.class);

@@ -51,7 +51,7 @@ public class KatonaActor extends OneSpriteAnimatedActor {
 
     public KatonaActor(float x, float y, Lagrange lagrange, int v) {
         super(Assets.manager.get(Assets.WALK_TEXTURE));
-        setFps(5);
+        setFps(16);
         this.v = v;
         //this.info = info;
         this.lagrange = lagrange;
