@@ -1,5 +1,6 @@
 package com.mygdx.game.MyBaseClasses;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -51,13 +52,14 @@ public class KatonaActor extends OneSpriteAnimatedActor {
     }
 
 
-    public KatonaActor(float x, float y, Lagrange lagrange, double v, byte level) {
+    public KatonaActor(float x, float y, Lagrange lagrange, double v, byte level, GameStage gameStage) {
         super(Assets.manager.get(Assets.WALK_TEXTURE));
         setFps(16);
         this.v = v;
         //this.info = info;
         this.lagrange = lagrange;
         this.level=level;
+        this.gameStage = gameStage;
         setSize(1, 1);
         setPosition(x - getWidth() / 2, y - getHeight() / 2);
         //this.gameStage = gameStage;
@@ -126,6 +128,12 @@ public class KatonaActor extends OneSpriteAnimatedActor {
         Assets.manager.get(Assets.HALAL_SOUND).play();
         setFps(0);
         dead=true;
+        gameStage.addPoint(level*100);
+        System.out.println(gameStage.getPoint());
+        if(gameStage.getPoint()==10000){
+            System.out.println("Nyertél");
+            System.exit(0);
+        }
     }
 
 /*
@@ -150,10 +158,7 @@ public class KatonaActor extends OneSpriteAnimatedActor {
                     if(getX()>2.46){
                         setX(getX()-0.01f);
                     }
-                    else if(level==0) ((VarActor)a).decLife((int)(5*elapsedTime));
-                    else if(level==1) ((VarActor)a).decLife(10);
-                    else if(level==2) ((VarActor)a).decLife(25);
-                    else if(level==3) ((VarActor)a).decLife(50);
+                    else ((VarActor)a).decLife(level/3.5f);
                 }
             }
         }

@@ -43,14 +43,16 @@ public class VarActor extends OneSpriteStaticActor {
         this.gameStage = gameStage;
     }
 
-    public void decLife(int damage){
+    public void decLife(float damage){
         life -= damage;
         //System.out.println("damage = " + damage);
         //System.out.println("life = " + life);
         if(life<1 && elso3){
+            System.out.println("Vesztettél");
             osszeomlas.play();
             setTexture(var3);
             elso3=false;
+            System.exit(0);
         } else if(life<334 && elso2){
             sebesules.play();
             setTexture(var2);
@@ -68,7 +70,7 @@ public class VarActor extends OneSpriteStaticActor {
         //System.out.println("ido1 = " + ido1);
         //System.out.println("ido2 = " + ido2);
         //System.out.println("(ido1-ido2) = " + (ido1-ido2));
-        if (ido1 - ido2 > 10000) {
+        if (ido1 - ido2 > 5000) {
             //System.out.println("Kész");
             gameStage.addKatona();
             ido2=ido1;

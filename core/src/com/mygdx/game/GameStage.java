@@ -37,7 +37,15 @@ public class GameStage extends MyStage {
     float offsetY = 5.8f;
     float timeScale = 1;
     long ido1, ido2=0, idoKatona=System.currentTimeMillis();
-    byte level =0;
+    byte level = 1;
+    static int point=0;
+
+    public static int getPoint() {
+        return point;
+    }
+
+    public void addPoint(int point){this.point+=point;}
+
 
     public void setTimeScale(float timeScale) {
         this.timeScale = timeScale;
@@ -68,26 +76,18 @@ public class GameStage extends MyStage {
     }
 
     boolean isNextLevel(){
-        return System.currentTimeMillis()-idoKatona>30000;
+        return System.currentTimeMillis()-idoKatona>15000;
     }
 
     public void addKatona(){
-        System.out.println("level = " + level);
+        //System.out.println("level = " + level);
         switch (level){
-            case 0: {
-                if(isNextLevel()){
-                    level++;
-                    idoKatona = System.currentTimeMillis();
-                }
-                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+5, level));
-                break;
-            }
             case 1: {
                 if(isNextLevel()){
                     level++;
                     idoKatona = System.currentTimeMillis();
                 }
-                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+3, level));
+                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+5, level, getGameStage()));
                 break;
             }
             case 2: {
@@ -95,11 +95,19 @@ public class GameStage extends MyStage {
                     level++;
                     idoKatona = System.currentTimeMillis();
                 }
-                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+1, level));
+                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+3, level, getGameStage()));
                 break;
             }
             case 3: {
-                addActor(new KatonaActor(0, 0, lagrange, new Random().nextDouble(), level));
+                if(isNextLevel()){
+                    level++;
+                    idoKatona = System.currentTimeMillis();
+                }
+                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+1, level, getGameStage()));
+                break;
+            }
+            case 4: {
+                addActor(new KatonaActor(0, 0, lagrange, new Random().nextDouble(), level, getGameStage()));
             }
         }
         }
@@ -134,11 +142,7 @@ public class GameStage extends MyStage {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                for (Actor actor : getActors().toArray()) {
-                    if(actor.toString().equals("KatonaActor")) i++;
-                }
-                if(i > 3) System.out.println("Nem rakhatsz le többet!");
-                else {
+
                     KatonaActor katonaActor;
 
                     try {
@@ -161,8 +165,7 @@ public class GameStage extends MyStage {
                         katonaActor = null;
                     }
 
-                }
-                i=0;
+
             }
         });
         setCameraResetToLeftBottomOfScreen();
