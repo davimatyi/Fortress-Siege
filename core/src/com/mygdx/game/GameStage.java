@@ -33,8 +33,8 @@ public class GameStage extends MyStage {
     OneSpriteStaticActor bg;
     VarActor varActor;
     MyActor actor;
-    float offsetX = 0.2f;
-    float offsetY = 1.8f;
+    float offsetX = 0.23f;
+    float offsetY = 5.8f;
     float timeScale = 1;
     long ido1, ido2=0, idoKatona=System.currentTimeMillis();
     byte level =0;
@@ -147,7 +147,7 @@ public class GameStage extends MyStage {
                         ido1 = System.currentTimeMillis();
                         System.out.println(ido1);
                         if (ido1 - ido2 > 5000) {
-                            addActor(new LovedekActor(new Ballistics(10.24f-x - getOffsetX(), y - getOffsetY(), v0), 1, getGameStage(), varActor));
+                            addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, getGameStage(), varActor));
                             ido2=ido1;
                         }
 

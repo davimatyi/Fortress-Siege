@@ -56,7 +56,7 @@ public class Ballistics {
 
     public float[] getXYbyTime(float elapsedtime, int indexOfAngles){
         return new float[]{
-                10.24f-v0*elapsedtime*((float)Math.cos(getAnglesByRad()[indexOfAngles])), //x
+                v0*elapsedtime*((float)Math.cos(getAnglesByRad()[indexOfAngles])), //x
                 v0*elapsedtime*((float)Math.sin(getAnglesByRad()[indexOfAngles]))-1f/2f*g*elapsedtime*elapsedtime
         };
     }

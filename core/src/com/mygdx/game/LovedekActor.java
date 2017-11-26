@@ -54,9 +54,7 @@ public class LovedekActor extends OneSpriteStaticActor {
             i++;
         }*/
         setRotation((float)Math.sqrt(elapsedTime2*2000000f)); // pörgetés átállítása
-        if (elapsedTime2>ballistics.getTimeOfFlight(indexOfAngles)){
-            getStage().getActors().removeValue(this, true);
-        }
+        //if (elapsedTime2>ballistics.getTimeOfFlight(indexOfAngles))getStage().getActors().removeValue(this, true);
         for (Actor a :getStage().getActors()) {
             if (a instanceof KatonaActor){
                 if(((KatonaActor)a).overlaps(ShapeType.Rectangle, this)){
