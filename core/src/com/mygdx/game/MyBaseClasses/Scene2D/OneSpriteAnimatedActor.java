@@ -1,6 +1,7 @@
 package com.mygdx.game.MyBaseClasses.Scene2D;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
@@ -9,7 +10,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
  */
 public class OneSpriteAnimatedActor extends OneSpriteActor {
 
-    protected final TextureAtlas textureAtlas;
+    protected TextureAtlas textureAtlas;
     protected float fps = 30;
     protected boolean running = true;
     protected boolean looping = true;
@@ -18,6 +19,13 @@ public class OneSpriteAnimatedActor extends OneSpriteActor {
     private int actualFrame = 0;
     private int prevFrame = 0;
 
+    public void setTextureAtlas(TextureAtlas textureAtlas){
+        this.textureAtlas = textureAtlas;
+    }
+
+    public void setTexture(Texture texture){
+        sprite.setTexture(texture);
+    }
 
     public boolean isLooping() {
         return looping;

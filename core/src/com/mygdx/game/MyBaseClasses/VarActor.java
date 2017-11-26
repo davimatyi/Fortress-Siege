@@ -25,8 +25,10 @@ import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 public class VarActor extends OneSpriteStaticActor {
 
     public InfoLabelActor infoLabelActor;
-    static int life = 1000;
-    //Sound osszeolik = Assets.manager.get(Assets.OSSZEOMLAS_SOUND);
+    static float life = 1000;
+    long ido1, ido2=System.currentTimeMillis();
+    Sound osszeomlas = Assets.manager.get(Assets.OSSZEOMLAS_SOUND);
+    Sound sebesules = Assets.manager.get(Assets.SEBESULES_SOUND);
     Texture var2 = Assets.manager.get(Assets.VAR2_TEXTURE);
     Texture var1 = Assets.manager.get(Assets.VAR1_TEXTURE);
     Texture var3 = Assets.manager.get(Assets.VAR3_TEXTURE);
@@ -43,14 +45,18 @@ public class VarActor extends OneSpriteStaticActor {
 
     public void decLife(int damage){
         life -= damage;
+        //System.out.println("damage = " + damage);
+        //System.out.println("life = " + life);
         if(life<1 && elso3){
-            //osszeomlik.play();
+            osszeomlas.play();
             setTexture(var3);
             elso3=false;
         } else if(life<334 && elso2){
+            sebesules.play();
             setTexture(var2);
             elso2=false;
         } else if(life<667 && elso1){
+            sebesules.play();
             setTexture(var1);
             elso1=false;
         }
@@ -58,6 +64,15 @@ public class VarActor extends OneSpriteStaticActor {
 
     @Override
     public void act(float delta){
+        ido1 = System.currentTimeMillis();
+        //System.out.println("ido1 = " + ido1);
+        //System.out.println("ido2 = " + ido2);
+        //System.out.println("(ido1-ido2) = " + (ido1-ido2));
+        if (ido1 - ido2 > 10000) {
+            //System.out.println("Kész");
+            gameStage.addKatona();
+            ido2=ido1;
+        }
     }
 
 }

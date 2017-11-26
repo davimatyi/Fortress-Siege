@@ -20,6 +20,7 @@ import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteAnimatedActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
+import com.mygdx.game.MyBaseClasses.Scene2D.ShapeType;
 
 import javax.swing.JOptionPane;
 import javax.xml.soap.Text;
@@ -38,8 +39,9 @@ public class KatonaActor extends OneSpriteAnimatedActor {
     GameStage gameStage;
     ControlStage controlStage;
     Lagrange lagrange;
-    int v=2;
-
+    double v=2;
+    boolean dead = false, mozoghat = true;
+    byte level;
 
 
     //public static boolean letrehozta=true;
@@ -49,12 +51,13 @@ public class KatonaActor extends OneSpriteAnimatedActor {
     }
 
 
-    public KatonaActor(float x, float y, Lagrange lagrange, int v) {
+    public KatonaActor(float x, float y, Lagrange lagrange, double v, byte level) {
         super(Assets.manager.get(Assets.WALK_TEXTURE));
         setFps(16);
         this.v = v;
         //this.info = info;
         this.lagrange = lagrange;
+        this.level=level;
         setSize(1, 1);
         setPosition(x - getWidth() / 2, y - getHeight() / 2);
         //this.gameStage = gameStage;
@@ -120,7 +123,9 @@ public class KatonaActor extends OneSpriteAnimatedActor {
 
 
     public void halal(){
-
+        Assets.manager.get(Assets.HALAL_SOUND).play();
+        setFps(0);
+        dead=true;
     }
 
 /*
@@ -136,8 +141,32 @@ public class KatonaActor extends OneSpriteAnimatedActor {
     @Override
     public void act(float delta) {
         super.act(delta);
-        setX(10.24f-elapsedTime/v);
-        setY(lagrange.getY(10.24f-elapsedTime/v));
+        for (Actor a :getStage().getActors()) {
+            if (a instanceof VarActor){
+                if(((VarActor)a).overlaps(ShapeType.Rectangle, this)){
+                    mozoghat=false;
+                    setFps(0);
+                    //System.out.println(getX());
+                    if(getX()>2.46){
+                        setX(getX()-0.01f);
+                    }
+                    else if(level==0) ((VarActor)a).decLife((int)(5*elapsedTime));
+                    else if(level==1) ((VarActor)a).decLife(10);
+                    else if(level==2) ((VarActor)a).decLife(25);
+                    else if(level==3) ((VarActor)a).decLife(50);
+                }
+            }
+        }
+        if(mozoghat){
+            setX(10.24f-elapsedTime/(float)v);
+            setY(lagrange.getY(10.24f-elapsedTime/(float)v));
+        }
+
+        if(dead){
+            rotateBy(-3);
+            if(getRotation()<=-90) getStage().getActors().removeValue(this, true);
+        }
+
 
         //setSize(getWidth() + (float)Math.cos(elapsedTime*10)/40, getHeight() + (float)Math.sin(elapsedTime*10)/40);
      /*   if(!letrehozta) {

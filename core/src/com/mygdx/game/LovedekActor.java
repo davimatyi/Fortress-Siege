@@ -39,7 +39,7 @@ public class LovedekActor extends OneSpriteStaticActor {
     }
 
     public void felrobban(){
-
+        getStage().getActors().removeValue(this, true);
     }
 
 

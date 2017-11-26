@@ -84,8 +84,19 @@ public class Assets {
 	public static final AssetDescriptor<Sound> HOLLO_SOUND
 			= new AssetDescriptor<Sound>("hangok/Raven_sound_.wav", Sound.class);
 
+	public static final AssetDescriptor<Sound> HALAL_SOUND
+			= new AssetDescriptor<Sound>("hangok/halal.wav", Sound.class);
 
-    public static void prepare() {
+	public static final AssetDescriptor<Sound> OSSZEOMLAS_SOUND
+			= new AssetDescriptor<Sound>("hangok/osszeomlas.wav", Sound.class);
+
+
+	public static final AssetDescriptor<Sound> SEBESULES_SOUND
+			= new AssetDescriptor<Sound>("hangok/sebesules.wav", Sound.class);
+
+
+
+	public static void prepare() {
 		manager = new AssetManager();
 		Texture.setAssetManager(manager);
 	}
@@ -113,6 +124,9 @@ public class Assets {
 		manager.load(KILOVES_SOUND);
 		manager.load(BECSAPODAS_SOUND);
 		manager.load(HOLLO_SOUND);
+		manager.load(HALAL_SOUND);
+		manager.load(OSSZEOMLAS_SOUND);
+		manager.load(SEBESULES_SOUND);
 		manager.load(KATONA_TEXTURE);
 
 	}

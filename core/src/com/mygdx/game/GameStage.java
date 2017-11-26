@@ -1,7 +1,6 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -13,6 +12,8 @@ import com.mygdx.game.MyBaseClasses.*;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
+
+import java.util.Random;
 
 /**
  * Created by tanulo on 2017. 10. 25..
@@ -35,7 +36,8 @@ public class GameStage extends MyStage {
     float offsetX = 0.2f;
     float offsetY = 1.8f;
     float timeScale = 1;
-    long ido1, ido2=0;
+    long ido1, ido2=0, idoKatona=System.currentTimeMillis();
+    byte level =0;
 
     public void setTimeScale(float timeScale) {
         this.timeScale = timeScale;
@@ -65,6 +67,44 @@ public class GameStage extends MyStage {
         return ((float)((int)(f*10f)))/10f;
     }
 
+    boolean isNextLevel(){
+        return System.currentTimeMillis()-idoKatona>30000;
+    }
+
+    public void addKatona(){
+        System.out.println("level = " + level);
+        switch (level){
+            case 0: {
+                if(isNextLevel()){
+                    level++;
+                    idoKatona = System.currentTimeMillis();
+                }
+                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+5, level));
+                break;
+            }
+            case 1: {
+                if(isNextLevel()){
+                    level++;
+                    idoKatona = System.currentTimeMillis();
+                }
+                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+3, level));
+                break;
+            }
+            case 2: {
+                if(isNextLevel()){
+                    level++;
+                    idoKatona = System.currentTimeMillis();
+                }
+                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+1, level));
+                break;
+            }
+            case 3: {
+                addActor(new KatonaActor(0, 0, lagrange, new Random().nextDouble(), level));
+            }
+        }
+        }
+
+
     public GameStage(final Batch batch, final FortressSiege game) {
         super(new ExtendViewport(10.24f,7.68f), batch, game);
         bg = new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND_TEXTURE));
@@ -85,7 +125,8 @@ public class GameStage extends MyStage {
         lagrange.addpoint(10.219999f, 2.6f);
         //lagrange.addpoint(12.219999f, 2.09998f);
         addActor(bg);
-        addActor(new KatonaActor(0,0, lagrange,4));
+        addKatona();
+
 
         addActor( varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE),getGameStage()));
 
