@@ -53,6 +53,11 @@ public class OneSpriteAnimatedActor extends OneSpriteActor {
         init();
     }
 
+    public void flip(){
+        sprite.flip(true, false);
+        sprite.setFlip(true, false);
+    }
+
     @Override
     public void init() {
         super.init();

@@ -21,7 +21,7 @@ public class VarActor extends OneSpriteStaticActor {
     Texture var2 = Assets.manager.get(Assets.VAR2_TEXTURE);
     Texture var1 = Assets.manager.get(Assets.VAR1_TEXTURE);
     Texture var3 = Assets.manager.get(Assets.VAR3_TEXTURE);
-    static boolean elso1 = true, elso2 = true, elso3 = true;
+    static boolean elso1 = true, elso2 = true, elso3 = true, canSpawnNewRaven, first=true;
     GameStage gameStage;
     static VarActor varActor;
 
@@ -65,8 +65,13 @@ public class VarActor extends OneSpriteStaticActor {
             gameStage.addKatona();
             ido2Katona = ido1Katona;
         }
-        if(ido1Raven - ido2Raven > 10000){
+        if(canSpawnNewRaven&&first){
+            ido2Raven = System.currentTimeMillis();
+            first=false;
+        }
+        if(ido1Raven - ido2Raven > 5000 && canSpawnNewRaven){
             gameStage.addRaven();
+            first=true;
             ido2Raven = ido1Raven;
         }
     }

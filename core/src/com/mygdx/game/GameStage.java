@@ -82,7 +82,7 @@ public class GameStage extends MyStage {
     }
 
     public void addRaven(){
-        addActor(ravenActor=new RavenActor(10, (float)(new Random().nextInt(2)+5+new Random().nextDouble()), lagrange, 3, level, getGameStage()));
+        addActor(ravenActor=new RavenActor(10, (float)(new Random().nextInt(2)+5+new Random().nextDouble()), lagrange, 3, level, getGameStage(), varActor));
     }
 
     public void addKatona(){
@@ -143,7 +143,7 @@ public class GameStage extends MyStage {
 
         addActor( satorActor = new SatorActor(Assets.manager.get(Assets.TENT_TEXTURE)));
         addActor( varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE),getGameStage()));
-        addActor(ravenActor=new RavenActor(10, 5, lagrange, 3, level, getGameStage()));
+        addActor(ravenActor=new RavenActor(10, 5, lagrange, 3, level, getGameStage(), varActor));
 
         addListener(new ClickListener(){
             @Override
