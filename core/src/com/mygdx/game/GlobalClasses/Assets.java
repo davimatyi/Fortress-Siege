@@ -37,7 +37,7 @@ public class Assets {
 
 
 	public static final AssetDescriptor<Texture> BACKGROUND_TEXTURE
-			= new AssetDescriptor<Texture>("backgroundShadow.png", Texture.class);
+			= new AssetDescriptor<Texture>("hatterek/backgroundShadow.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> KNOB_TEXTURE
 			= new AssetDescriptor<Texture>("slider/knob.png", Texture.class);
@@ -46,34 +46,34 @@ public class Assets {
 			= new AssetDescriptor<Texture>("slider/slider.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> CANNON_TEXTURE
-            = new AssetDescriptor<Texture>("cannonS.png", Texture.class);
+            = new AssetDescriptor<Texture>("actorok/cannonS.png", Texture.class);
 
     public static final AssetDescriptor<Texture> LOVEDEK_TEXTURE
-            = new AssetDescriptor<Texture>("cannonBall.png", Texture.class);
+            = new AssetDescriptor<Texture>("actorok/cannonBall.png", Texture.class);
 
     public static final AssetDescriptor<Texture> TENT_TEXTURE
-            = new AssetDescriptor<Texture>("tentS.png", Texture.class);
+            = new AssetDescriptor<Texture>("actorok/tentS.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> CASTLE_TEXTURE
-			= new AssetDescriptor<Texture>("castle_dark.png", Texture.class);
+			= new AssetDescriptor<Texture>("var/castle_dark.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> KATONA_TEXTURE
-			= new AssetDescriptor<Texture>("soldierS.png", Texture.class);
+			= new AssetDescriptor<Texture>("projectek/soldierS.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> VAR3_TEXTURE
-			= new AssetDescriptor<Texture>("castle_dmg3_dark.png", Texture.class);
+			= new AssetDescriptor<Texture>("var/castle_dmg3_dark.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> VAR2_TEXTURE
-			= new AssetDescriptor<Texture>("castle_dmg2_dark.png", Texture.class);
+			= new AssetDescriptor<Texture>("var/castle_dmg2_dark.png", Texture.class);
 
 	public static final AssetDescriptor<TextureAtlas> WALK_TEXTURE
-			= new AssetDescriptor<TextureAtlas>("walk_02.atlas", TextureAtlas.class);
+			= new AssetDescriptor<TextureAtlas>("animacio/walk_02.atlas", TextureAtlas.class);
 
 	public static final AssetDescriptor<Texture> VAR1_TEXTURE
-			= new AssetDescriptor<Texture>("castle_dmg1_dark.png", Texture.class);
+			= new AssetDescriptor<Texture>("var/castle_dmg1_dark.png", Texture.class);
 
     public static final AssetDescriptor<Sound> HATTER_SOUND
-            = new AssetDescriptor<Sound>("zene.wav", Sound.class);
+            = new AssetDescriptor<Sound>("hangok/zene.wav", Sound.class);
 
 	public static final AssetDescriptor<Sound> BECSAPODAS_SOUND
 			= new AssetDescriptor<Sound>("hangok/impact_sound.wav", Sound.class);
@@ -89,7 +89,6 @@ public class Assets {
 
 	public static final AssetDescriptor<Sound> OSSZEOMLAS_SOUND
 			= new AssetDescriptor<Sound>("hangok/osszeomlas.wav", Sound.class);
-
 
 	public static final AssetDescriptor<Sound> SEBESULES_SOUND
 			= new AssetDescriptor<Sound>("hangok/sebesules.wav", Sound.class);
