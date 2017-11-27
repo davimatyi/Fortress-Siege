@@ -33,6 +33,7 @@ public class GameStage extends MyStage {
     OneSpriteStaticActor bg;
     VarActor varActor;
     SatorActor satorActor;
+    RavenActor ravenActor;
     MyActor actor;
     float offsetX = 0.23f;
     float offsetY = 5.8f;
@@ -78,6 +79,10 @@ public class GameStage extends MyStage {
 
     boolean isNextLevel(){
         return System.currentTimeMillis()-idoKatona>15000;
+    }
+
+    public void addRaven(){
+        addActor(ravenActor=new RavenActor(10, (float)(new Random().nextInt(2)+5+new Random().nextDouble()), lagrange, 3, level, getGameStage()));
     }
 
     public void addKatona(){
@@ -138,7 +143,7 @@ public class GameStage extends MyStage {
 
         addActor( satorActor = new SatorActor(Assets.manager.get(Assets.TENT_TEXTURE)));
         addActor( varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE),getGameStage()));
-        addActor(new RavenActor(10, 5, lagrange, 3, level, getGameStage()));
+        addActor(ravenActor=new RavenActor(10, 5, lagrange, 3, level, getGameStage()));
 
         addListener(new ClickListener(){
             @Override
@@ -153,7 +158,7 @@ public class GameStage extends MyStage {
                         ido1 = System.currentTimeMillis();
                         System.out.println(ido1);
                         if (ido1 - ido2 > 2000) {
-                            addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, getGameStage(), varActor, satorActor));
+                            addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, getGameStage(), varActor, satorActor, ravenActor));
                             ido2=ido1;
                         }
 

@@ -125,6 +125,7 @@ public class Assets {
 		manager.load(SLIDER_TEXTURE);
 		manager.load(WALK_TEXTURE);
 		manager.load(RAVEN_TEXTURE);
+		manager.load(KATONA_TEXTURE);
 		manager.load(HATTER_SOUND);
 		manager.load(KILOVES_SOUND);
 		manager.load(BECSAPODAS_SOUND);

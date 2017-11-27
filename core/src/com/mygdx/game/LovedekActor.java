@@ -4,6 +4,7 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.MyBaseClasses.KatonaActor;
+import com.mygdx.game.MyBaseClasses.RavenActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.ShapeType;
 import com.mygdx.game.MyBaseClasses.VarActor;
@@ -23,12 +24,13 @@ public class LovedekActor extends OneSpriteStaticActor {
     int indexOfAngles;
     VarActor varActor;
     SatorActor satorActor;
+    RavenActor ravenActor;
 
     private float[] pos;
     static int i=0;
 
 
-    public LovedekActor(Ballistics ballistics, int indexOfAngles, GameStage gameStage, VarActor varActor, SatorActor satorActor) {
+    public LovedekActor(Ballistics ballistics, int indexOfAngles, GameStage gameStage, VarActor varActor, SatorActor satorActor, RavenActor ravenActor) {
         super(Assets.manager.get(Assets.LOVEDEK_TEXTURE));
         this.ballistics = ballistics;
         this.indexOfAngles = indexOfAngles;
@@ -38,6 +40,7 @@ public class LovedekActor extends OneSpriteStaticActor {
         kiloves.play();
         this.varActor = varActor;
         this.satorActor = satorActor;
+        this.ravenActor = ravenActor;
     }
 
     public void felrobban(){
@@ -74,6 +77,10 @@ public class LovedekActor extends OneSpriteStaticActor {
         if(satorActor.overlaps(ShapeType.Rectangle, this)){
             getStage().getActors().removeValue(this, true);
                 satorActor.decLife(100);
+        }
+        if(ravenActor.overlaps(ShapeType.Rectangle, this)){
+            getStage().getActors().removeValue(this, true);
+            ravenActor.dead();
         }
         //System.out.println("X=" + pos[0]+" Y="  + pos[1]);
     }

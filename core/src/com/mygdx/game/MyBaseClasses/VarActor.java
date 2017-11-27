@@ -1,21 +1,10 @@
 package com.mygdx.game.MyBaseClasses;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.scenes.scene2d.ui.Image;
-import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.mygdx.game.GameStage;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.InfoLabelActor;
-import com.mygdx.game.MyBaseClasses.Scene2D.MyActor;
-import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 
 /**
@@ -26,7 +15,7 @@ public class VarActor extends OneSpriteStaticActor {
 
     public InfoLabelActor infoLabelActor;
     static float life = 1000;
-    long ido1, ido2=System.currentTimeMillis();
+    long ido1Katona, ido2Katona =System.currentTimeMillis(), ido1Raven, ido2Raven=System.currentTimeMillis();
     Sound osszeomlas = Assets.manager.get(Assets.OSSZEOMLAS_SOUND);
     Sound sebesules = Assets.manager.get(Assets.SEBESULES_SOUND);
     Texture var2 = Assets.manager.get(Assets.VAR2_TEXTURE);
@@ -66,14 +55,19 @@ public class VarActor extends OneSpriteStaticActor {
 
     @Override
     public void act(float delta){
-        ido1 = System.currentTimeMillis();
+        ido1Katona = System.currentTimeMillis();
+        ido1Raven = System.currentTimeMillis();
         //System.out.println("ido1 = " + ido1);
-        //System.out.println("ido2 = " + ido2);
-        //System.out.println("(ido1-ido2) = " + (ido1-ido2));
-        if (ido1 - ido2 > 5000) {
+        //System.out.println("ido2Katona = " + ido2Katona);
+        //System.out.println("(ido1-ido2Katona) = " + (ido1-ido2Katona));
+        if (ido1Katona - ido2Katona > 5000) {
             //System.out.println("Kész");
             gameStage.addKatona();
-            ido2=ido1;
+            ido2Katona = ido1Katona;
+        }
+        if(ido1Raven - ido2Raven > 10000){
+            gameStage.addRaven();
+            ido2Raven = ido1Raven;
         }
     }
 

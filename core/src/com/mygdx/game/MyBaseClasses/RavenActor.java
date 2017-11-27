@@ -36,9 +36,21 @@ public class RavenActor extends OneSpriteAnimatedActor {
 
     }
 
+    public void dead(){
+        dead=true;
+        setFps(0);
+    }
+
     @Override
     public void act(float delta) {
         super.act(delta);
         setX(getX()-0.02f);
+        if(dead){
+            rotateBy(-10);
+            setY(getY()-0.02f);
+            if(getY()<=0){
+                getStage().getActors().removeValue(this, true);
+            }
+        }
     }
 }
