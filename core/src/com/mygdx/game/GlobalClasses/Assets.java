@@ -69,6 +69,9 @@ public class Assets {
 	public static final AssetDescriptor<TextureAtlas> WALK_TEXTURE
 			= new AssetDescriptor<TextureAtlas>("animacio/walk_02.atlas", TextureAtlas.class);
 
+	public static final AssetDescriptor<TextureAtlas> RAVEN_TEXTURE
+			= new AssetDescriptor<TextureAtlas>("animacio/hollo.atlas", TextureAtlas.class);
+
 	public static final AssetDescriptor<Texture> VAR1_TEXTURE
 			= new AssetDescriptor<Texture>("var/castle_dmg1_dark.png", Texture.class);
 
@@ -92,6 +95,8 @@ public class Assets {
 
 	public static final AssetDescriptor<Sound> SEBESULES_SOUND
 			= new AssetDescriptor<Sound>("hangok/sebesules.wav", Sound.class);
+
+
 
 
 
@@ -119,6 +124,7 @@ public class Assets {
 		manager.load(KNOB_TEXTURE);
 		manager.load(SLIDER_TEXTURE);
 		manager.load(WALK_TEXTURE);
+		manager.load(RAVEN_TEXTURE);
 		manager.load(HATTER_SOUND);
 		manager.load(KILOVES_SOUND);
 		manager.load(BECSAPODAS_SOUND);

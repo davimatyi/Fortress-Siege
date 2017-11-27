@@ -138,6 +138,7 @@ public class GameStage extends MyStage {
 
         addActor( satorActor = new SatorActor(Assets.manager.get(Assets.TENT_TEXTURE)));
         addActor( varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE),getGameStage()));
+        addActor(new RavenActor(10, 5, lagrange, 3, level, getGameStage()));
 
         addListener(new ClickListener(){
             @Override
@@ -151,7 +152,7 @@ public class GameStage extends MyStage {
                         //controlStage.addActor(infoLabelActor = new InfoLabelActor("Távolság: " + x + " m\n Magasság: "+y+" m \n Szög (1): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[0])+"°°\n Szög (2): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[1])+"°\n Sebesség: " + round(v0) +" m/s", x*100+50, y*100-100, game.getLabelStyle()));
                         ido1 = System.currentTimeMillis();
                         System.out.println(ido1);
-                        if (ido1 - ido2 > 5000) {
+                        if (ido1 - ido2 > 2000) {
                             addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, getGameStage(), varActor, satorActor));
                             ido2=ido1;
                         }
