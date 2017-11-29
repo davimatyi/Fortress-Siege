@@ -2,11 +2,17 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
+import com.mygdx.game.MyBaseClasses.VarActor;
+import com.mygdx.game.UI.MyButton;
 
 /**
  * Created by tanulo on 2017. 10. 25..
@@ -18,6 +24,7 @@ public class ControlStage extends MyStage {
     GameStage gameStage;
     float slider_ertek;
     public static  Label lblCoin, lblPoint;
+    TextButton btnHeal;
 
 
     public GameStage getGameStage() {
@@ -29,7 +36,7 @@ public class ControlStage extends MyStage {
     }
 
     public ControlStage(Batch batch, FortressSiege game, final GameStage gameStage) {
-        super(new ExtendViewport(1024,768), batch, game);
+        super(new ExtendViewport(1024, 768), batch, game);
         this.gameStage = gameStage;
         gameStage.setControlStage(this);
 
@@ -63,9 +70,11 @@ public class ControlStage extends MyStage {
         speedSlider.setSize(600,20);
         addActor(speedSlider);
         setCameraResetToLeftBottomOfScreen(); */
+
+
+
+
     }
-
-
 
     public Label.LabelStyle getLabelStyle() {
         Label.LabelStyle style;
@@ -89,6 +98,16 @@ public class ControlStage extends MyStage {
         lblPoint.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 105);
         lblPoint.setTouchable(Touchable.disabled);
         addActor(lblPoint);
+        btnHeal = new MyButton("Heal", game.getTextButtonStyle());
+        btnHeal.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                VarActor.addHp(100);
+            }
+        });
+        addActor(btnHeal);
+        btnHeal.setPosition(10,10);
     }
 
 }

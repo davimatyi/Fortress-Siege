@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.MyBaseClasses.KatonaActor;
 import com.mygdx.game.MyBaseClasses.RavenActor;

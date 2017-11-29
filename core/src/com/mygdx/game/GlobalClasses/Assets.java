@@ -36,6 +36,19 @@ public class Assets {
 			= new AssetDescriptor<BitmapFont>(fontParameter.fontFileName, BitmapFont.class, fontParameter);
 
 
+
+	public static final AssetDescriptor<Texture> BLUE_TEXTURE
+			= new AssetDescriptor<Texture>("blue.png", Texture.class);
+
+	public static final AssetDescriptor<Texture> GREEN_TEXTURE
+			= new AssetDescriptor<Texture>("green.png", Texture.class);
+
+	public static final AssetDescriptor<Texture> YELLOW_TEXTURE
+			= new AssetDescriptor<Texture>("yellow.png", Texture.class);
+
+
+
+
 	public static final AssetDescriptor<Texture> BACKGROUND_TEXTURE
 			= new AssetDescriptor<Texture>("hatterek/backgroundShadow.png", Texture.class);
 
@@ -134,6 +147,9 @@ public class Assets {
 		manager.load(OSSZEOMLAS_SOUND);
 		manager.load(SEBESULES_SOUND);
 		manager.load(KATONA_TEXTURE);
+		manager.load(BLUE_TEXTURE);
+		manager.load(GREEN_TEXTURE);
+		manager.load(YELLOW_TEXTURE);
 
 	}
 

@@ -107,7 +107,7 @@ public class KatonaActor extends OneSpriteAnimatedActor {
 
 
     public void halal(){
-        Assets.manager.get(Assets.HALAL_SOUND).play();
+        Assets.manager.get(Assets.HALAL_SOUND).play(-100f);
         setFps(0);
         dead=true;
         gameStage.addPoint(level*100);

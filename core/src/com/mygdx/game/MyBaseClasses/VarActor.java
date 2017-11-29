@@ -33,6 +33,9 @@ public class VarActor extends OneSpriteStaticActor {
         this.gameStage = gameStage;
     }
 
+    public static void addHp(int hp){life+=hp;
+        System.out.println(hp +" "+life);}
+
     public void decLife(float damage){
         life -= damage;
         //System.out.println("damage = " + damage);

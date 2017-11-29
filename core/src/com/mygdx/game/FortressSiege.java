@@ -22,6 +22,15 @@ public class FortressSiege extends MyGame {
         return sliderStyle;
     }
 
+    public TextButton.TextButtonStyle getTextButtonStyle() {
+        TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
+        textButtonStyle.font = Assets.manager.get(Assets.ARIAL_30_FONT);
+        textButtonStyle.up = new TextureRegionDrawable(new TextureRegion(Assets.manager.get(Assets.BLUE_TEXTURE)));
+        textButtonStyle.over = new TextureRegionDrawable(new TextureRegion(Assets.manager.get(Assets.GREEN_TEXTURE)));
+        textButtonStyle.down = new TextureRegionDrawable(new TextureRegion(Assets.manager.get(Assets.YELLOW_TEXTURE)));
+        return textButtonStyle;
+    }
+
     public Label.LabelStyle getLabelStyle() {
         Label.LabelStyle style;
         style = new com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle();
