@@ -60,7 +60,7 @@ public class KatonaActor extends OneSpriteAnimatedActor {
         this.lagrange = lagrange;
         this.level=level;
         this.gameStage = gameStage;
-        setSize(1, 1);
+        setSize(0.5f, 0.5f);
         setPosition(x - getWidth() / 2, y - getHeight() / 2);
         //this.gameStage = gameStage;
         /*final Label lblMagassag = new Label("", gameStage.getLabelStyle()){
@@ -163,8 +163,8 @@ public class KatonaActor extends OneSpriteAnimatedActor {
             }
         }
         if(mozoghat){
-            setX(10.24f-elapsedTime/(float)v);
-            setY(lagrange.getY(10.24f-elapsedTime/(float)v));
+            setX(10.24f-elapsedTime/(float)v - getWidth()/2);
+            setY(lagrange.getY(10.24f-elapsedTime/(float)v) - 0.03f);
         }
 
         if(dead){

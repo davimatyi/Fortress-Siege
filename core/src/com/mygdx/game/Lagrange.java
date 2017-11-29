@@ -63,6 +63,11 @@ public class Lagrange {
 
     }
 
+    public void addpoint(double x, double y){
+        points.add(new Point((float)x, (float)y));
+
+    }
+
     public float getY(float x){
         int count = points.size();
         int startrange = 0;

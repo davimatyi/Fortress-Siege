@@ -124,7 +124,7 @@ public class GameStage extends MyStage {
         bg = new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND_TEXTURE));
         bg.setSize(getViewport().getWorldWidth(), getViewport().getWorldHeight());
         lagrange = new Lagrange();
-        //lagrange.addpoint(-1, 1.0499998f);
+/*
         lagrange.addpoint(0.07999992f, 1.9499998f);
         lagrange.addpoint(0.9000001f, 2.23f);
         lagrange.addpoint(2.0f, 2.5f);
@@ -136,8 +136,41 @@ public class GameStage extends MyStage {
         lagrange.addpoint(7.1499996f, 2.62f);
         lagrange.addpoint(7.67f, 2.6999998f);
         lagrange.addpoint(9.299999f, 2.6999998f);
-        lagrange.addpoint(10.219999f, 2.6f);
-        //lagrange.addpoint(12.219999f, 2.09998f);
+        lagrange.addpoint(10.219999f, 2.6f);*/
+
+        lagrange.addpoint(0.059999943, 1.91);
+        lagrange.addpoint(0.26000023, 1.9899999);
+        lagrange.addpoint(0.3800001, 2.1);
+        lagrange.addpoint(0.6700001, 2.2199998);
+        lagrange.addpoint(1.0999999, 2.3599997);
+        lagrange.addpoint(1.4300001, 2.4199996);
+        lagrange.addpoint(1.72, 2.4599998);
+        lagrange.addpoint(2.1699998, 2.4899998);
+        lagrange.addpoint(2.34, 2.4499998);
+        lagrange.addpoint(2.61, 2.3999999);
+        lagrange.addpoint(2.6699998, 2.3999999);
+        lagrange.addpoint(3.03, 2.4299998);
+        lagrange.addpoint(3.5099998, 2.5099998);
+        lagrange.addpoint(4.23, 2.5699997);
+        lagrange.addpoint(4.7599998, 2.62);
+        lagrange.addpoint(5.23, 2.6599998);
+        lagrange.addpoint(6.0899997, 2.7499995);
+        lagrange.addpoint(6.33, 2.77);
+        lagrange.addpoint(6.5899997, 2.7299998);
+        lagrange.addpoint(6.8599997, 2.6699996);
+        lagrange.addpoint(7.06, 2.6299996);
+        lagrange.addpoint(7.16, 2.6299996);
+        lagrange.addpoint(7.3199997, 2.6499999);
+        lagrange.addpoint(7.5299997, 2.6699996);
+        lagrange.addpoint(7.72, 2.7099998);
+        lagrange.addpoint(7.97, 2.7199998);
+        lagrange.addpoint(8.37, 2.7199998);
+        lagrange.addpoint(8.87, 2.7099998);
+        lagrange.addpoint(9.379999, 2.6799998);
+        lagrange.addpoint(9.94, 2.6699996);
+        lagrange.addpoint(10.16, 2.6599998);
+
+
         addActor(bg);
         addKatona();
 
@@ -182,7 +215,7 @@ public class GameStage extends MyStage {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                System.out.println("x=" + x + "  y=" + y);
+                System.out.println("lagrange.addpoint(" + x + ", " + y + ");");
             }
         });
         setDebugAll(true);

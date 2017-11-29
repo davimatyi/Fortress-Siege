@@ -47,17 +47,22 @@ public class RavenActor extends OneSpriteAnimatedActor {
     @Override
     public void act(float delta) {
         super.act(delta);
-        if(getX()>0&&balra)
-        setX(getX()-0.02f);
-        else if(getX()>=10.24f){
-            balra=true;
-            setWidth(1);
-        } else{
-            balra=false;
-            if(getX()==0) setX(0.02f);
-            setWidth(-1);
-            setX(getX()+0.02f);
+        if(balra) {
+            setX(getX() - 0.02f);
+            sprite.setFlip(false, false);
+            if (getX()<=0){
+                balra = false;
+            }
         }
+        else
+        {
+            setX(getX()+0.02f);
+            sprite.setFlip(true, false);
+            if(getX()>10.24f) {
+                balra = true;
+            }
+        }
+
         if(dead){
             rotateBy(-10);
             setY(getY()-0.02f);
@@ -66,5 +71,6 @@ public class RavenActor extends OneSpriteAnimatedActor {
                 getStage().getActors().removeValue(this, true);
             }
         }
+
     }
 }
