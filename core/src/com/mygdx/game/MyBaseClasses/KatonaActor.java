@@ -130,7 +130,7 @@ public class KatonaActor extends OneSpriteAnimatedActor {
         dead=true;
         gameStage.addPoint(level*100);
         System.out.println(gameStage.getPoint());
-        if(gameStage.getPoint()==10000){
+        if(gameStage.getPoint()>=10000){
             System.out.println("Nyertél");
             System.exit(0);
         }
@@ -158,7 +158,7 @@ public class KatonaActor extends OneSpriteAnimatedActor {
                     if(getX()>2.46){
                         setX(getX()-0.01f);
                     }
-                    else ((VarActor)a).decLife(level/3.5f);
+                    else ((VarActor)a).decLife(level/4.5f);
                 }
             }
         }

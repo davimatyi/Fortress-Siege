@@ -81,8 +81,13 @@ public class GameStage extends MyStage {
         return System.currentTimeMillis()-idoKatona>15000;
     }
 
-    public void addRaven(){
-        addActor(ravenActor=new RavenActor(10, (float)(new Random().nextInt(2)+5+new Random().nextDouble()), lagrange, 3, level, getGameStage(), varActor));
+    public void addRaven(long ido, boolean canSpawnNewRaven){
+        //System.out.println(System.currentTimeMillis()+" "+ido + " " + (System.currentTimeMillis()-ido) + " " + canSpawnNewRaven);
+        if(System.currentTimeMillis() - ido > 5000 && canSpawnNewRaven) {
+            addActor(ravenActor=new RavenActor(10, (float)(new Random().nextInt(2)+5+new Random().nextDouble()), lagrange, 3, level, getGameStage(), varActor));
+            VarActor.canSpawnNewRaven = false;
+
+        }
     }
 
     public void addKatona(){
@@ -93,7 +98,7 @@ public class GameStage extends MyStage {
                     level++;
                     idoKatona = System.currentTimeMillis();
                 }
-                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+5, level, getGameStage()));
+                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+4, level, getGameStage()));
                 break;
             }
             case 2: {
@@ -109,11 +114,11 @@ public class GameStage extends MyStage {
                     level++;
                     idoKatona = System.currentTimeMillis();
                 }
-                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+1, level, getGameStage()));
+                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+2, level, getGameStage()));
                 break;
             }
             case 4: {
-                addActor(new KatonaActor(0, 0, lagrange, new Random().nextDouble(), level, getGameStage()));
+                addActor(new KatonaActor(0, 0, lagrange, new Random().nextDouble()+1, level, getGameStage()));
             }
         }
         }

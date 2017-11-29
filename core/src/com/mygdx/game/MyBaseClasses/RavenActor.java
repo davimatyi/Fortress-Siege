@@ -36,7 +36,6 @@ public class RavenActor extends OneSpriteAnimatedActor {
         this.varActor=varActor;
         setSize(1, 1);
         setPosition(x,y);
-        VarActor.canSpawnNewRaven=false;
     }
 
     public void dead(){
@@ -66,9 +65,10 @@ public class RavenActor extends OneSpriteAnimatedActor {
         if(dead){
             rotateBy(-10);
             setY(getY()-0.02f);
-            varActor.canSpawnNewRaven=true;
+            varActor.deadTime= System.currentTimeMillis();
             if(getY()<=0){
                 getStage().getActors().removeValue(this, true);
+                VarActor.canSpawnNewRaven = true;
             }
         }
 
