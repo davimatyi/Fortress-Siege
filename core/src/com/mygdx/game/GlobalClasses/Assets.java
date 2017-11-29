@@ -172,7 +172,6 @@ public class Assets {
 		manager.load(HALAL_SOUND);
 		manager.load(OSSZEOMLAS_SOUND);
 		manager.load(SEBESULES_SOUND);
-		manager.load(KATONA_TEXTURE);
 
         //Gomb texturák
 		manager.load(BLUE_TEXTURE);
