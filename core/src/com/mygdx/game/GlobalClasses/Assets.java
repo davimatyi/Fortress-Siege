@@ -32,10 +32,12 @@ public class Assets {
 		fontParameter.fontParameters.characters = CHARS;
 		fontParameter.fontParameters.color = Color.WHITE;
 	}
+
+	//Betútípus
 	public static final AssetDescriptor<BitmapFont> ARIAL_30_FONT
 			= new AssetDescriptor<BitmapFont>(fontParameter.fontFileName, BitmapFont.class, fontParameter);
 
-
+	//Egyéb cuccok
 	public static final AssetDescriptor<Texture> BACKGROUND_TEXTURE
 			= new AssetDescriptor<Texture>("hatterek/backgroundShadow.png", Texture.class);
 
@@ -45,6 +47,7 @@ public class Assets {
 	public static final AssetDescriptor<Texture> SLIDER_TEXTURE
 			= new AssetDescriptor<Texture>("slider/slider.png", Texture.class);
 
+	//Actorok
 	public static final AssetDescriptor<Texture> CANNON_TEXTURE
             = new AssetDescriptor<Texture>("actorok/cannonS.png", Texture.class);
 
@@ -54,27 +57,41 @@ public class Assets {
     public static final AssetDescriptor<Texture> TENT_TEXTURE
             = new AssetDescriptor<Texture>("actorok/tentS.png", Texture.class);
 
+	public static final AssetDescriptor<Texture> TENT_TOP_TEXTURE
+			= new AssetDescriptor<Texture>("actorok/tentS_top.png", Texture.class);
+
+	//Vár texturák
+	public static final AssetDescriptor<Texture> CASTLE_TOP_TEXTURE
+			= new AssetDescriptor<Texture>("var/castle_dark_top.png", Texture.class);
+
 	public static final AssetDescriptor<Texture> CASTLE_TEXTURE
 			= new AssetDescriptor<Texture>("var/castle_dark.png", Texture.class);
 
-	public static final AssetDescriptor<Texture> KATONA_TEXTURE
-			= new AssetDescriptor<Texture>("projectek/soldierS.png", Texture.class);
-
-	public static final AssetDescriptor<Texture> VAR3_TEXTURE
-			= new AssetDescriptor<Texture>("var/castle_dmg3_dark.png", Texture.class);
+	public static final AssetDescriptor<Texture> VAR1_TEXTURE
+			= new AssetDescriptor<Texture>("var/castle_dmg1_dark.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> VAR2_TEXTURE
 			= new AssetDescriptor<Texture>("var/castle_dmg2_dark.png", Texture.class);
 
+	public static final AssetDescriptor<Texture> VAR2_TOP_TEXTURE
+			= new AssetDescriptor<Texture>("var/castle_dmg2_dark_top.png", Texture.class);
+
+	public static final AssetDescriptor<Texture> VAR3_TEXTURE
+			= new AssetDescriptor<Texture>("var/castle_dmg3_dark.png", Texture.class);
+
+	public static final AssetDescriptor<Texture> VAR3_TOP_TEXTURE
+			= new AssetDescriptor<Texture>("var/castle_dmg3_dark_top.png", Texture.class);
+
+
+	//Animált actorok atlasz texturái
 	public static final AssetDescriptor<TextureAtlas> WALK_TEXTURE
 			= new AssetDescriptor<TextureAtlas>("animacio/walk_02.atlas", TextureAtlas.class);
 
 	public static final AssetDescriptor<TextureAtlas> RAVEN_TEXTURE
 			= new AssetDescriptor<TextureAtlas>("animacio/hollo.atlas", TextureAtlas.class);
 
-	public static final AssetDescriptor<Texture> VAR1_TEXTURE
-			= new AssetDescriptor<Texture>("var/castle_dmg1_dark.png", Texture.class);
 
+	//Hangok
     public static final AssetDescriptor<Sound> HATTER_SOUND
             = new AssetDescriptor<Sound>("hangok/zene.wav", Sound.class);
 
@@ -97,9 +114,6 @@ public class Assets {
 			= new AssetDescriptor<Sound>("hangok/sebesules.wav", Sound.class);
 
 
-
-
-
 	public static void prepare() {
 		manager = new AssetManager();
 		Texture.setAssetManager(manager);
@@ -114,18 +128,29 @@ public class Assets {
 
 		manager.load(ARIAL_30_FONT);
 		manager.load(BACKGROUND_TEXTURE);
-		manager.load(CASTLE_TEXTURE);
+		manager.load(KNOB_TEXTURE);
+		manager.load(SLIDER_TEXTURE);
+
+		//Actorok
         manager.load(CANNON_TEXTURE);
         manager.load(LOVEDEK_TEXTURE);
         manager.load(TENT_TEXTURE);
+		manager.load(TENT_TOP_TEXTURE);
+
+		//Vár texturái
+		manager.load(CASTLE_TOP_TEXTURE);
+		manager.load(CASTLE_TEXTURE);
 		manager.load(VAR1_TEXTURE);
+		manager.load(VAR2_TOP_TEXTURE);
 		manager.load(VAR2_TEXTURE);
+		manager.load(VAR3_TOP_TEXTURE);
 		manager.load(VAR3_TEXTURE);
-		manager.load(KNOB_TEXTURE);
-		manager.load(SLIDER_TEXTURE);
+
+		//Animált texturák atlaszai
 		manager.load(WALK_TEXTURE);
 		manager.load(RAVEN_TEXTURE);
-		manager.load(KATONA_TEXTURE);
+
+		//Hangok
 		manager.load(HATTER_SOUND);
 		manager.load(KILOVES_SOUND);
 		manager.load(BECSAPODAS_SOUND);
@@ -133,7 +158,6 @@ public class Assets {
 		manager.load(HALAL_SOUND);
 		manager.load(OSSZEOMLAS_SOUND);
 		manager.load(SEBESULES_SOUND);
-		manager.load(KATONA_TEXTURE);
 
 	}
 

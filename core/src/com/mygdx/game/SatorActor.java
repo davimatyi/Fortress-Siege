@@ -13,7 +13,7 @@ public class SatorActor extends OneSpriteStaticActor {
 
     public SatorActor(Texture texture) {
         super(texture);
-        setSize(1.83f, 2.7f);
+        setSize(1.43f, 1.0f);
         setPosition(8.7f, 2.5f);
     }
 

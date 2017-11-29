@@ -34,7 +34,7 @@ public class RavenActor extends OneSpriteAnimatedActor {
         this.level = level;
         this.gameStage = gameStage;
         this.varActor=varActor;
-        setSize(1, 1);
+        setSize(0.5f, 0.5f);
         setPosition(x,y);
     }
 

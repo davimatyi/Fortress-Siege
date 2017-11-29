@@ -32,6 +32,8 @@ public class GameStage extends MyStage {
     KatonaActor katonaActor;
     OneSpriteStaticActor bg;
     VarActor varActor;
+    VarTopActor varTopActor;
+    SatorTopActor satorTopActor;
     SatorActor satorActor;
     RavenActor ravenActor;
     MyActor actor;
@@ -182,8 +184,10 @@ public class GameStage extends MyStage {
         addActor(bg);
         addKatona();
 
-        addActor( satorActor = new SatorActor(Assets.manager.get(Assets.TENT_TEXTURE)));
-        addActor( varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE),getGameStage()));
+        addActor(satorActor = new SatorActor(Assets.manager.get(Assets.TENT_TEXTURE)));
+        addActor(satorTopActor = new SatorTopActor(Assets.manager.get(Assets.TENT_TOP_TEXTURE)));
+        addActor(varTopActor = new VarTopActor(Assets.manager.get(Assets.CASTLE_TOP_TEXTURE)));
+        addActor(varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE),getGameStage(),varTopActor));
         addActor(ravenActor=new RavenActor(10, 5, lagrange, 3, level, getGameStage(), varActor));
 
         addListener(new ClickListener(){
