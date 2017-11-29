@@ -103,7 +103,7 @@ public class ControlStage extends MyStage {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                VarActor.addHp(100);
+                VarActor.addHp(50);
             }
         });
         addActor(btnHeal);

@@ -50,6 +50,13 @@ public class MainScreen extends MyScreen {
     }
 
     @Override
+    public void resize(int width, int height) {
+        super.resize(width, height);
+        gameStage.resize(width, height);
+        controlStage.resize(width, height);
+    }
+
+    @Override
     public void init() {
 
     }

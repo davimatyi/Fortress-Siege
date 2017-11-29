@@ -38,30 +38,39 @@ public class VarActor extends OneSpriteStaticActor {
         this.varTopActor = varTopActor;
     }
 
-    public static void addHp(int hp){life+=hp;
-        System.out.println(hp +" "+life);}
+    public static void addHp(int hp){
+        life+=hp;
+        System.out.println(hp +" "+life);
+
+    }
 
     public void decLife(float damage){
         life -= damage;
         //System.out.println("damage = " + damage);
         //System.out.println("life = " + life);
-        if(life<1 && elso3){
+
+        if(life<1){
             System.out.println("Vesztettél");
             osszeomlas.play();
             setTexture(var3);
             varTopActor.setTexture(var3Top);
             elso3=false;
             System.exit(0);
-        } else if(life<334 && elso2){
+        } else if(life<334){
+            if(isTextureChanged(var2))
             sebesules.play();
             setTexture(var2);
             varTopActor.setTexture(var2Top);
             elso2=false;
-        } else if(life<667 && elso1){
+        } else if(life<667){
+            if(isTextureChanged(var1))
             sebesules.play();
             setTexture(var1);
-            elso1=false;
         }
+    }
+
+    public boolean isTextureChanged(Texture texture){
+        return texture == this.getTexture();
     }
 
     @Override
