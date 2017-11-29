@@ -38,17 +38,21 @@ public class Assets {
 			= new AssetDescriptor<BitmapFont>(fontParameter.fontFileName, BitmapFont.class, fontParameter);
 
 
-
+	//Gombok
 	public static final AssetDescriptor<Texture> BLUE_TEXTURE
-			= new AssetDescriptor<Texture>("blue.png", Texture.class);
+			= new AssetDescriptor<Texture>("gombok/blue.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> GREEN_TEXTURE
-			= new AssetDescriptor<Texture>("green.png", Texture.class);
+			= new AssetDescriptor<Texture>("gombok/green.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> YELLOW_TEXTURE
-			= new AssetDescriptor<Texture>("yellow.png", Texture.class);
+			= new AssetDescriptor<Texture>("gombok/yellow.png", Texture.class);
 
+	public static final AssetDescriptor<Texture> BTN_HEAL_TEXTURE
+			= new AssetDescriptor<Texture>("gombok/btn_heal/btn_heal.png", Texture.class);
 
+	public static final AssetDescriptor<Texture> BTN_HEAL_DOWN_TEXTURE
+			= new AssetDescriptor<Texture>("gombok/btn_heal/btn_heal_down.png", Texture.class);
 
 
 	//Egyéb cuccok
@@ -177,6 +181,8 @@ public class Assets {
 		manager.load(BLUE_TEXTURE);
 		manager.load(GREEN_TEXTURE);
 		manager.load(YELLOW_TEXTURE);
+		manager.load(BTN_HEAL_TEXTURE);
+		manager.load(BTN_HEAL_DOWN_TEXTURE);
 
 	}
 

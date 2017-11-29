@@ -25,9 +25,9 @@ public class FortressSiege extends MyGame {
     public TextButton.TextButtonStyle getTextButtonStyle() {
         TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
         textButtonStyle.font = Assets.manager.get(Assets.ARIAL_30_FONT);
-        textButtonStyle.up = new TextureRegionDrawable(new TextureRegion(Assets.manager.get(Assets.BLUE_TEXTURE)));
-        textButtonStyle.over = new TextureRegionDrawable(new TextureRegion(Assets.manager.get(Assets.GREEN_TEXTURE)));
-        textButtonStyle.down = new TextureRegionDrawable(new TextureRegion(Assets.manager.get(Assets.YELLOW_TEXTURE)));
+        textButtonStyle.up = new TextureRegionDrawable(new TextureRegion(Assets.manager.get(Assets.BTN_HEAL_TEXTURE)));
+        textButtonStyle.over = new TextureRegionDrawable(new TextureRegion(Assets.manager.get(Assets.BTN_HEAL_TEXTURE)));
+        textButtonStyle.down = new TextureRegionDrawable(new TextureRegion(Assets.manager.get(Assets.BTN_HEAL_DOWN_TEXTURE)));
         return textButtonStyle;
     }
 
