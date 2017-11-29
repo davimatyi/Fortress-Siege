@@ -199,7 +199,7 @@ public class GameStage extends MyStage {
                         ido1 = System.currentTimeMillis();
                         System.out.println(ido1);
                         if (ido1 - ido2 > 2000) {
-                            addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, getGameStage(), varActor, satorActor, ravenActor));
+                            addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, getGameStage(), varActor, satorActor, ravenActor, lagrange));
                             ido2=ido1;
                         }
 
