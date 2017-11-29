@@ -40,7 +40,7 @@ public class GameStage extends MyStage {
     float timeScale = 1;
     long ido1, ido2=0, idoKatona=System.currentTimeMillis();
     byte level = 1;
-    static int point=0;
+    static int point=0, coin=0;
 
     public static int getPoint() {
         return point;
@@ -48,6 +48,9 @@ public class GameStage extends MyStage {
 
     public void addPoint(int point){this.point+=point;}
 
+    public static int getCoin() {return coin;}
+
+    public void addCoin(int coin){this.coin+=coin;}
 
     public void setTimeScale(float timeScale) {
         this.timeScale = timeScale;

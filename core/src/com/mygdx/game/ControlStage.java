@@ -2,13 +2,10 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.mygdx.game.GlobalClasses.Assets;
-import com.mygdx.game.MyBaseClasses.MySlider;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 
 /**
@@ -20,6 +17,7 @@ public class ControlStage extends MyStage {
 
     GameStage gameStage;
     float slider_ertek;
+    public static  Label lblCoin, lblPoint;
 
 
     public GameStage getGameStage() {
@@ -36,7 +34,7 @@ public class ControlStage extends MyStage {
         gameStage.setControlStage(this);
 
         //V0 változtató slider
-        final MySlider slider = new MySlider(1,50, 0.01f, false, game.getSliderStyle());
+     /*   final MySlider slider = new MySlider(1,50, 0.01f, false, game.getSliderStyle());
         slider.setValue(10);
         gameStage.setV0(slider.getValue());
         slider.addCaptureListener(new ChangeListener() {
@@ -64,7 +62,7 @@ public class ControlStage extends MyStage {
         speedSlider.setPosition(getViewport().getWorldWidth()/2-200, getViewport().getWorldHeight()-100);
         speedSlider.setSize(600,20);
         addActor(speedSlider);
-        setCameraResetToLeftBottomOfScreen();
+        setCameraResetToLeftBottomOfScreen(); */
     }
 
 
@@ -83,14 +81,14 @@ public class ControlStage extends MyStage {
     @Override
     public void init() {
 
-        final Label lblV0 = new Label("Kilövési sebesség", getLabelStyle());
-        lblV0.setPosition(getViewport().getWorldWidth() / 2 - 475, getViewport().getWorldHeight() - 55);
-        lblV0.setTouchable(Touchable.disabled);
-        addActor(lblV0);
-        final Label lblSpeed = new Label("Lejátszási sebesség", getLabelStyle());
-        lblSpeed.setPosition(getViewport().getWorldWidth() / 2 - 475, getViewport().getWorldHeight() - 105);
-        lblSpeed.setTouchable(Touchable.disabled);
-        addActor(lblSpeed);
+        lblCoin = new Label("0 arany", getLabelStyle());
+        lblCoin.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 55);
+        lblCoin.setTouchable(Touchable.disabled);
+        addActor(lblCoin);
+        lblPoint = new Label("0 pont", getLabelStyle());
+        lblPoint.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 105);
+        lblPoint.setTouchable(Touchable.disabled);
+        addActor(lblPoint);
     }
 
 }

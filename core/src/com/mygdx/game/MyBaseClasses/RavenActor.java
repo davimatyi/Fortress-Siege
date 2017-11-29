@@ -53,7 +53,7 @@ public class RavenActor extends OneSpriteAnimatedActor {
                 balra = false;
             }
         }
-        else
+        else if(!dead)
         {
             setX(getX()+0.02f);
             sprite.setFlip(true, false);

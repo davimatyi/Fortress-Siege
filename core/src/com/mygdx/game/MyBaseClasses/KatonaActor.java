@@ -1,32 +1,14 @@
 package com.mygdx.game.MyBaseClasses;
 
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.Touchable;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.utils.ActorGestureListener;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.mygdx.game.Ballistics;
 import com.mygdx.game.ControlStage;
 import com.mygdx.game.GameStage;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.InfoLabelActor;
 import com.mygdx.game.Lagrange;
-import com.mygdx.game.MyBaseClasses.Scene2D.MyActor;
-import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
-import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteAnimatedActor;
-import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.ShapeType;
-
-import javax.swing.JOptionPane;
-import javax.xml.soap.Text;
-
-import sun.rmi.runtime.Log;
 
 /**
  * Created by tanulo on 2017. 10. 26..
@@ -129,8 +111,14 @@ public class KatonaActor extends OneSpriteAnimatedActor {
         setFps(0);
         dead=true;
         gameStage.addPoint(level*100);
-        System.out.println(gameStage.getPoint());
-        if(gameStage.getPoint()>=10000){
+        gameStage.addCoin(level);
+        int point = gameStage.getPoint();
+        int coin = gameStage.getCoin();
+        System.out.println(point);
+        System.out.println(coin);
+        ControlStage.lblCoin.setText(coin+" arany");
+        ControlStage.lblPoint.setText(point+" pont");
+        if(point>=10000){
             System.out.println("Nyertél");
             System.exit(0);
         }
