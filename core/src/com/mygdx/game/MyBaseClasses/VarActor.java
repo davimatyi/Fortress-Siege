@@ -21,16 +21,21 @@ public class VarActor extends OneSpriteStaticActor {
     Texture var2 = Assets.manager.get(Assets.VAR2_TEXTURE);
     Texture var1 = Assets.manager.get(Assets.VAR1_TEXTURE);
     Texture var3 = Assets.manager.get(Assets.VAR3_TEXTURE);
+    Texture var2Top = Assets.manager.get(Assets.VAR2_TOP_TEXTURE);
+    Texture var3Top = Assets.manager.get(Assets.VAR3_TOP_TEXTURE);
     public static boolean elso1 = true, elso2 = true, elso3 = true, first=true, canSpawnNewRaven=false;
     static long deadTime= System.currentTimeMillis();
     GameStage gameStage;
     static VarActor varActor;
+    VarTopActor varTopActor;
 
-    public VarActor(Texture texture, GameStage gameStage) {
+
+    public VarActor(Texture texture, GameStage gameStage, VarTopActor varTopActor) {
         super(texture);
-        setSize(2.52f, 3.5f);
-        setPosition(0, 2f);
+        setSize(2.5f, 2.3f);
+        setPosition(-0.2f, 2f);
         this.gameStage = gameStage;
+        this.varTopActor = varTopActor;
     }
 
     public static void addHp(int hp){life+=hp;
@@ -44,11 +49,13 @@ public class VarActor extends OneSpriteStaticActor {
             System.out.println("Vesztettél");
             osszeomlas.play();
             setTexture(var3);
+            varTopActor.setTexture(var3Top);
             elso3=false;
             System.exit(0);
         } else if(life<334 && elso2){
             sebesules.play();
             setTexture(var2);
+            varTopActor.setTexture(var2Top);
             elso2=false;
         } else if(life<667 && elso1){
             sebesules.play();
