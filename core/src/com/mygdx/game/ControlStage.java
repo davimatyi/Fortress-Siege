@@ -95,12 +95,12 @@ public class ControlStage extends MyStage {
     public void init() {
 
         lblCoin = new Label("0 arany", getLabelStyle());
-        lblCoin.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 55);
-        lblCoin.setTouchable(Touchable.disabled);
+//        lblCoin.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 55);
+//        lblCoin.setTouchable(Touchable.disabled);
         addActor(lblCoin);
         lblPoint = new Label("0 pont", getLabelStyle());
-        lblPoint.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 105);
-        lblPoint.setTouchable(Touchable.disabled);
+//        lblPoint.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 105);
+//        lblPoint.setTouchable(Touchable.disabled);
         addActor(lblPoint);
         btnHeal = new MyButton("", game.btnHeal());
         btnHeal.addListener(new ClickListener() {
@@ -116,7 +116,18 @@ public class ControlStage extends MyStage {
             }
         });
         addActor(btnHeal);
-        btnHeal.setPosition(10,10);
+//        btnHeal.setPosition(10,10);
+        resized();
     }
 
+    @Override
+    protected void resized() {
+        super.resized();
+        lblCoin.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 55);
+        lblCoin.setTouchable(Touchable.disabled);
+        lblPoint.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 105);
+        lblPoint.setTouchable(Touchable.disabled);
+        btnHeal.setPosition(10,10);
+
+    }
 }
