@@ -2,7 +2,6 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -36,6 +35,8 @@ public class GameStage extends MyStage {
     SatorTopActor satorTopActor;
     SatorActor satorActor;
     RavenActor ravenActor;
+    HPActorFekete hpActorFekete;
+    HPActorPiros hpActorPiros;
     MyActor actor;
     float offsetX = 0.23f;
     float offsetY = 5.8f;
@@ -51,6 +52,12 @@ public class GameStage extends MyStage {
     public void addPoint(int point){this.point+=point;}
 
     public static int getCoin() {return coin;}
+
+    public static int removeCoin(int coinminus){
+        coin-=coinminus;
+        System.out.println(coin);
+        return coin;
+    }
 
     public void addCoin(int coin){this.coin+=coin;}
 
@@ -189,6 +196,8 @@ public class GameStage extends MyStage {
         addActor(varTopActor = new VarTopActor(Assets.manager.get(Assets.CASTLE_TOP_TEXTURE)));
         addActor(varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE),getGameStage(),varTopActor));
         addActor(ravenActor=new RavenActor(10, 5, lagrange, 3, level, getGameStage(), varActor));
+        addActor(hpActorFekete =new HPActorFekete(Assets.manager.get(Assets.HP_FEKETE_TEXTURE), varActor));
+        addActor(hpActorPiros=new HPActorPiros(Assets.manager.get(Assets.HP_PIROS_TEXTURE)));
 
         addListener(new ClickListener(){
             @Override

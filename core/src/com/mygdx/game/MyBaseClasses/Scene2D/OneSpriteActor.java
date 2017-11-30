@@ -17,6 +17,9 @@ abstract public class OneSpriteActor extends MyActor implements InitableInterfac
         }
     }
 
+    public void flip(){
+    }
+
     @Override
     public void init()
     {

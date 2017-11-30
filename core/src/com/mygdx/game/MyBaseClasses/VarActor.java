@@ -38,10 +38,13 @@ public class VarActor extends OneSpriteStaticActor {
         this.varTopActor = varTopActor;
     }
 
+    public static float getLife() {
+        return life;
+    }
+
     public static void addHp(int hp){
         life+=hp;
         System.out.println(hp +" "+life);
-
     }
 
     public void decLife(float damage){
@@ -66,6 +69,11 @@ public class VarActor extends OneSpriteStaticActor {
             if(isTextureChanged(var1))
             sebesules.play();
             setTexture(var1);
+            varTopActor.setTexture(Assets.manager.get(Assets.CASTLE_TOP_TEXTURE));
+        }
+        else{
+            setTexture(Assets.manager.get(Assets.CASTLE_TEXTURE));
+            varTopActor.setTexture(Assets.manager.get(Assets.CASTLE_TOP_TEXTURE));
         }
     }
 
@@ -87,6 +95,7 @@ public class VarActor extends OneSpriteStaticActor {
         }
             gameStage.addRaven(deadTime, canSpawnNewRaven);
             //System.out.println(deadTime + " " +canSpawnNewRaven);
+        decLife(0);
     }
 
 }
