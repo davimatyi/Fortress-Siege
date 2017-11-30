@@ -22,10 +22,6 @@ public class MainScreen extends MyScreen {
     public MainScreen(FortressSiege game) {
         super(game);
         setBackGroundColor(0.5f, 0.2f,0f);
-
-
-
-
         gameStage = new GameStage(spriteBatch, game);
         controlStage = new ControlStage(spriteBatch, game, gameStage);
         sound.setVolume(1, -100f);

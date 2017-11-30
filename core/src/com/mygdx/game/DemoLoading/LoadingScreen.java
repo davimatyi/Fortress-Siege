@@ -7,6 +7,8 @@ import com.mygdx.game.MainScreen;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyScreen;
 import com.mygdx.game.FortressSiege;
 
+import Menu.MainMenuScreen;
+
 
 public class LoadingScreen extends MyScreen {
 
@@ -31,9 +33,10 @@ public class LoadingScreen extends MyScreen {
 		spriteBatch.end();
 		if (Assets.manager.update()) {
 			Assets.afterLoaded();
-			game.setScreen(new MainScreen(game));
+			game.setScreen(new MainMenuScreen(game));
 		}
 	}
+
 
 	@Override
 	public void hide() {

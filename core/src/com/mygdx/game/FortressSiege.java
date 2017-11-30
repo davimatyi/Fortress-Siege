@@ -39,8 +39,6 @@ public class FortressSiege extends MyGame {
         return style;
     }
 
-
-
     @Override
     public void create () {
         Assets.prepare();
