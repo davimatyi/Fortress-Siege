@@ -232,10 +232,13 @@ public class GameStage extends MyStage {
         //setCameraResetToLeftBottomOfScreen();
         ExtendViewport v = (ExtendViewport)getViewport();
 
-        float f = (v.getWorldWidth() / v.getMinWorldWidth());
+        //float f = (v.getWorldWidth() / v.getMinWorldWidth());
         //System.out.println(f);
 
-        setCameraMoveToXY(v.getWorldWidth()/2/f,v.getWorldHeight()/2,1/f,100000,100000);
+        //setCameraMoveToXY(v.getWorldWidth()/2/f,v.getWorldHeight()/2,1/f,100000,100000);
+        //setCameraZoomXY(v.getWorldWidth()/2/f,v.getWorldHeight()/2,1/f);
+        fitWorldToWidth();
+
 
         addListener(new ClickListener(){
             @Override
@@ -258,9 +261,11 @@ public class GameStage extends MyStage {
     @Override
     protected void resized() {
         super.resized();
-        ExtendViewport v = (ExtendViewport)getViewport();
-        float f = (v.getWorldWidth() / v.getMinWorldWidth());
-        setCameraMoveToXY(v.getWorldWidth()/2/f,v.getWorldHeight()/2,1/f,100000,100000);
+        //ExtendViewport v = (ExtendViewport)getViewport();
+        //float f = (v.getWorldWidth() / v.getMinWorldWidth());
+        //setCameraMoveToXY(v.getWorldWidth()/2/f,v.getWorldHeight()/2,1/f,100000,100000);
+        //setCameraZoomXY(v.getWorldWidth()/2/f,v.getWorldHeight()/2,1/f);
+        fitWorldToWidth();
     }
 
     @Override

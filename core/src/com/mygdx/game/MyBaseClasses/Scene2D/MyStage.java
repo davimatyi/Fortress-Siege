@@ -49,7 +49,23 @@ abstract public class MyStage extends Stage implements InitableInterface {
         OrthographicCamera c = (OrthographicCamera)getCamera();
         c.zoom=zoom;
         c.position.set(x,y,0);
+        cameraTargetX = x;
+        cameraTargetY = y;
+        cameraTargetZoom = zoom;
         c.update();
+    }
+
+    public void fitWorldToWidth(){
+        ExtendViewport v = (ExtendViewport)getViewport();
+        float f = (v.getWorldWidth() / v.getMinWorldWidth());
+        setCameraZoomXY(v.getWorldWidth()/2/f,v.getWorldHeight()/2,1/f);
+    }
+
+
+    public void fitWorldToHeight(){
+        ExtendViewport v = (ExtendViewport)getViewport();
+        float f = (v.getWorldHeight() / v.getMinWorldHeight());
+        setCameraZoomXY(v.getWorldWidth()/2/f,v.getWorldHeight()/2,1/f);
     }
 
     private float cameraTargetX = 0;
@@ -102,7 +118,7 @@ abstract public class MyStage extends Stage implements InitableInterface {
     }
 
     protected void resized(){
-        setCameraResetToCenterOfScreen();
+        //setCameraResetToCenterOfScreen();
     };
 
     @Override
