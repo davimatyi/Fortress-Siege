@@ -229,8 +229,13 @@ public class GameStage extends MyStage {
 
             }
         });
-        setCameraResetToLeftBottomOfScreen();
+        //setCameraResetToLeftBottomOfScreen();
+        ExtendViewport v = (ExtendViewport)getViewport();
 
+        float f = (v.getWorldWidth() / v.getMinWorldWidth());
+        //System.out.println(f);
+
+        setCameraMoveToXY(v.getWorldWidth()/2/f,v.getWorldHeight()/2,1/f,100000,100000);
 
         addListener(new ClickListener(){
             @Override
@@ -250,6 +255,13 @@ public class GameStage extends MyStage {
         return style;
     }
 
+    @Override
+    protected void resized() {
+        super.resized();
+        ExtendViewport v = (ExtendViewport)getViewport();
+        float f = (v.getWorldWidth() / v.getMinWorldWidth());
+        setCameraMoveToXY(v.getWorldWidth()/2/f,v.getWorldHeight()/2,1/f,100000,100000);
+    }
 
     @Override
     public void init() {
