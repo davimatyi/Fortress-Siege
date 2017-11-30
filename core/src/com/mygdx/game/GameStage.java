@@ -139,7 +139,7 @@ public class GameStage extends MyStage {
     public GameStage(final Batch batch, final FortressSiege game) {
         super(new ExtendViewport(10.24f,7.68f), batch, game);
         bg = new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND_TEXTURE));
-        bg.setSize(getViewport().getWorldWidth(), getViewport().getWorldHeight());
+        bg.setSize(((ExtendViewport)getViewport()).getMinWorldWidth(), ((ExtendViewport)getViewport()).getMinWorldHeight());
         lagrange = new Lagrange();
 /*
         lagrange.addpoint(0.07999992f, 1.9499998f);
