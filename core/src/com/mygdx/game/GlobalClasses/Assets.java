@@ -100,6 +100,12 @@ public class Assets {
 	public static final AssetDescriptor<Texture> VAR3_TOP_TEXTURE
 			= new AssetDescriptor<Texture>("var/castle_dmg3_dark_top.png", Texture.class);
 
+	public static final AssetDescriptor<Texture> HP_FEKETE_TEXTURE
+			= new AssetDescriptor<Texture>("hp fekete.png", Texture.class);
+
+	public static final AssetDescriptor<Texture> HP_PIROS_TEXTURE
+			= new AssetDescriptor<Texture>("hp piros.png", Texture.class);
+
 
 	//Animált actorok atlasz texturái
 	public static final AssetDescriptor<TextureAtlas> WALK_TEXTURE
@@ -148,6 +154,8 @@ public class Assets {
 		manager.load(BACKGROUND_TEXTURE);
 		manager.load(KNOB_TEXTURE);
 		manager.load(SLIDER_TEXTURE);
+		manager.load(HP_FEKETE_TEXTURE);
+		manager.load(HP_PIROS_TEXTURE);
 
 		//Actorok
         manager.load(CANNON_TEXTURE);
