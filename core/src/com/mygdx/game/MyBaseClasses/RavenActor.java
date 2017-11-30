@@ -44,6 +44,7 @@ public class RavenActor extends OneSpriteAnimatedActor {
         dead=true;
         setFps(0);
         raven_sound.play();
+
     }
 
     @Override
