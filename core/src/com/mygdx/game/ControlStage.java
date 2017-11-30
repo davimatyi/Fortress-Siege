@@ -102,7 +102,7 @@ public class ControlStage extends MyStage {
         lblPoint.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 105);
         lblPoint.setTouchable(Touchable.disabled);
         addActor(lblPoint);
-        btnHeal = new MyButton("", game.getTextButtonStyle());
+        btnHeal = new MyButton("", game.btnHeal());
         btnHeal.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {

@@ -54,6 +54,17 @@ public class Assets {
 	public static final AssetDescriptor<Texture> BTN_HEAL_DOWN_TEXTURE
 			= new AssetDescriptor<Texture>("gombok/btn_heal/btn_heal_down.png", Texture.class);
 
+	public static final AssetDescriptor<Texture> BTN_START_DOWN_TEXTURE
+			= new AssetDescriptor<Texture>("gombok/menu/start_down.png", Texture.class);
+
+	public static final AssetDescriptor<Texture> BTN_START_TEXTURE
+			= new AssetDescriptor<Texture>("gombok/menu/start.png", Texture.class);
+
+	public static final AssetDescriptor<Texture> BTN_EXIT_TEXTURE
+			= new AssetDescriptor<Texture>("gombok/menu/exit.png", Texture.class);
+
+	public static final AssetDescriptor<Texture> BTN_EXIT_DOWN_TEXTURE
+			= new AssetDescriptor<Texture>("gombok/menu/exit_down.png", Texture.class);
 
 	//Egyéb cuccok
 	public static final AssetDescriptor<Texture> BACKGROUND_TEXTURE
@@ -191,6 +202,10 @@ public class Assets {
 		manager.load(YELLOW_TEXTURE);
 		manager.load(BTN_HEAL_TEXTURE);
 		manager.load(BTN_HEAL_DOWN_TEXTURE);
+		manager.load(BTN_START_TEXTURE);
+		manager.load(BTN_START_DOWN_TEXTURE);
+		manager.load(BTN_EXIT_TEXTURE);
+		manager.load(BTN_EXIT_DOWN_TEXTURE);
 
 	}
 

@@ -1,5 +1,6 @@
 package Menu;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -20,7 +21,7 @@ import java.awt.Menu;
 
 public class MainMenuStage extends MyStage {
 
-    TextButton btnHeal;
+    TextButton btnStart, btnExit;
 
     public MainMenuStage(Viewport viewport, Batch batch, FortressSiege game) {
         super(viewport, batch, game);
@@ -28,16 +29,27 @@ public class MainMenuStage extends MyStage {
 
     @Override
     public void init() {
-        btnHeal = new MyButton("", game.getTextButtonStyle());
-        btnHeal.addListener(new ClickListener() {
+        btnStart = new MyButton("", game.btnStart());
+        btnStart.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
                 game.setScreen(new MainScreen(game));
             }
         });
-        addActor(btnHeal);
-        btnHeal.setPosition(10,10);
+        addActor(btnStart);
+        btnStart.setPosition(350,550);
+
+        btnExit = new MyButton("", game.btnExit());
+        btnExit.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                Gdx.app.exit();
+            }
+        });
+        addActor(btnExit);
+        btnExit.setPosition(350, btnStart.getY()-150);
     }
 
     @Override
