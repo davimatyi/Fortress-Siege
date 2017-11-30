@@ -1,5 +1,6 @@
 package com.mygdx.game.MyBaseClasses;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Cursor;
 import com.mygdx.game.Ballistics;
 import com.mygdx.game.ControlStage;
@@ -24,6 +25,7 @@ public class RavenActor extends OneSpriteAnimatedActor {
     double v = 2;
     boolean dead = false, balra = true;
     byte level;
+    Sound raven_sound = Assets.manager.get(Assets.HOLLO_SOUND);
 
     public RavenActor(float x, float y, Lagrange lagrange, double v, byte level, GameStage gameStage, VarActor varActor) {
         super(Assets.manager.get(Assets.RAVEN_TEXTURE));
@@ -41,6 +43,9 @@ public class RavenActor extends OneSpriteAnimatedActor {
     public void dead(){
         dead=true;
         setFps(0);
+        raven_sound.play();
+
+        
     }
 
     @Override

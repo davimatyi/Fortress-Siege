@@ -204,7 +204,7 @@ public class GameStage extends MyStage {
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
 
-                    KatonaActor katonaActor;
+                KatonaActor katonaActor;
 
                     try {
                         //InfoLabelActor infoLabelActor;
