@@ -80,6 +80,9 @@ public class Assets {
 	public static final AssetDescriptor<Texture> BACKGROUND_TEXTURE
 			= new AssetDescriptor<Texture>("hatterek/backgroundShadow.png", Texture.class);
 
+	public static final AssetDescriptor<Texture> BLUE_BACKGROUND_TEXTURE
+			= new AssetDescriptor<Texture>("hatterek/blue.png", Texture.class);
+
 	public static final AssetDescriptor<Texture> KNOB_TEXTURE
 			= new AssetDescriptor<Texture>("slider/knob.png", Texture.class);
 
@@ -177,6 +180,7 @@ public class Assets {
 		manager.load(ARIAL_30_FONT);
 		manager.load(MEDIEVAL_30_FONT);
 		manager.load(BACKGROUND_TEXTURE);
+		manager.load(BLUE_BACKGROUND_TEXTURE);
 		manager.load(KNOB_TEXTURE);
 		manager.load(SLIDER_TEXTURE);
 		manager.load(HP_FEKETE_TEXTURE);

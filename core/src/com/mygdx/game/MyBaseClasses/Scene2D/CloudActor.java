@@ -1,6 +1,8 @@
 package com.mygdx.game.MyBaseClasses.Scene2D;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteAnimatedActor;
 
 /**
@@ -13,23 +15,25 @@ public class CloudActor extends OneSpriteStaticActor {
 
     public CloudActor(float x, float y,Texture texture) {
         super(texture);
-        //setSize(2f, 4.5f);
+        setSize(170f*1.3f, 100f*1.3f);
         setPosition(x, y);
     }
+
+
 
     @Override
     public void act(float delta) {
         super.act(delta);
         if(!balra) {
-            setX(getX() + 2f);
+            setX(getX() + 0.5f);
             //sprite.setFlip(false, false);
-            if (getX()>=getStage().getWidth()){
+            if (getX()>=getStage().getWidth()-this.getWidth() ){
                 balra = true;
             }
         }
         else if(balra)
         {
-            setX(getX()-1f);
+            setX(getX()-0.5f);
             //sprite.setFlip(true, false);
             if(getX()<=0f) {
                 balra = false;
