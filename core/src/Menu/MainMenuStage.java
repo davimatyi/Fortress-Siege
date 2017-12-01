@@ -53,7 +53,7 @@ public class MainMenuStage extends MyStage {
         addActor(btnExit);
         btnExit.setPosition(350, btnStart.getY()-150);
 
-        addActor(cloudActor = new CloudActor(Assets.manager.get(Assets.CLOUD_TEXTURE)));
+        addActor(cloudActor = new CloudActor(0f,0f,Assets.manager.get(Assets.CLOUD_TEXTURE)));
     }
 
     @Override

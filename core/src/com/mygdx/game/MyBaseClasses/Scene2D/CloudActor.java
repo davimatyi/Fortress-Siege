@@ -9,15 +9,31 @@ import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteAnimatedActor;
 
 public class CloudActor extends OneSpriteStaticActor {
 
-    public CloudActor(Texture texture) {
+    boolean balra = true;
+
+    public CloudActor(float x, float y,Texture texture) {
         super(texture);
         //setSize(2f, 4.5f);
-        setPosition(0f, 0f);
+        setPosition(x, y);
     }
 
     @Override
     public void act(float delta) {
         super.act(delta);
-        setX(getX()+0.1f);
+        if(!balra) {
+            setX(getX() + 2f);
+            //sprite.setFlip(false, false);
+            if (getX()>=10.24f){
+                balra = true;
+            }
+        }
+        else if(balra)
+        {
+            setX(getX()-0.5f);
+            //sprite.setFlip(true, false);
+            if(getX()<=0f) {
+                balra = false;
+            }
+        }
     }
 }
