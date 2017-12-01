@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.MyBaseClasses.*;
+import com.mygdx.game.MyBaseClasses.Game.MyGame;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;

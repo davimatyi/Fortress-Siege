@@ -5,12 +5,13 @@ import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.GameStage;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.InfoLabelActor;
+import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 
+
 import Menu.MainMenuScreen;
-import sun.applet.Main;
 
 /**
  * Created by Majzer on 27/10/2017.
@@ -37,8 +38,6 @@ public class VarActor extends OneSpriteStaticActor {
 
 
     public VarActor(Texture texture, GameStage gameStage, VarTopActor varTopActor) {
-
-
         super(texture);
         setSize(2.5f, 2.3f);
         setPosition(-0.2f, 2f);

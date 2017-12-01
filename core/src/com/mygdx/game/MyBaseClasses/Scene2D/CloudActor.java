@@ -23,13 +23,13 @@ public class CloudActor extends OneSpriteStaticActor {
         if(!balra) {
             setX(getX() + 2f);
             //sprite.setFlip(false, false);
-            if (getX()>=10.24f){
+            if (getX()>=getStage().getWidth()){
                 balra = true;
             }
         }
         else if(balra)
         {
-            setX(getX()-0.5f);
+            setX(getX()-1f);
             //sprite.setFlip(true, false);
             if(getX()<=0f) {
                 balra = false;
