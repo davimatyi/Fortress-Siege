@@ -83,7 +83,7 @@ public class ControlStage extends MyStage {
     public Label.LabelStyle getLabelStyle() {
         Label.LabelStyle style;
         style = new com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle();
-        style.font = Assets.manager.get(Assets.ARIAL_30_FONT);
+        style.font = Assets.manager.get(Assets.MEDIEVAL_30_FONT);
         style.fontColor = Color.RED;
         return style;
     }

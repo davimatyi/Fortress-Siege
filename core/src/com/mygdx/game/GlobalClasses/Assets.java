@@ -33,10 +33,20 @@ public class Assets {
 		fontParameter.fontParameters.color = Color.WHITE;
 	}
 
+	static final FreetypeFontLoader.FreeTypeFontLoaderParameter fontParameter_medieval = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
+	static {
+		fontParameter.fontFileName = "Augusta.ttf";
+		fontParameter.fontParameters.size = 30;
+		fontParameter.fontParameters.characters = CHARS;
+		fontParameter.fontParameters.color = Color.WHITE;
+	}
+
 	//Betútípus
 	public static final AssetDescriptor<BitmapFont> ARIAL_30_FONT
 			= new AssetDescriptor<BitmapFont>(fontParameter.fontFileName, BitmapFont.class, fontParameter);
 
+	public static final AssetDescriptor<BitmapFont> MEDIEVAL_30_FONT
+			= new AssetDescriptor<BitmapFont>(fontParameter.fontFileName, BitmapFont.class, fontParameter_medieval);
 
 	//Gombok
 	public static final AssetDescriptor<Texture> BLUE_TEXTURE
@@ -88,6 +98,9 @@ public class Assets {
 
 	public static final AssetDescriptor<Texture> TENT_TOP_TEXTURE
 			= new AssetDescriptor<Texture>("actorok/tentS_top.png", Texture.class);
+
+	public static final AssetDescriptor<Texture> CLOUD_TEXTURE
+			= new AssetDescriptor<Texture>("actorok/cloud.png", Texture.class);
 
 	//Vár texturák
 	public static final AssetDescriptor<Texture> CASTLE_TOP_TEXTURE
@@ -162,6 +175,7 @@ public class Assets {
 
 
 		manager.load(ARIAL_30_FONT);
+		manager.load(MEDIEVAL_30_FONT);
 		manager.load(BACKGROUND_TEXTURE);
 		manager.load(KNOB_TEXTURE);
 		manager.load(SLIDER_TEXTURE);
@@ -173,6 +187,7 @@ public class Assets {
         manager.load(LOVEDEK_TEXTURE);
         manager.load(TENT_TEXTURE);
 		manager.load(TENT_TOP_TEXTURE);
+		manager.load(CLOUD_TEXTURE);
 
 		//Vár texturái
 		manager.load(CASTLE_TOP_TEXTURE);
