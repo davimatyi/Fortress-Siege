@@ -1,22 +1,17 @@
-package Menu;
+package com.mygdx.game.Menu;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.MyBaseClasses.Scene2D.CloudActor;
 import com.mygdx.game.FortressSiege;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.MainScreen;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
-import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import com.mygdx.game.UI.MyButton;
-
-import java.util.Random;
 
 /**
  * Created by tanulo on 2017. 11. 30..

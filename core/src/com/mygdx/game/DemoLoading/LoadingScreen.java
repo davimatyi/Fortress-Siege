@@ -3,11 +3,10 @@ package com.mygdx.game.DemoLoading;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.mygdx.game.GlobalClasses.*;
-import com.mygdx.game.MainScreen;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyScreen;
 import com.mygdx.game.FortressSiege;
 
-import Menu.MainMenuScreen;
+import com.mygdx.game.Menu.MainMenuScreen;
 
 
 public class LoadingScreen extends MyScreen {

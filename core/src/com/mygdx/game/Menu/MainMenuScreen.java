@@ -1,10 +1,10 @@
-package Menu;
+package com.mygdx.game.Menu;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.mygdx.game.FortressSiege;
-import com.mygdx.game.MainScreen;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyScreen;
 
 /**
@@ -43,7 +43,8 @@ public class MainMenuScreen extends MyScreen {
         mainMenuStage = new MainMenuStage(new ExtendViewport(1280,720,new OrthographicCamera(1280,720)), spriteBatch, game);
         Gdx.input.setInputProcessor(mainMenuStage);
         //rgb(0, 184, 230)
-        setBackGroundColor(0,184,230);
+        //rgb(66, 98, 244)
+        setBackGroundColor(0f, 0.31f, 1);
 
     }
 }
