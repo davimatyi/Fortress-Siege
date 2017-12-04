@@ -10,7 +10,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.mygdx.game.FortressSiege;
 import com.mygdx.game.GlobalClasses.Assets;
-import com.mygdx.game.MyBaseClasses.Scene2D.CloudActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.UI.MyButton;
 
