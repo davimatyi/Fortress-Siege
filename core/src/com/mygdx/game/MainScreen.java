@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyScreen;
@@ -15,7 +16,7 @@ public class MainScreen extends MyScreen {
 
     com.mygdx.game.Stage.GameStage gameStage;
     com.mygdx.game.Stage.ControlStage controlStage;
-    Sound sound = Assets.manager.get(Assets.HATTER_SOUND);
+    Music sound = Assets.manager.get(Assets.HATTER_SOUND);
 
     //Texture hatter = Assets.manager.get(Assets.BACKGROUND_TEXTURE);
     //SpriteBatch spriteBatch = new SpriteBatch();
@@ -25,11 +26,14 @@ public class MainScreen extends MyScreen {
         setBackGroundColor(0.5f, 0.2f,0f);
         gameStage = new GameStage(spriteBatch, game);
         controlStage = new com.mygdx.game.Stage.ControlStage(spriteBatch, game, gameStage);
-        sound.setVolume(1, -100f);
-        sound.loop();
+        sound.setVolume(0.4f);
+        sound.setLooping(true);
+        sound.play();
         InputMultiplexer im = new InputMultiplexer();
         im.addProcessor(controlStage);
         im.addProcessor(gameStage);
+        gameStage.addBackEventStackListener();
+        controlStage.addBackEventStackListener();
         Gdx.input.setInputProcessor(im);
 
     }

@@ -32,6 +32,9 @@ abstract public class MyStage extends Stage implements InitableInterface {
 
             @Override
             public boolean keyDown(InputEvent event, int keycode) {
+                if(keycode== Input.Keys.ESCAPE) {
+                    game.setScreenBackByStackPop();
+                }
                 if(keycode== Input.Keys.BACK) {
                     game.setScreenBackByStackPop();
                 }
