@@ -6,16 +6,13 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.mygdx.game.Actor.HPActorFekete;
-import com.mygdx.game.Actor.HPActorPiros;
-import com.mygdx.game.Actor.LovedekActor;
-import com.mygdx.game.Actor.SatorActor;
+import com.mygdx.game.Actor.*;
 import com.mygdx.game.FortressSiege;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
-import com.mygdx.game.Szamitasok.Lagrange;
+import com.mygdx.game.Szamitasok.*;
 
 import java.util.Random;
 
@@ -25,21 +22,21 @@ import java.util.Random;
 
 public class GameStage extends MyStage {
 
-    com.mygdx.game.Szamitasok.Ballistics ballistics;
-    com.mygdx.game.Szamitasok.Lagrange lagrange;
+    Ballistics ballistics;
+    Lagrange lagrange;
 
     public void setControlStage(ControlStage controlStage) {
         this.controlStage = controlStage;
     }
 
     ControlStage controlStage;
-    com.mygdx.game.Actor.KatonaActor katonaActor;
+    KatonaActor katonaActor;
     OneSpriteStaticActor bg;
-    com.mygdx.game.Actor.VarActor varActor;
-    com.mygdx.game.Actor.VarTopActor varTopActor;
-    com.mygdx.game.Actor.SatorTopActor satorTopActor;
-    com.mygdx.game.Actor.SatorActor satorActor;
-    com.mygdx.game.Actor.RavenActor ravenActor;
+    VarActor varActor;
+    VarTopActor varTopActor;
+    SatorTopActor satorTopActor;
+    SatorActor satorActor;
+    RavenActor ravenActor;
     HPActorFekete hpActorFekete;
     HPActorPiros hpActorPiros;
     MyActor actor;
@@ -101,8 +98,8 @@ public class GameStage extends MyStage {
     public void addRaven(long ido, boolean canSpawnNewRaven){
         //System.out.println(System.currentTimeMillis()+" "+ido + " " + (System.currentTimeMillis()-ido) + " " + canSpawnNewRaven);
         if(System.currentTimeMillis() - ido > 5000 && canSpawnNewRaven) {
-            addActor(ravenActor=new com.mygdx.game.Actor.RavenActor(10, (float)(new Random().nextInt(2)+5+new Random().nextDouble()), lagrange, 3, level, getGameStage(), varActor));
-            com.mygdx.game.Actor.VarActor.canSpawnNewRaven = false;
+            addActor(ravenActor=new RavenActor(10, (float)(new Random().nextInt(2)+5+new Random().nextDouble()), lagrange, 3, level, getGameStage(), varActor));
+            VarActor.canSpawnNewRaven = false;
 
         }
     }
@@ -115,7 +112,7 @@ public class GameStage extends MyStage {
                     level++;
                     idoKatona = System.currentTimeMillis();
                 }
-                addActor(new com.mygdx.game.Actor.KatonaActor(0,0, lagrange, new Random().nextDouble()+4, level, getGameStage()));
+                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+4, level, getGameStage()));
                 break;
             }
             case 2: {
@@ -123,7 +120,7 @@ public class GameStage extends MyStage {
                     level++;
                     idoKatona = System.currentTimeMillis();
                 }
-                addActor(new com.mygdx.game.Actor.KatonaActor(0,0, lagrange, new Random().nextDouble()+3, level, getGameStage()));
+                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+3, level, getGameStage()));
                 break;
             }
             case 3: {
@@ -131,11 +128,11 @@ public class GameStage extends MyStage {
                     level++;
                     idoKatona = System.currentTimeMillis();
                 }
-                addActor(new com.mygdx.game.Actor.KatonaActor(0,0, lagrange, new Random().nextDouble()+2, level, getGameStage()));
+                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+2, level, getGameStage()));
                 break;
             }
             case 4: {
-                addActor(new com.mygdx.game.Actor.KatonaActor(0, 0, lagrange, new Random().nextDouble()+1, level, getGameStage()));
+                addActor(new KatonaActor(0, 0, lagrange, new Random().nextDouble()+1, level, getGameStage()));
             }
         }
         }
@@ -197,10 +194,10 @@ public class GameStage extends MyStage {
         addKatona();
 
         addActor(satorActor = new SatorActor(Assets.manager.get(Assets.TENT_TEXTURE)));
-        addActor(satorTopActor = new com.mygdx.game.Actor.SatorTopActor(Assets.manager.get(Assets.TENT_TOP_TEXTURE)));
-        addActor(varTopActor = new com.mygdx.game.Actor.VarTopActor(Assets.manager.get(Assets.CASTLE_TOP_TEXTURE)));
-        addActor(varActor = new com.mygdx.game.Actor.VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE),getGameStage(),varTopActor));
-        addActor(ravenActor=new com.mygdx.game.Actor.RavenActor(10, 5, lagrange, 3, level, getGameStage(), varActor));
+        addActor(satorTopActor = new SatorTopActor(Assets.manager.get(Assets.TENT_TOP_TEXTURE)));
+        addActor(varTopActor = new VarTopActor(Assets.manager.get(Assets.CASTLE_TOP_TEXTURE)));
+        addActor(varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE),getGameStage(),varTopActor));
+        addActor(ravenActor=new RavenActor(10, 5, lagrange, 3, level, getGameStage(), varActor));
         addActor(hpActorFekete =new HPActorFekete(Assets.manager.get(Assets.HP_FEKETE_TEXTURE), varActor));
         addActor(hpActorPiros=new HPActorPiros(Assets.manager.get(Assets.HP_PIROS_TEXTURE)));
 
@@ -209,7 +206,7 @@ public class GameStage extends MyStage {
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
 
-                com.mygdx.game.Actor.KatonaActor katonaActor;
+                KatonaActor katonaActor;
 
                     try {
                         //InfoLabelActor infoLabelActor;
