@@ -3,10 +3,9 @@ package com.mygdx.game.DemoLoading;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.mygdx.game.GlobalClasses.*;
+import com.mygdx.game.Koszonet.KoszonetScreen;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyScreen;
 import com.mygdx.game.FortressSiege;
-
-import com.mygdx.game.Menu.MainMenuScreen;
 
 
 public class LoadingScreen extends MyScreen {
@@ -32,7 +31,7 @@ public class LoadingScreen extends MyScreen {
 		spriteBatch.end();
 		if (Assets.manager.update()) {
 			Assets.afterLoaded();
-			game.setScreen(new MainMenuScreen(game));
+			game.setScreen(new KoszonetScreen(game));
 		}
 	}
 

@@ -27,8 +27,6 @@ public class MainMenuStage extends MyStage {
     }
 
 
-
-
     @Override
     public void init() {
 
