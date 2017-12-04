@@ -1,7 +1,4 @@
-package com.mygdx.game;
-
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.math.MathUtils;
+package com.mygdx.game.Szamitasok;
 
 /**
  * Created by Majzer on 22/10/2017.

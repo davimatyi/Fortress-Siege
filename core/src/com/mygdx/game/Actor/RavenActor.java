@@ -1,13 +1,11 @@
-package com.mygdx.game.MyBaseClasses;
+package com.mygdx.game.Actor;
 
 import com.badlogic.gdx.audio.Sound;
-import com.badlogic.gdx.graphics.Cursor;
-import com.mygdx.game.Ballistics;
-import com.mygdx.game.ControlStage;
-import com.mygdx.game.GameStage;
+import com.mygdx.game.Szamitasok.Ballistics;
+import com.mygdx.game.Stage.ControlStage;
+import com.mygdx.game.Stage.GameStage;
 import com.mygdx.game.GlobalClasses.Assets;
-import com.mygdx.game.Lagrange;
-import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteActor;
+import com.mygdx.game.Szamitasok.Lagrange;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteAnimatedActor;
 
 /**

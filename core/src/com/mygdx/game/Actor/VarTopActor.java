@@ -1,7 +1,6 @@
-package com.mygdx.game.MyBaseClasses;
+package com.mygdx.game.Actor;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.mygdx.game.GameStage;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 
 /**
