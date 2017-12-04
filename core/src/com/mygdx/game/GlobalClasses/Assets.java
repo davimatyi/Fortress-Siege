@@ -5,6 +5,7 @@ import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.FileHandleResolver;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -140,8 +141,8 @@ public class Assets {
 
 
 	//Hangok
-    public static final AssetDescriptor<Sound> HATTER_SOUND
-            = new AssetDescriptor<Sound>("hangok/zene.wav", Sound.class);
+    public static final AssetDescriptor<Music> HATTER_SOUND
+            = new AssetDescriptor<Music>("hangok/zene.mp3", Music.class);
 
 	public static final AssetDescriptor<Sound> BECSAPODAS_SOUND
 			= new AssetDescriptor<Sound>("hangok/impact_sound.wav", Sound.class);
