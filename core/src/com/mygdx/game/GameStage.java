@@ -9,9 +9,11 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.MyBaseClasses.*;
 import com.mygdx.game.MyBaseClasses.Game.MyGame;
+import com.mygdx.game.MyBaseClasses.Scene2D.CloudActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
+import com.mygdx.game.UI.MyButton;
 
 import java.util.Random;
 
@@ -38,6 +40,7 @@ public class GameStage extends MyStage {
     RavenActor ravenActor;
     HPActorFekete hpActorFekete;
     HPActorPiros hpActorPiros;
+    CloudActor cloudActor;
     MyActor actor;
     float offsetX = 0.23f;
     float offsetY = 5.8f;
@@ -96,7 +99,7 @@ public class GameStage extends MyStage {
 
     public void addRaven(long ido, boolean canSpawnNewRaven){
         //System.out.println(System.currentTimeMillis()+" "+ido + " " + (System.currentTimeMillis()-ido) + " " + canSpawnNewRaven);
-        if(System.currentTimeMillis() - ido > 5000 && canSpawnNewRaven) {
+        if(System.currentTimeMillis() - ido > 1000 && canSpawnNewRaven) {
             addActor(ravenActor=new RavenActor(10, (float)(new Random().nextInt(2)+5+new Random().nextDouble()), lagrange, 3, level, getGameStage(), varActor));
             VarActor.canSpawnNewRaven = false;
 
@@ -192,6 +195,7 @@ public class GameStage extends MyStage {
         addActor(bg);
         addKatona();
 
+
         addActor(satorActor = new SatorActor(Assets.manager.get(Assets.TENT_TEXTURE)));
         addActor(satorTopActor = new SatorTopActor(Assets.manager.get(Assets.TENT_TOP_TEXTURE)));
         addActor(varTopActor = new VarTopActor(Assets.manager.get(Assets.CASTLE_TOP_TEXTURE)));
@@ -271,5 +275,9 @@ public class GameStage extends MyStage {
 
     @Override
     public void init() {
+        addActor(cloudActor = new CloudActor(0,getHeight()-Assets.manager.get(Assets.CLOUD_TEXTURE).getHeight()-120 ,170f*1.3f, 100f*1.3f,Assets.manager.get(Assets.CLOUD_TEXTURE)));
+        addActor(cloudActor = new CloudActor(getWidth()-Assets.manager.get(Assets.CLOUD_TEXTURE).getWidth(), 0, 170f*1.3f , 100f*1.3f , Assets.manager.get(Assets.CLOUD_TEXTURE)));
+        //addActor(cloudActor = new CloudActor(0, , 170f*1.3f , 100f*1.3f,Assets.manager.get(Assets.CLOUD_TEXTURE)));
+        //addActor(cloudActor = new CloudActor(getWidth()-Assets.manager.get(Assets.CLOUD_TEXTURE).getWidth(), getHeight()-910,170f*1.3f, 100f*1.3f,Assets.manager.get(Assets.CLOUD_TEXTURE)));
     }
 }

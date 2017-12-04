@@ -13,9 +13,9 @@ public class CloudActor extends OneSpriteStaticActor {
 
     boolean balra = true;
 
-    public CloudActor(float x, float y,Texture texture) {
+    public CloudActor(float x, float y,float a,float b,Texture texture) {
         super(texture);
-        setSize(170f*1.3f, 100f*1.3f);
+        setSize(a, b);
         setPosition(x, y);
     }
 

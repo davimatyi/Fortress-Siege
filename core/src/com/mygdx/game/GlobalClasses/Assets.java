@@ -78,7 +78,7 @@ public class Assets {
 
 	//Egyéb cuccok
 	public static final AssetDescriptor<Texture> BACKGROUND_TEXTURE
-			= new AssetDescriptor<Texture>("hatterek/backgroundShadow.png", Texture.class);
+			= new AssetDescriptor<Texture>("hatterek/background.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> KNOB_TEXTURE
 			= new AssetDescriptor<Texture>("slider/knob.png", Texture.class);
