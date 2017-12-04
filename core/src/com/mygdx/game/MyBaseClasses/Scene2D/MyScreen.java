@@ -47,9 +47,6 @@ abstract public class MyScreen implements Screen, InitableInterface {
         Gdx.gl.glClearColor(r, g, b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         //spriteBatch.setProjectionMatrix(camera.combined);
-        System.out.println("r = " + r);
-        System.out.println("g = " + g);
-        System.out.println("b = " + b);
     }
 
     @Override

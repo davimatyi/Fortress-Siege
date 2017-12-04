@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
+import com.mygdx.game.Actor.CloudActor;
 import com.mygdx.game.Actor.HPActorFekete;
 import com.mygdx.game.Actor.HPActorPiros;
 import com.mygdx.game.Actor.LovedekActor;
@@ -35,6 +36,7 @@ public class GameStage extends MyStage {
     ControlStage controlStage;
     com.mygdx.game.Actor.KatonaActor katonaActor;
     OneSpriteStaticActor bg;
+    com.mygdx.game.Actor.CloudActor cloudActor;
     com.mygdx.game.Actor.VarActor varActor;
     com.mygdx.game.Actor.VarTopActor varTopActor;
     com.mygdx.game.Actor.SatorTopActor satorTopActor;
@@ -196,6 +198,9 @@ public class GameStage extends MyStage {
         addActor(bg);
         addKatona();
 
+        addActor(cloudActor = new CloudActor(0.26f,((ExtendViewport) getViewport()).getMinWorldHeight()-1f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.004f));
+        addActor(cloudActor = new CloudActor(7.42f,((ExtendViewport) getViewport()).getMinWorldHeight()-2f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.006f));
+        addActor(cloudActor = new CloudActor(4.54f,((ExtendViewport) getViewport()).getMinWorldHeight()-3f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.002f));
         addActor(satorActor = new SatorActor(Assets.manager.get(Assets.TENT_TEXTURE)));
         addActor(satorTopActor = new com.mygdx.game.Actor.SatorTopActor(Assets.manager.get(Assets.TENT_TOP_TEXTURE)));
         addActor(varTopActor = new com.mygdx.game.Actor.VarTopActor(Assets.manager.get(Assets.CASTLE_TOP_TEXTURE)));
@@ -275,5 +280,6 @@ public class GameStage extends MyStage {
 
     @Override
     public void init() {
+
     }
 }
