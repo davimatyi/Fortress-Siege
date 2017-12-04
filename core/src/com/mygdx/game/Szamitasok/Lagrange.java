@@ -1,9 +1,7 @@
-package com.mygdx.game;
+package com.mygdx.game.Szamitasok;
 
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 
 //http://www.inf.u-szeged.hu/~kgelle/sites/default/files/upload/08_polinomok_interpolacio.pdf

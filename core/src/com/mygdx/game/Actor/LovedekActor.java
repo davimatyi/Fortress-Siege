@@ -1,14 +1,13 @@
-package com.mygdx.game;
+package com.mygdx.game.Actor;
 
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.mygdx.game.Szamitasok.Ballistics;
+import com.mygdx.game.Stage.GameStage;
 import com.mygdx.game.GlobalClasses.Assets;
-import com.mygdx.game.MyBaseClasses.KatonaActor;
-import com.mygdx.game.MyBaseClasses.RavenActor;
+import com.mygdx.game.Szamitasok.Lagrange;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.ShapeType;
-import com.mygdx.game.MyBaseClasses.VarActor;
 
 /**
  * Created by tanulo on 2017. 10. 25..

@@ -1,8 +1,8 @@
-package com.mygdx.game.MyBaseClasses;
+package com.mygdx.game.Actor;
 
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
-import com.mygdx.game.GameStage;
+import com.mygdx.game.Stage.GameStage;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.InfoLabelActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
