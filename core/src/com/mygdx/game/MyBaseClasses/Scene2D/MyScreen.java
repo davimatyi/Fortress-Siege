@@ -14,7 +14,7 @@ import com.mygdx.game.FortressSiege;
  */
 abstract public class MyScreen implements Screen, InitableInterface {
 
-    protected SpriteBatch spriteBatch = new SpriteBatch();
+    protected static SpriteBatch spriteBatch = new SpriteBatch();
 
     public float r=0,g=0,b=0;
 
@@ -29,7 +29,7 @@ abstract public class MyScreen implements Screen, InitableInterface {
 
     @Override
     public void dispose() {
-        spriteBatch.dispose();
+        //spriteBatch.dispose();
     }
 
     @Override

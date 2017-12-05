@@ -46,6 +46,12 @@ public class LovedekActor extends OneSpriteStaticActor {
         this.satorActor = satorActor;
         this.ravenActor = ravenActor;
         this.lagrange = lagrange;
+
+        if(myStage instanceof GameStage){
+            gameStage = (GameStage) myStage;
+        }else{
+            mStage = (MasodikStage) myStage;
+        }
     }
 
     public void felrobban(){

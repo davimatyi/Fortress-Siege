@@ -108,7 +108,8 @@ public class ControlStage extends MyStage {
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
                 if (GameStage.getCoin() >= 25) {
-                    VarActor.addHp(50);
+                    //Todo: Áttenni a Gamestage-be
+                    //VarActor.addHp(50);
                     GameStage.removeCoin(25);
                     lblCoin.setText(GameStage.getCoin()+" arany");
                 }

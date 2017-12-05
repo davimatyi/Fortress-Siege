@@ -1,6 +1,8 @@
 package com.mygdx.game.Actor;
 
 import com.badlogic.gdx.audio.Sound;
+import com.mygdx.game.Masodik_palya.MasodikStage;
+import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.Szamitasok.Ballistics;
 import com.mygdx.game.Stage.ControlStage;
 import com.mygdx.game.Stage.GameStage;
@@ -17,6 +19,7 @@ public class RavenActor extends OneSpriteAnimatedActor {
 
     Ballistics ballistics;
     GameStage gameStage;
+    MasodikStage mStage;
     ControlStage controlStage;
     VarActor varActor;
     Lagrange lagrange;
@@ -25,7 +28,7 @@ public class RavenActor extends OneSpriteAnimatedActor {
     byte level;
     Sound raven_sound = Assets.manager.get(Assets.HOLLO_SOUND);
 
-    public RavenActor(float x, float y, Lagrange lagrange, double v, byte level, GameStage gameStage, VarActor varActor) {
+    public RavenActor(float x, float y, Lagrange lagrange, double v, byte level, MyStage myStage, VarActor varActor) {
         super(Assets.manager.get(Assets.RAVEN_TEXTURE));
         setFps(20);
         this.v = v;
@@ -36,6 +39,12 @@ public class RavenActor extends OneSpriteAnimatedActor {
         this.varActor=varActor;
         setSize(0.5f, 0.5f);
         setPosition(x,y);
+
+        if(myStage instanceof GameStage){
+            gameStage = (GameStage) myStage;
+        }else{
+            mStage = (MasodikStage) myStage;
+        }
     }
 
     public void dead(){

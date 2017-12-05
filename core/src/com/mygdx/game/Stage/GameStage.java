@@ -203,7 +203,7 @@ public class GameStage extends MyStage {
         addActor(varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE),getGameStage(),varTopActor));
         addActor(ravenActor=new RavenActor(10, 5, lagrange, 3, level, getGameStage(), varActor));
         addActor(hpActorFekete =new HPActorFekete(Assets.manager.get(Assets.HP_FEKETE_TEXTURE), varActor));
-        addActor(hpActorPiros=new HPActorPiros(Assets.manager.get(Assets.HP_PIROS_TEXTURE)));
+        addActor(hpActorPiros=new HPActorPiros(varActor));
 
         addListener(new ClickListener(){
             @Override

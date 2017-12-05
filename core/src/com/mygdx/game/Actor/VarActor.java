@@ -2,6 +2,11 @@ package com.mygdx.game.Actor;
 
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
+import com.mygdx.game.FortressSiege;
+import com.mygdx.game.MainScreen;
+import com.mygdx.game.Masodik_palya.MasodikScreen;
+import com.mygdx.game.Masodik_palya.MasodikStage;
+import com.mygdx.game.MyBaseClasses.Scene2D.MyScreen;
 import com.mygdx.game.Stage.GameStage;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.InfoLabelActor;
@@ -15,7 +20,7 @@ import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 public class VarActor extends OneSpriteStaticActor {
 
     public InfoLabelActor infoLabelActor;
-    static float life = 1000;
+    float life = 1000;
     long ido1Katona, ido2Katona =System.currentTimeMillis(), ido1Raven, ido2Raven=System.currentTimeMillis();
     Sound osszeomlas = Assets.manager.get(Assets.OSSZEOMLAS_SOUND);
     Sound sebesules = Assets.manager.get(Assets.SEBESULES_SOUND);
@@ -27,12 +32,14 @@ public class VarActor extends OneSpriteStaticActor {
     public static boolean elso1 = true, elso2 = true, elso3 = true, first=true, canSpawnNewRaven=false;
     static long deadTime= System.currentTimeMillis();
     GameStage gameStage;
+    MasodikStage mStage;
+    MasodikScreen masodikScreen;
     static VarActor varActor;
     VarTopActor varTopActor;
     MyStage myStage;
 
 
-    public VarActor(Texture texture, GameStage gameStage, VarTopActor varTopActor) {
+    public VarActor(Texture texture, MyStage myStage, VarTopActor varTopActor) {
 
 
         super(texture);
@@ -40,13 +47,19 @@ public class VarActor extends OneSpriteStaticActor {
         setPosition(-0.2f, 2f);
         this.gameStage = gameStage;
         this.varTopActor = varTopActor;
+
+        if(myStage instanceof GameStage){
+            gameStage = (GameStage) myStage;
+        }else{
+            mStage = (MasodikStage) myStage;
+        }
     }
 
-    public static float getLife() {
+    public float getLife() {
         return life;
     }
 
-    public static void addHp(int hp){
+    public void addHp(int hp){
         life+=hp;
         System.out.println(hp +" "+life);
     }
@@ -63,8 +76,7 @@ public class VarActor extends OneSpriteStaticActor {
             varTopActor.setTexture(var3Top);
             elso3=false;
             //System.exit(0);
-            //myStage = (MyStage) getStage();
-            //myStage.game.setScreen(mainMenuScreen);
+            ((MyStage)getStage()).game.setScreen(new MainScreen(((MyStage) getStage()).game), false);
         } else if(life<334){
             if(isTextureChanged(var2))
             sebesules.play();
@@ -94,12 +106,21 @@ public class VarActor extends OneSpriteStaticActor {
         //System.out.println("ido1 = " + ido1);
         //System.out.println("ido2Katona = " + ido2Katona);
         //System.out.println("(ido1-ido2Katona) = " + (ido1-ido2Katona));
-        if (ido1Katona - ido2Katona > 5000) {
-            //System.out.println("Kész");
-            gameStage.addKatona();
-            ido2Katona = ido1Katona;
-        }
+        if(gameStage != null) {
+            if (ido1Katona - ido2Katona > 5000) {
+                //System.out.println("Kész");
+                gameStage.addKatona();
+                ido2Katona = ido1Katona;
+            }
             gameStage.addRaven(deadTime, canSpawnNewRaven);
+        }else{
+            if (ido1Katona - ido2Katona > 5000) {
+                //System.out.println("Kész");
+                mStage.addKatona();
+                ido2Katona = ido1Katona;
+            }
+            mStage.addRaven(deadTime, canSpawnNewRaven);
+        }
             //System.out.println(deadTime + " " +canSpawnNewRaven);
         decLife(0);
     }

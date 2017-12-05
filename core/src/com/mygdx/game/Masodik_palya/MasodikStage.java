@@ -42,7 +42,6 @@ public class MasodikStage extends MyStage {
     }
 
     ControlStage controlStage;
-    MasodikKatonaActor masodikKatonaActor;
     OneSpriteStaticActor bg;
     VarActor varActor;
     VarTopActor varTopActor;
@@ -111,7 +110,7 @@ public class MasodikStage extends MyStage {
     public void addRaven(long ido, boolean canSpawnNewRaven){
         //System.out.println(System.currentTimeMillis()+" "+ido + " " + (System.currentTimeMillis()-ido) + " " + canSpawnNewRaven);
         if(System.currentTimeMillis() - ido > 5000 && canSpawnNewRaven) {
-            addActor(ravenActor=new RavenActor(10, (float)(new Random().nextInt(2)+5+new Random().nextDouble()), lagrange, 3, level, getGameStage(), varActor));
+            addActor(ravenActor=new RavenActor(10, (float)(new Random().nextInt(2)+5+new Random().nextDouble()), lagrange, 3, level, getMasodikStage(), varActor));
             VarActor.canSpawnNewRaven = false;
 
         }
@@ -125,7 +124,7 @@ public class MasodikStage extends MyStage {
                     level++;
                     idoKatona = System.currentTimeMillis();
                 }
-                addActor(new MasodikKatonaActor(0,0, lagrange, new Random().nextDouble()+4, level, getMasodikStage()));
+                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+4, level, getMasodikStage()));
                 break;
             }
             case 2: {
@@ -133,7 +132,7 @@ public class MasodikStage extends MyStage {
                     level++;
                     idoKatona = System.currentTimeMillis();
                 }
-                addActor(new MasodikKatonaActor(0,0, lagrange, new Random().nextDouble()+3, level, getMasodikStage()));
+                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+3, level, getMasodikStage()));
                 break;
             }
             case 3: {
@@ -141,11 +140,11 @@ public class MasodikStage extends MyStage {
                     level++;
                     idoKatona = System.currentTimeMillis();
                 }
-                addActor(new MasodikKatonaActor(0,0, lagrange, new Random().nextDouble()+2, level, getMasodikStage()));
+                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+2, level, getMasodikStage()));
                 break;
             }
             case 4: {
-                addActor(new MasodikKatonaActor(0, 0, lagrange, new Random().nextDouble()+1, level, getMasodikStage()));
+                addActor(new KatonaActor(0, 0, lagrange, new Random().nextDouble()+1, level, getMasodikStage()));
             }
         }
     }
@@ -215,7 +214,7 @@ public class MasodikStage extends MyStage {
         addActor(varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE),getMasodikStage(),varTopActor));
         addActor(ravenActor=new RavenActor(10, 5, lagrange, 3, level, getMasodikStage(), varActor));
         addActor(hpActorFekete =new HPActorFekete(Assets.manager.get(Assets.HP_FEKETE_TEXTURE), varActor));
-        addActor(hpActorPiros=new HPActorPiros(Assets.manager.get(Assets.HP_PIROS_TEXTURE)));
+        addActor(hpActorPiros=new HPActorPiros(varActor));
 
         addListener(new ClickListener(){
             @Override
@@ -230,7 +229,7 @@ public class MasodikStage extends MyStage {
                     ido1 = System.currentTimeMillis();
                     System.out.println(ido1);
                     if (ido1 - ido2 > 2000) {
-                        addActor(new LovedekActor(new com.mygdx.game.Szamitasok.Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, getGameStage(), varActor, satorActor, ravenActor, lagrange));
+                        addActor(new LovedekActor(new com.mygdx.game.Szamitasok.Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, getMasodikStage(), varActor, satorActor, ravenActor, lagrange));
                         ido2=ido1;
                     }
                     //addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 1, getGameStage()));
