@@ -56,28 +56,32 @@ public class VarActor extends OneSpriteStaticActor {
         //System.out.println("damage = " + damage);
         //System.out.println("life = " + life);
 
-        if(life<1){
+        if(life<1&&elso3){
             System.out.println("Vesztettél");
             osszeomlas.play();
             setTexture(var3);
             varTopActor.setTexture(var3Top);
             elso3=false;
+            elso2=true;
             //System.exit(0);
             //myStage = (MyStage) getStage();
             //myStage.game.setScreen(mainMenuScreen);
-        } else if(life<334){
+        } else if(life<334&&elso2){
             if(isTextureChanged(var2))
+                System.out.println("..");
             sebesules.play();
             setTexture(var2);
             varTopActor.setTexture(var2Top);
             elso2=false;
-        } else if(life<667){
-            if(isTextureChanged(var1))
+            elso1=true;
+        } else if(life<667&&elso1){
+            System.out.println("...");
+            elso1=false;
             sebesules.play();
             setTexture(var1);
             varTopActor.setTexture(Assets.manager.get(Assets.CASTLE_TOP_TEXTURE));
         }
-        else{
+        else if(life>=667){
             setTexture(Assets.manager.get(Assets.CASTLE_TEXTURE));
             varTopActor.setTexture(Assets.manager.get(Assets.CASTLE_TOP_TEXTURE));
         }

@@ -40,6 +40,7 @@ public class GameStage extends MyStage {
     HPActorFekete hpActorFekete;
     HPActorPiros hpActorPiros;
     MyActor actor;
+    CannonActor cannonActor;
     float offsetX = 0.23f;
     float offsetY = 5.8f;
     public float timeScale = 1;
@@ -200,6 +201,7 @@ public class GameStage extends MyStage {
         addActor(ravenActor=new RavenActor(10, 5, lagrange, 3, level, getGameStage(), varActor));
         addActor(hpActorFekete =new HPActorFekete(Assets.manager.get(Assets.HP_FEKETE_TEXTURE), varActor));
         addActor(hpActorPiros=new HPActorPiros(Assets.manager.get(Assets.HP_PIROS_TEXTURE)));
+        addActor(cannonActor=new CannonActor(Assets.manager.get(Assets.CANNON_TEXTURE), 0.82f,4.75f));
 
         addListener(new ClickListener(){
             @Override
