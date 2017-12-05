@@ -22,7 +22,7 @@ public class LovedekActor extends OneSpriteStaticActor {
     float elapsedTime2 = 0;
 
     GameStage gameStage;
-    MasodikStage mStage;
+   // MasodikStage mStage;
     Ballistics ballistics;
     int indexOfAngles;
     VarActor varActor;
@@ -50,7 +50,7 @@ public class LovedekActor extends OneSpriteStaticActor {
         if(myStage instanceof GameStage){
             gameStage = (GameStage) myStage;
         }else{
-            mStage = (MasodikStage) myStage;
+            //mStage = (MasodikStage) myStage;
         }
     }
 
@@ -67,9 +67,9 @@ public class LovedekActor extends OneSpriteStaticActor {
             float[] pos = ballistics.getXYbyTime(elapsedTime2, indexOfAngles);
             setPosition(pos[0] - getWidth() / 2 + gameStage.getOffsetX(), pos[1] - getHeight() / 2 + gameStage.getOffsetY());
         }else{
-            elapsedTime2 += delta *mStage.timeScale;
-            float[] pos = ballistics.getXYbyTime(elapsedTime2, indexOfAngles);
-            setPosition(pos[0] - getWidth() / 2 + mStage.getOffsetX(), pos[1] - getHeight() / 2 + mStage.getOffsetY());
+           // elapsedTime2 += delta *mStage.timeScale;
+            //float[] pos = ballistics.getXYbyTime(elapsedTime2, indexOfAngles);
+            //setPosition(pos[0] - getWidth() / 2 + mStage.getOffsetX(), pos[1] - getHeight() / 2 + mStage.getOffsetY());
         }
         /*if((getX()+"").equals("NaN") && i==0) {
             System.out.println("Nem jó");

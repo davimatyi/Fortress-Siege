@@ -11,7 +11,7 @@ public class CannonActor extends OneSpriteStaticActor {
     public CannonActor(Texture texture, float x, float y) {
         super(texture);
         setX(x); setY(y);
-        setSize(getWidth()/250,getHeight()/250);
+        setSize(getWidth()/275,getHeight()/275);
     }
 
     @Override
