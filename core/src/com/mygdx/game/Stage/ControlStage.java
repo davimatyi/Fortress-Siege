@@ -107,6 +107,7 @@ public class ControlStage extends MyStage {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
+                VarActor.addHp(50);
                 if (GameStage.getCoin() >= 25) {
                     //Todo: Áttenni a Gamestage-be
                     //VarActor.addHp(50);

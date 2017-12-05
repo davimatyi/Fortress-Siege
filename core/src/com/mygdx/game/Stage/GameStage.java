@@ -41,6 +41,7 @@ public class GameStage extends MyStage {
     HPActorPiros hpActorPiros;
     CloudActor cloudActor;
     MyActor actor;
+    CannonActor cannonActor;
     float offsetX = 0.23f;
     float offsetY = 5.8f;
     public float timeScale = 1;
