@@ -197,7 +197,7 @@ public class GameStage extends MyStage {
                 satorX = 8.7f;
                 satorY = 2.5f;
 
-
+                // TODO: Normális lagrange
                 lagrange = new Lagrange();
                 lagrange.addpoint(0.059999943, 1.91);
                 lagrange.addpoint(0.26000023, 1.9899999);
@@ -231,6 +231,7 @@ public class GameStage extends MyStage {
                 lagrange.addpoint(9.94, 2.6699996);
                 lagrange.addpoint(10.16, 2.6599998);
                 break;
+
         }
 
 
