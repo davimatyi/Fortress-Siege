@@ -2,7 +2,6 @@ package com.mygdx.game.Actor;
 
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.mygdx.game.Masodik_palya.MasodikStage;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.Szamitasok.Ballistics;
 import com.mygdx.game.Stage.GameStage;
@@ -22,7 +21,6 @@ public class LovedekActor extends OneSpriteStaticActor {
     float elapsedTime2 = 0;
 
     GameStage gameStage;
-    MasodikStage mStage;
     Ballistics ballistics;
     int indexOfAngles;
     VarActor varActor;
@@ -34,24 +32,19 @@ public class LovedekActor extends OneSpriteStaticActor {
     static int i=0;
 
 
-    public LovedekActor(Ballistics ballistics, int indexOfAngles, MyStage myStage, VarActor varActor, SatorActor satorActor, RavenActor ravenActor, Lagrange lagrange) {
+    public LovedekActor(Ballistics ballistics, int indexOfAngles, GameStage myStage, VarActor varActor, SatorActor satorActor, RavenActor ravenActor, Lagrange lagrange) {
         super(Assets.manager.get(Assets.LOVEDEK_TEXTURE));
         this.ballistics = ballistics;
         this.indexOfAngles = indexOfAngles;
         setSize(0.50f,0.50f);
         i=0;
-        this.gameStage = gameStage;
+        this.gameStage = myStage;
         kiloves.play();
         this.varActor = varActor;
         this.satorActor = satorActor;
         this.ravenActor = ravenActor;
         this.lagrange = lagrange;
 
-        if(myStage instanceof GameStage){
-            gameStage = (GameStage) myStage;
-        }else{
-            mStage = (MasodikStage) myStage;
-        }
     }
 
     public void felrobban(){
@@ -62,15 +55,9 @@ public class LovedekActor extends OneSpriteStaticActor {
     @Override
     public void act(float delta) {
         super.act(delta);
-        if(gameStage != null) {
             elapsedTime2 += delta * gameStage.timeScale;
             float[] pos = ballistics.getXYbyTime(elapsedTime2, indexOfAngles);
             setPosition(pos[0] - getWidth() / 2 + gameStage.getOffsetX(), pos[1] - getHeight() / 2 + gameStage.getOffsetY());
-        }else{
-            elapsedTime2 += delta *mStage.timeScale;
-            float[] pos = ballistics.getXYbyTime(elapsedTime2, indexOfAngles);
-            setPosition(pos[0] - getWidth() / 2 + mStage.getOffsetX(), pos[1] - getHeight() / 2 + mStage.getOffsetY());
-        }
         /*if((getX()+"").equals("NaN") && i==0) {
             System.out.println("Nem jó");
             i++;

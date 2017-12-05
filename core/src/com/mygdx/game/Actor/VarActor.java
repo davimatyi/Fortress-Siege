@@ -2,11 +2,7 @@ package com.mygdx.game.Actor;
 
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
-import com.mygdx.game.FortressSiege;
 import com.mygdx.game.MainScreen;
-import com.mygdx.game.Masodik_palya.MasodikScreen;
-import com.mygdx.game.Masodik_palya.MasodikStage;
-import com.mygdx.game.MyBaseClasses.Scene2D.MyScreen;
 import com.mygdx.game.Stage.GameStage;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.InfoLabelActor;
@@ -69,7 +65,7 @@ public class VarActor extends OneSpriteStaticActor {
             elso3=false;
             elso2=true;
             //System.exit(0);
-            ((MyStage)getStage()).game.setScreen(new MainScreen(((MyStage) getStage()).game), false);
+            ((MyStage)getStage()).game.setScreen(new MainScreen(((GameStage) getStage()).game, ((GameStage) getStage()).getPalya()+1), false);
         } else if(life<334){
             if(isTextureChanged(var2))
                 System.out.println("..");
@@ -112,10 +108,10 @@ public class VarActor extends OneSpriteStaticActor {
         }else{
             if (ido1Katona - ido2Katona > 5000) {
                 //System.out.println("Kész");
-                mStage.addKatona();
+                //mStage.addKatona();
                 ido2Katona = ido1Katona;
             }
-            mStage.addRaven(deadTime, canSpawnNewRaven);
+            //mStage.addRaven(deadTime, canSpawnNewRaven);
         }
             //System.out.println(deadTime + " " +canSpawnNewRaven);
         decLife(0);

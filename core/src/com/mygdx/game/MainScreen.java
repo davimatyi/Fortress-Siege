@@ -21,10 +21,10 @@ public class MainScreen extends MyScreen {
     //Texture hatter = Assets.manager.get(Assets.BACKGROUND_TEXTURE);
     //SpriteBatch spriteBatch = new SpriteBatch();
 
-    public MainScreen(FortressSiege game) {
+    public MainScreen(FortressSiege game, int palya) {
         super(game);
         setBackGroundColor(0.5f, 0.2f,0f);
-        gameStage = new GameStage(spriteBatch, game);
+        gameStage = new GameStage(spriteBatch, game, palya);
         controlStage = new com.mygdx.game.Stage.ControlStage(spriteBatch, game, gameStage);
         sound.setVolume(0.4f);
         sound.setLooping(true);

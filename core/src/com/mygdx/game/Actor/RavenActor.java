@@ -1,7 +1,6 @@
 package com.mygdx.game.Actor;
 
 import com.badlogic.gdx.audio.Sound;
-import com.mygdx.game.Masodik_palya.MasodikStage;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.Szamitasok.Ballistics;
 import com.mygdx.game.Stage.ControlStage;
@@ -19,7 +18,6 @@ public class RavenActor extends OneSpriteAnimatedActor {
 
     Ballistics ballistics;
     GameStage gameStage;
-    MasodikStage mStage;
     ControlStage controlStage;
     VarActor varActor;
     Lagrange lagrange;
@@ -40,11 +38,6 @@ public class RavenActor extends OneSpriteAnimatedActor {
         setSize(0.5f, 0.5f);
         setPosition(x,y);
 
-        if(myStage instanceof GameStage){
-            gameStage = (GameStage) myStage;
-        }else{
-            mStage = (MasodikStage) myStage;
-        }
     }
 
     public void dead(){

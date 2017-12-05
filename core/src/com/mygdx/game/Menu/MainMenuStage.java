@@ -40,7 +40,7 @@ public class MainMenuStage extends MyStage {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                game.setScreen(new MainScreen(game));
+                game.setScreen(new MainScreen(game,1));
             }
         });
         addActor(btnStart);

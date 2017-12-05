@@ -1,6 +1,7 @@
 package com.mygdx.game.Actor;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 
 /**
@@ -11,10 +12,10 @@ public class SatorActor extends OneSpriteStaticActor {
 
     static float life=2000;
 
-    public SatorActor(Texture texture) {
-        super(texture);
+    public SatorActor(float x, float y) {
+        super(Assets.manager.get(Assets.TENT_TEXTURE));
         setSize(1.43f, 1.0f);
-        setPosition(8.7f, 2.5f);
+        setPosition(x,y);
     }
 
      public void decLife(float damage){

@@ -1,6 +1,7 @@
 package com.mygdx.game.Actor;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 
 /**
@@ -9,9 +10,9 @@ import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 
 public class SatorTopActor extends OneSpriteStaticActor {
 
-    public SatorTopActor(Texture texture) {
-        super(texture);
+    public SatorTopActor(float x, float y) {
+        super(Assets.manager.get(Assets.TENT_TOP_TEXTURE));
         setSize(1.43f, 1.0f);
-        setPosition(8.7f, 3.5f);
+        setPosition(x,y);
     }
 }

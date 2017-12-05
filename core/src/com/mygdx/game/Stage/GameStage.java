@@ -49,6 +49,12 @@ public class GameStage extends MyStage {
     byte level = 1;
     static int point=0, coin=0;
 
+    public int getPalya() {
+        return palya;
+    }
+
+    private int palya;
+
     public static int getPoint() {
         return point;
     }
@@ -140,66 +146,105 @@ public class GameStage extends MyStage {
         }
 
 
-    public GameStage(final Batch batch, final FortressSiege game) {
+    public GameStage(final Batch batch, final FortressSiege game, int palya) {
         super(new ExtendViewport(10.24f,7.68f), batch, game);
-        bg = new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND_TEXTURE));
+        float satorX=0, satorY=0;
+        this.palya = palya;
+
+        switch (palya){
+            case 1:
+                bg = new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND_TEXTURE));
+
+                satorX = 8.7f;
+                satorY = 2.5f;
+
+                lagrange = new Lagrange();
+                lagrange.addpoint(0.059999943, 1.91);
+                lagrange.addpoint(0.26000023, 1.9899999);
+                lagrange.addpoint(0.3800001, 2.1);
+                lagrange.addpoint(0.6700001, 2.2199998);
+                lagrange.addpoint(1.0999999, 2.3599997);
+                lagrange.addpoint(1.4300001, 2.4199996);
+                lagrange.addpoint(1.72, 2.4599998);
+                lagrange.addpoint(2.1699998, 2.4899998);
+                lagrange.addpoint(2.34, 2.4499998);
+                lagrange.addpoint(2.61, 2.3999999);
+                lagrange.addpoint(2.6699998, 2.3999999);
+                lagrange.addpoint(3.03, 2.4299998);
+                lagrange.addpoint(3.5099998, 2.5099998);
+                lagrange.addpoint(4.23, 2.5699997);
+                lagrange.addpoint(4.7599998, 2.62);
+                lagrange.addpoint(5.23, 2.6599998);
+                lagrange.addpoint(6.0899997, 2.7499995);
+                lagrange.addpoint(6.33, 2.77);
+                lagrange.addpoint(6.5899997, 2.7299998);
+                lagrange.addpoint(6.8599997, 2.6699996);
+                lagrange.addpoint(7.06, 2.6299996);
+                lagrange.addpoint(7.16, 2.6299996);
+                lagrange.addpoint(7.3199997, 2.6499999);
+                lagrange.addpoint(7.5299997, 2.6699996);
+                lagrange.addpoint(7.72, 2.7099998);
+                lagrange.addpoint(7.97, 2.7199998);
+                lagrange.addpoint(8.37, 2.7199998);
+                lagrange.addpoint(8.87, 2.7099998);
+                lagrange.addpoint(9.379999, 2.6799998);
+                lagrange.addpoint(9.94, 2.6699996);
+                lagrange.addpoint(10.16, 2.6599998);
+                break;
+            case 2:
+                bg = new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND2_TEXTURE));
+
+                satorX = 8.7f;
+                satorY = 2.5f;
+
+
+                lagrange = new Lagrange();
+                lagrange.addpoint(0.059999943, 1.91);
+                lagrange.addpoint(0.26000023, 1.9899999);
+                lagrange.addpoint(0.3800001, 2.1);
+                lagrange.addpoint(0.6700001, 2.2199998);
+                lagrange.addpoint(1.0999999, 2.3599997);
+                lagrange.addpoint(1.4300001, 2.4199996);
+                lagrange.addpoint(1.72, 2.4599998);
+                lagrange.addpoint(2.1699998, 2.4899998);
+                lagrange.addpoint(2.34, 2.4499998);
+                lagrange.addpoint(2.61, 2.3999999);
+                lagrange.addpoint(2.6699998, 2.3999999);
+                lagrange.addpoint(3.03, 2.4299998);
+                lagrange.addpoint(3.5099998, 2.5099998);
+                lagrange.addpoint(4.23, 2.5699997);
+                lagrange.addpoint(4.7599998, 2.62);
+                lagrange.addpoint(5.23, 2.6599998);
+                lagrange.addpoint(6.0899997, 2.7499995);
+                lagrange.addpoint(6.33, 2.77);
+                lagrange.addpoint(6.5899997, 2.7299998);
+                lagrange.addpoint(6.8599997, 2.6699996);
+                lagrange.addpoint(7.06, 2.6299996);
+                lagrange.addpoint(7.16, 2.6299996);
+                lagrange.addpoint(7.3199997, 2.6499999);
+                lagrange.addpoint(7.5299997, 2.6699996);
+                lagrange.addpoint(7.72, 2.7099998);
+                lagrange.addpoint(7.97, 2.7199998);
+                lagrange.addpoint(8.37, 2.7199998);
+                lagrange.addpoint(8.87, 2.7099998);
+                lagrange.addpoint(9.379999, 2.6799998);
+                lagrange.addpoint(9.94, 2.6699996);
+                lagrange.addpoint(10.16, 2.6599998);
+                break;
+        }
+
+
+
+
         bg.setSize(((ExtendViewport)getViewport()).getMinWorldWidth(), ((ExtendViewport)getViewport()).getMinWorldHeight());
-        lagrange = new Lagrange();
-/*
-        lagrange.addpoint(0.07999992f, 1.9499998f);
-        lagrange.addpoint(0.9000001f, 2.23f);
-        lagrange.addpoint(2.0f, 2.5f);
-        lagrange.addpoint(2.6799998f, 2.4199996f);
-        lagrange.addpoint(3.27f, 2.4799995f);
-        lagrange.addpoint(4.2999997f, 2.59f);
-        lagrange.addpoint(5.25f,2.6999998f);
-        lagrange.addpoint(6.1099997f, 2.77f);
-        lagrange.addpoint(7.1499996f, 2.62f);
-        lagrange.addpoint(7.67f, 2.6999998f);
-        lagrange.addpoint(9.299999f, 2.6999998f);
-        lagrange.addpoint(10.219999f, 2.6f);*/
-
-        lagrange.addpoint(0.059999943, 1.91);
-        lagrange.addpoint(0.26000023, 1.9899999);
-        lagrange.addpoint(0.3800001, 2.1);
-        lagrange.addpoint(0.6700001, 2.2199998);
-        lagrange.addpoint(1.0999999, 2.3599997);
-        lagrange.addpoint(1.4300001, 2.4199996);
-        lagrange.addpoint(1.72, 2.4599998);
-        lagrange.addpoint(2.1699998, 2.4899998);
-        lagrange.addpoint(2.34, 2.4499998);
-        lagrange.addpoint(2.61, 2.3999999);
-        lagrange.addpoint(2.6699998, 2.3999999);
-        lagrange.addpoint(3.03, 2.4299998);
-        lagrange.addpoint(3.5099998, 2.5099998);
-        lagrange.addpoint(4.23, 2.5699997);
-        lagrange.addpoint(4.7599998, 2.62);
-        lagrange.addpoint(5.23, 2.6599998);
-        lagrange.addpoint(6.0899997, 2.7499995);
-        lagrange.addpoint(6.33, 2.77);
-        lagrange.addpoint(6.5899997, 2.7299998);
-        lagrange.addpoint(6.8599997, 2.6699996);
-        lagrange.addpoint(7.06, 2.6299996);
-        lagrange.addpoint(7.16, 2.6299996);
-        lagrange.addpoint(7.3199997, 2.6499999);
-        lagrange.addpoint(7.5299997, 2.6699996);
-        lagrange.addpoint(7.72, 2.7099998);
-        lagrange.addpoint(7.97, 2.7199998);
-        lagrange.addpoint(8.37, 2.7199998);
-        lagrange.addpoint(8.87, 2.7099998);
-        lagrange.addpoint(9.379999, 2.6799998);
-        lagrange.addpoint(9.94, 2.6699996);
-        lagrange.addpoint(10.16, 2.6599998);
-
-
         addActor(bg);
+        addActor(new CloudActor(0.26f,((ExtendViewport) getViewport()).getMinWorldHeight()-1f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.004f));
+        addActor(new CloudActor(7.42f,((ExtendViewport) getViewport()).getMinWorldHeight()-2f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.006f));
+        addActor(new CloudActor(4.54f,((ExtendViewport) getViewport()).getMinWorldHeight()-3f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.002f));
         addKatona();
 
-        addActor(cloudActor = new CloudActor(0.26f,((ExtendViewport) getViewport()).getMinWorldHeight()-1f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.004f));
-        addActor(cloudActor = new CloudActor(7.42f,((ExtendViewport) getViewport()).getMinWorldHeight()-2f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.006f));
-        addActor(cloudActor = new CloudActor(4.54f,((ExtendViewport) getViewport()).getMinWorldHeight()-3f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.002f));
-        addActor(satorActor = new SatorActor(Assets.manager.get(Assets.TENT_TEXTURE)));
-        addActor(satorTopActor = new SatorTopActor(Assets.manager.get(Assets.TENT_TOP_TEXTURE)));
+        addActor(satorActor = new SatorActor(satorX, satorY));
+        addActor(satorTopActor = new SatorTopActor(satorX, satorY+1));
         addActor(varTopActor = new VarTopActor(Assets.manager.get(Assets.CASTLE_TOP_TEXTURE)));
         addActor(varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE),getGameStage(),varTopActor));
         addActor(ravenActor=new RavenActor(10, 5, lagrange, 3, level, getGameStage(), varActor));
