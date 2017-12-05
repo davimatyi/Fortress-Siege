@@ -57,34 +57,43 @@ public class VarActor extends OneSpriteStaticActor {
         //System.out.println("damage = " + damage);
         //System.out.println("life = " + life);
 
-        if(life<1&&elso3){
+        if(life<1){
             System.out.println("Vesztettél");
             osszeomlas.play();
             setTexture(var3);
             varTopActor.setTexture(var3Top);
-            elso3=false;
-            elso2=true;
             //System.exit(0);
             ((MyStage)getStage()).game.setScreen(new MainScreen(((GameStage) getStage()).game, ((GameStage) getStage()).getPalya()+1), false);
         } else if(life<334){
-            if(isTextureChanged(var2))
-                System.out.println("..");
-            sebesules.play();
+            if(hang334){
+                sebesules.play();
+                hang334=false;
+            }
             setTexture(var2);
             varTopActor.setTexture(var2Top);
-            elso2=false;
-            elso1=true;
-        } else if(life<667&&elso1){
-            System.out.println("...");
-            elso1=false;
-            sebesules.play();
+        } else if(life<667){
+            if(hang667){
+                sebesules.play();
+                System.out.println("dd");
+                hang667=false;
+            }
+            hang334=true;
             setTexture(var1);
             varTopActor.setTexture(Assets.manager.get(Assets.CASTLE_TOP_TEXTURE));
         }
         else if(life>=667){
             setTexture(Assets.manager.get(Assets.CASTLE_TEXTURE));
             varTopActor.setTexture(Assets.manager.get(Assets.CASTLE_TOP_TEXTURE));
+            hang667=true;
         }
+    }
+
+    boolean hang667=true, hang334=true;
+
+    int sebesulesHang(int db){
+        db++;
+        sebesules.play();
+        return db;
     }
 
     public boolean isTextureChanged(Texture texture){
