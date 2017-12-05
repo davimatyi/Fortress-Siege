@@ -6,7 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.mygdx.game.MyBaseClasses.Scene2D.CloudActor;
+import com.mygdx.game.Actor.CloudActor;
 import com.mygdx.game.FortressSiege;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.MainScreen;
@@ -30,11 +30,12 @@ public class MainMenuStage extends MyStage {
     @Override
     public void init() {
 
-        addActor(cloudActor = new CloudActor(0, getHeight()-Assets.manager.get(Assets.CLOUD_TEXTURE).getHeight()-120,Assets.manager.get(Assets.CLOUD_TEXTURE)));
-        addActor(cloudActor = new CloudActor(getWidth()-Assets.manager.get(Assets.CLOUD_TEXTURE).getWidth(), getHeight()-460,Assets.manager.get(Assets.CLOUD_TEXTURE)));
-        addActor(cloudActor = new CloudActor(0, getHeight()-660,Assets.manager.get(Assets.CLOUD_TEXTURE)));btnStart = new MyButton("", game.btnStart());
-        addActor(cloudActor = new CloudActor(getWidth()-Assets.manager.get(Assets.CLOUD_TEXTURE).getWidth(), getHeight()-910,Assets.manager.get(Assets.CLOUD_TEXTURE)));
+        addActor(cloudActor = new CloudActor(0, getHeight()-Assets.manager.get(Assets.CLOUD_TEXTURE).getHeight()-120,170f*1.3f, 100f*1.3f,Assets.manager.get(Assets.CLOUD_TEXTURE),0.5f));
+        addActor(cloudActor = new CloudActor(getWidth()-Assets.manager.get(Assets.CLOUD_TEXTURE).getWidth(), getHeight()-460,170f*1.3f, 100f*1.3f,Assets.manager.get(Assets.CLOUD_TEXTURE),0.5f));
+        addActor(cloudActor = new CloudActor(0, getHeight()-660,170f*1.3f, 100f*1.3f,Assets.manager.get(Assets.CLOUD_TEXTURE),0.5f));
+        addActor(cloudActor = new CloudActor(getWidth()-Assets.manager.get(Assets.CLOUD_TEXTURE).getWidth(), getHeight()-910,170f*1.3f, 100f*1.3f,Assets.manager.get(Assets.CLOUD_TEXTURE),0.5f));
 
+        btnStart = new MyButton("", game.btnStart());
         btnStart.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {

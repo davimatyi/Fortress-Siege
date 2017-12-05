@@ -1,6 +1,8 @@
 package com.mygdx.game.Actor;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.mygdx.game.Masodik_palya.MasodikStage;
+import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.Szamitasok.Ballistics;
 import com.mygdx.game.Stage.ControlStage;
 import com.mygdx.game.Stage.GameStage;
@@ -20,6 +22,7 @@ public class KatonaActor extends OneSpriteAnimatedActor {
 
     Ballistics ballistics;
     GameStage gameStage;
+    MasodikStage mStage;
     ControlStage controlStage;
     Lagrange lagrange;
     double v=2;
@@ -34,7 +37,7 @@ public class KatonaActor extends OneSpriteAnimatedActor {
     }
 
 
-    public KatonaActor(float x, float y, Lagrange lagrange, double v, byte level, GameStage gameStage) {
+    public KatonaActor(float x, float y, Lagrange lagrange, double v, byte level, MyStage myStage) {
         super(Assets.manager.get(Assets.WALK_TEXTURE));
         setFps(16);
         this.v = v;
@@ -44,6 +47,12 @@ public class KatonaActor extends OneSpriteAnimatedActor {
         this.gameStage = gameStage;
         setSize(0.5f, 0.5f);
         setPosition(x - getWidth() / 2, y - getHeight() / 2);
+
+        if(myStage instanceof GameStage){
+            gameStage = (GameStage) myStage;
+        }else{
+            mStage = (MasodikStage) myStage;
+        }
         //this.gameStage = gameStage;
         /*final Label lblMagassag = new Label("", gameStage.getLabelStyle()){
 
@@ -110,10 +119,20 @@ public class KatonaActor extends OneSpriteAnimatedActor {
         Assets.manager.get(Assets.HALAL_SOUND).play(-100f);
         setFps(0);
         dead=true;
-        gameStage.addPoint(level*100);
-        gameStage.addCoin(level);
-        int point = gameStage.getPoint();
-        int coin = gameStage.getCoin();
+        int point;
+        int coin;
+        if(gameStage != null){
+            gameStage.addPoint(level*100);
+            gameStage.addCoin(level);
+            coin = gameStage.getCoin();
+            point = gameStage.getPoint();
+        }
+        else{
+            mStage.addPoint(level*100);
+            mStage.addCoin(level);
+            coin = mStage.getCoin();
+            point = mStage.getPoint();
+        }
         System.out.println(point);
         System.out.println(coin);
         ControlStage.lblCoin.setText(coin+" arany");

@@ -1,4 +1,5 @@
-package com.mygdx.game.Stage;
+package com.mygdx.game.Masodik_palya;
+
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -6,21 +7,32 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.mygdx.game.Actor.*;
+import com.mygdx.game.Actor.CloudActor;
+import com.mygdx.game.Actor.HPActorFekete;
+import com.mygdx.game.Actor.HPActorPiros;
+import com.mygdx.game.Actor.KatonaActor;
+import com.mygdx.game.Actor.LovedekActor;
+import com.mygdx.game.Actor.RavenActor;
+import com.mygdx.game.Actor.SatorActor;
+import com.mygdx.game.Actor.SatorTopActor;
+import com.mygdx.game.Actor.VarActor;
+import com.mygdx.game.Actor.VarTopActor;
 import com.mygdx.game.FortressSiege;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
-import com.mygdx.game.Szamitasok.*;
+import com.mygdx.game.Stage.ControlStage;
+import com.mygdx.game.Szamitasok.Ballistics;
+import com.mygdx.game.Szamitasok.Lagrange;
 
 import java.util.Random;
 
 /**
- * Created by tanulo on 2017. 10. 25..
+ * Created by tanulo on 2017. 12. 04..
  */
 
-public class GameStage extends MyStage {
+public class MasodikStage extends MyStage {
 
     Ballistics ballistics;
     Lagrange lagrange;
@@ -30,7 +42,7 @@ public class GameStage extends MyStage {
     }
 
     ControlStage controlStage;
-    KatonaActor katonaActor;
+    MasodikKatonaActor masodikKatonaActor;
     OneSpriteStaticActor bg;
     VarActor varActor;
     VarTopActor varTopActor;
@@ -41,7 +53,6 @@ public class GameStage extends MyStage {
     HPActorPiros hpActorPiros;
     CloudActor cloudActor;
     MyActor actor;
-    CannonActor cannonActor;
     float offsetX = 0.23f;
     float offsetY = 5.8f;
     public float timeScale = 1;
@@ -77,7 +88,7 @@ public class GameStage extends MyStage {
         return offsetY;
     }
 
-    public GameStage getGameStage() {
+    public MasodikStage getMasodikStage() {
         return this;
     }
 
@@ -114,7 +125,7 @@ public class GameStage extends MyStage {
                     level++;
                     idoKatona = System.currentTimeMillis();
                 }
-                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+4, level, getGameStage()));
+                addActor(new MasodikKatonaActor(0,0, lagrange, new Random().nextDouble()+4, level, getMasodikStage()));
                 break;
             }
             case 2: {
@@ -122,7 +133,7 @@ public class GameStage extends MyStage {
                     level++;
                     idoKatona = System.currentTimeMillis();
                 }
-                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+3, level, getGameStage()));
+                addActor(new MasodikKatonaActor(0,0, lagrange, new Random().nextDouble()+3, level, getMasodikStage()));
                 break;
             }
             case 3: {
@@ -130,17 +141,17 @@ public class GameStage extends MyStage {
                     level++;
                     idoKatona = System.currentTimeMillis();
                 }
-                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+2, level, getGameStage()));
+                addActor(new MasodikKatonaActor(0,0, lagrange, new Random().nextDouble()+2, level, getMasodikStage()));
                 break;
             }
             case 4: {
-                addActor(new KatonaActor(0, 0, lagrange, new Random().nextDouble()+1, level, getGameStage()));
+                addActor(new MasodikKatonaActor(0, 0, lagrange, new Random().nextDouble()+1, level, getMasodikStage()));
             }
         }
-        }
+    }
 
 
-    public GameStage(final Batch batch, final FortressSiege game) {
+    public MasodikStage(final Batch batch, final FortressSiege game) {
         super(new ExtendViewport(10.24f,7.68f), batch, game);
         bg = new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND_TEXTURE));
         bg.setSize(((ExtendViewport)getViewport()).getMinWorldWidth(), ((ExtendViewport)getViewport()).getMinWorldHeight());
@@ -201,11 +212,10 @@ public class GameStage extends MyStage {
         addActor(satorActor = new SatorActor(Assets.manager.get(Assets.TENT_TEXTURE)));
         addActor(satorTopActor = new SatorTopActor(Assets.manager.get(Assets.TENT_TOP_TEXTURE)));
         addActor(varTopActor = new VarTopActor(Assets.manager.get(Assets.CASTLE_TOP_TEXTURE)));
-        addActor(varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE),getGameStage(),varTopActor));
-        addActor(ravenActor=new RavenActor(10, 5, lagrange, 3, level, getGameStage(), varActor));
+        addActor(varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE),getMasodikStage(),varTopActor));
+        addActor(ravenActor=new RavenActor(10, 5, lagrange, 3, level, getMasodikStage(), varActor));
         addActor(hpActorFekete =new HPActorFekete(Assets.manager.get(Assets.HP_FEKETE_TEXTURE), varActor));
         addActor(hpActorPiros=new HPActorPiros(Assets.manager.get(Assets.HP_PIROS_TEXTURE)));
-        addActor(cannonActor=new CannonActor(Assets.manager.get(Assets.CANNON_TEXTURE), 0.82f,4.75f));
 
         addListener(new ClickListener(){
             @Override
@@ -214,23 +224,23 @@ public class GameStage extends MyStage {
 
                 KatonaActor katonaActor;
 
-                    try {
-                        //InfoLabelActor infoLabelActor;
-                        //controlStage.addActor(infoLabelActor = new InfoLabelActor("Távolság: " + x + " m\n Magasság: "+y+" m \n Szög (1): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[0])+"°°\n Szög (2): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[1])+"°\n Sebesség: " + round(v0) +" m/s", x*100+50, y*100-100, game.getLabelStyle()));
-                        ido1 = System.currentTimeMillis();
-                        System.out.println(ido1);
-                        if (ido1 - ido2 > 2000) {
-                            addActor(new LovedekActor(new com.mygdx.game.Szamitasok.Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, getGameStage(), varActor, satorActor, ravenActor, lagrange));
-                            ido2=ido1;
-                        }
-                        //addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 1, getGameStage()));
+                try {
+                    //InfoLabelActor infoLabelActor;
+                    //controlStage.addActor(infoLabelActor = new InfoLabelActor("Távolság: " + x + " m\n Magasság: "+y+" m \n Szög (1): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[0])+"°°\n Szög (2): "+round(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0).getAnglesByDeg()[1])+"°\n Sebesség: " + round(v0) +" m/s", x*100+50, y*100-100, game.getLabelStyle()));
+                    ido1 = System.currentTimeMillis();
+                    System.out.println(ido1);
+                    if (ido1 - ido2 > 2000) {
+                        addActor(new LovedekActor(new com.mygdx.game.Szamitasok.Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, getGameStage(), varActor, satorActor, ravenActor, lagrange));
+                        ido2=ido1;
+                    }
+                    //addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 1, getGameStage()));
 
-                    }
-                    catch (Exception e)
-                    {
-                        System.out.println(e.toString());
-                        katonaActor = null;
-                    }
+                }
+                catch (Exception e)
+                {
+                    System.out.println(e.toString());
+                    katonaActor = null;
+                }
 
 
             }
@@ -277,4 +287,5 @@ public class GameStage extends MyStage {
     @Override
     public void init() {
     }
+
 }
