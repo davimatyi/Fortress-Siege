@@ -8,6 +8,7 @@ import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.InfoLabelActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
+import com.mygdx.game.Vege.VegeScreen;
 
 /**
  * Created by Majzer on 27/10/2017.
@@ -62,6 +63,9 @@ public class VarActor extends OneSpriteStaticActor {
             setTexture(var3);
             varTopActor.setTexture(var3Top);
             //System.exit(0);
+            if(((GameStage) getStage()).getPalya()==1) {
+                ((MyStage)getStage()).game.setScreen(new VegeScreen(((GameStage) getStage()).game, false), false);
+            }
             ((MyStage)getStage()).game.setScreen(new MainScreen(((GameStage) getStage()).game, ((GameStage) getStage()).getPalya()+1), false);
         } else if(life<334){
             if(hang334){
