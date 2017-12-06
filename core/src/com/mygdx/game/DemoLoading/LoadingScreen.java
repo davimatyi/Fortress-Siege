@@ -27,7 +27,7 @@ public class LoadingScreen extends MyScreen {
 		super.render(delta);
 
 		spriteBatch.begin();
-		bitmapFont.draw(spriteBatch,"Betöltés: " + Assets.manager.getLoadedAssets() + "/" + (Assets.manager.getQueuedAssets()+ Assets.manager.getLoadedAssets()) + " (" + ((int)(Assets.manager.getProgress()*100f)) + "%)", Gdx.graphics.getWidth()/2,Gdx.graphics.getHeight()/2);
+		bitmapFont.draw(spriteBatch,"Loading: " + Assets.manager.getLoadedAssets() + "/" + (Assets.manager.getQueuedAssets()+ Assets.manager.getLoadedAssets()) + " (" + ((int)(Assets.manager.getProgress()*100f)) + "%)", Gdx.graphics.getWidth()/2,Gdx.graphics.getHeight()/2);
 		spriteBatch.end();
 		if (Assets.manager.update()) {
 			Assets.afterLoaded();
