@@ -50,7 +50,7 @@ public class GameStage extends MyStage {
     public float timeScale = 1;
     long ido1, ido2=0, idoKatona=System.currentTimeMillis();
     byte level = 1;
-    static int point=0, coin=0;
+    int point=0, coin=0;
     public Label lblCoin, lblPoint;
     TextButton btnHeal;
 
@@ -68,15 +68,15 @@ public class GameStage extends MyStage {
         return btnHeal;
     }
 
-    public static int getPoint() {
+    public int getPoint() {
         return point;
     }
 
     public void addPoint(int point){this.point+=point;}
 
-    public static int getCoin() {return coin;}
+    public int getCoin() {return coin;}
 
-    public static int removeCoin(int coinminus){
+    public int removeCoin(int coinminus){
         coin-=coinminus;
         System.out.println(coin);
         return coin;
@@ -102,6 +102,10 @@ public class GameStage extends MyStage {
 
     public void setV0(float v0) {
         this.v0 = v0;
+    }
+
+    public void nezoke(){
+        controlStage.nezoke();
     }
 
 
@@ -329,6 +333,18 @@ public class GameStage extends MyStage {
         style.font = Assets.manager.get(Assets.ARIAL_30_FONT);
         style.fontColor = Color.WHITE;
         return style;
+    }
+
+    public void setLblCoin(String s){
+        controlStage.setLblCoin(coin+" arany");
+    }
+
+    public void setLblPoint(String s){
+        controlStage.setLblPoint(point+" point");
+    }
+
+    public double getLife(){
+        return varActor.getLife();
     }
 
     @Override

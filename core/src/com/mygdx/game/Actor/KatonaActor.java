@@ -117,10 +117,9 @@ public class KatonaActor extends OneSpriteAnimatedActor {
             gameStage.addPoint(level*100);
             gameStage.addCoin(level);
             coin = gameStage.getCoin();
-        controlStage.setLblCoin(coin+" arany");
-        controlStage.setLblPoint(point+" pont");
+        gameStage.setLblCoin(coin+" gold");
+        gameStage.setLblPoint(point+" point");
         if(point>=10000){
-            System.out.println("Nyertél");
             System.exit(0);
         }
     }

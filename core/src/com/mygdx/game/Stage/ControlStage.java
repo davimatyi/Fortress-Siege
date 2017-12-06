@@ -23,9 +23,9 @@ public class ControlStage extends MyStage {
 
     GameStage gameStage;
     float slider_ertek;
-    Label lblCoin, lblPoint;
+    Label lblCoin, lblPoint, lblError;
     TextButton btnHeal;
-
+    long ido;
 
     public GameStage getGameStage() {
         return gameStage;
@@ -94,31 +94,41 @@ public class ControlStage extends MyStage {
         return style;
     }
 
-
-
+    public void nezoke(){
+        if(System.currentTimeMillis()-ido>2500){
+            lblError.setText("");
+        }
+    }
 
     @Override
     public void init() {
 
-        lblCoin = new Label("0 arany", getLabelStyle());
+        lblCoin = new Label("0 gold", getLabelStyle());
 //        lblCoin.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 55);
 //        lblCoin.setTouchable(Touchable.disabled);
         addActor(lblCoin);
-        lblPoint = new Label("0 pont", getLabelStyle());
+        lblPoint = new Label("0 point", getLabelStyle());
 //        lblPoint.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 105);
 //        lblPoint.setTouchable(Touchable.disabled);
         addActor(lblPoint);
+        lblError = new Label("", getLabelStyle());
+        addActor(lblError);
 
         btnHeal = new MyButton("", game.btnHeal());
         btnHeal.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                if (GameStage.getCoin() >= 25) {
-                    //Todo: Áttenni a Gamestage-be
+                if (gameStage.getCoin() >= 25 && gameStage.getLife()<=975.0) {
                     gameStage.addHp(50);
                     gameStage.removeCoin(25);
-                    lblCoin.setText(GameStage.getCoin()+" arany");
+                    lblCoin.setText(gameStage.getCoin()+" gold");
+                } else if(gameStage.getLife()>975.0) {
+                    lblError.setText("Too much health to restore!");
+                    ido=System.currentTimeMillis();
+                } else if(gameStage.getCoin()<25){
+                    lblError.setText("Not enough gold! 25 gold needed, to restore health!");
+                    ido=System.currentTimeMillis();
                 }
 
             }
@@ -132,12 +142,12 @@ public class ControlStage extends MyStage {
     @Override
     protected void resized() {
         super.resized();
-        lblCoin.setPosition(getViewport().getWorldWidth() - 1.50f, getViewport().getWorldHeight() - 0.55f);
+        lblCoin.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 55);
         lblCoin.setTouchable(Touchable.disabled);
-        lblPoint.setPosition(getViewport().getWorldWidth() - 1.50f, getViewport().getWorldHeight() - 1.05f);
+        lblPoint.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 105);
         lblPoint.setTouchable(Touchable.disabled);
-        btnHeal.setPosition(0.10f,0.10f);
-        btnHeal.setSize(1,1);
-
-    }
+        lblError.setPosition(50, 13);
+        btnHeal.setPosition(1,1);
+        //btnHeal.setSize(1,1);
+     }
 }
