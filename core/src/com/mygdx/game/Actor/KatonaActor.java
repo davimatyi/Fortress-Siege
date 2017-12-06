@@ -123,7 +123,7 @@ public class KatonaActor extends OneSpriteAnimatedActor {
         gameStage.setLblPoint(point+" point");
         coin = gameStage.getCoin();
         point = gameStage.getPoint();
-        if(point>=10){
+        if(point>=10000){
             //System.exit(0);
             if(gameStage.getPalya() == 1) {
                 ((MyStage)getStage()).game.setScreen(new VegeScreen(((GameStage) getStage()).game, true), false);
