@@ -1,6 +1,7 @@
 package com.mygdx.game.Actor;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.mygdx.game.MainScreen;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.Szamitasok.Ballistics;
 import com.mygdx.game.Stage.ControlStage;
@@ -10,6 +11,7 @@ import com.mygdx.game.InfoLabelActor;
 import com.mygdx.game.Szamitasok.Lagrange;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteAnimatedActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.ShapeType;
+import com.mygdx.game.Vege.VegeScreen;
 
 /**
  * Created by tanulo on 2017. 10. 26..
@@ -119,8 +121,16 @@ public class KatonaActor extends OneSpriteAnimatedActor {
             coin = gameStage.getCoin();
         gameStage.setLblCoin(coin+" gold");
         gameStage.setLblPoint(point+" point");
-        if(point>=10000){
-            System.exit(0);
+        coin = gameStage.getCoin();
+        point = gameStage.getPoint();
+        if(point>=10){
+            //System.exit(0);
+            if(gameStage.getPalya() == 1) {
+                ((MyStage)getStage()).game.setScreen(new VegeScreen(((GameStage) getStage()).game, true), false);
+            }
+            System.out.println(point);
+            System.out.println("9999999999999999999999999999999999999999999999");
+            ((MyStage)getStage()).game.setScreen(new MainScreen(((GameStage) getStage()).game, ((GameStage) getStage()).getPalya()+1), false);
         }
     }
 

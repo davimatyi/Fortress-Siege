@@ -66,7 +66,7 @@ public class VarActor extends OneSpriteStaticActor {
             if(((GameStage) getStage()).getPalya()==1) {
                 ((MyStage)getStage()).game.setScreen(new VegeScreen(((GameStage) getStage()).game, false), false);
             }
-            ((MyStage)getStage()).game.setScreen(new MainScreen(((GameStage) getStage()).game, ((GameStage) getStage()).getPalya()+1), false);
+            //((MyStage)getStage()).game.setScreen(new MainScreen(((GameStage) getStage()).game, ((GameStage) getStage()).getPalya()+1), false);
         } else if(life<334){
             if(hang334){
                 sebesules.play();
