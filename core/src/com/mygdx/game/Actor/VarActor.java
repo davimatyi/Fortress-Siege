@@ -58,7 +58,6 @@ public class VarActor extends OneSpriteStaticActor {
         //System.out.println("life = " + life);
 
         if(life<1){
-            System.out.println("Vesztettél");
             osszeomlas.play();
             setTexture(var3);
             varTopActor.setTexture(var3Top);
@@ -74,7 +73,6 @@ public class VarActor extends OneSpriteStaticActor {
         } else if(life<667){
             if(hang667){
                 sebesules.play();
-                System.out.println("dd");
                 hang667=false;
             }
             hang334=true;
@@ -104,6 +102,7 @@ public class VarActor extends OneSpriteStaticActor {
     public void act(float delta){
         ido1Katona = System.currentTimeMillis();
         ido1Raven = System.currentTimeMillis();
+        gameStage.nezoke();
         //System.out.println("ido1 = " + ido1);
         //System.out.println("ido2Katona = " + ido2Katona);
         //System.out.println("(ido1-ido2Katona) = " + (ido1-ido2Katona));
