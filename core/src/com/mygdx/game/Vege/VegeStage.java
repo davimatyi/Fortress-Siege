@@ -20,9 +20,11 @@ import com.mygdx.game.UI.MyButton;
 public class VegeStage extends MyStage {
 
     public static Label lbl;
+    boolean nyert;
 
     public VegeStage(Viewport viewport, Batch batch, FortressSiege game, boolean nyert) {
         super(viewport, batch, game);
+        this.nyert = nyert;
     }
 
     public Label.LabelStyle getLabelStyle() {
@@ -36,7 +38,7 @@ public class VegeStage extends MyStage {
     @Override
     public void init() {
         //lbl = new Label("Köszönet szüleinknek akik nélkül ez nem jöhetett volna létre", getLabelStyle());
-        lbl = new Label("Köszönjük a támogatást és a segítséget a tanárainknak és a szüleinknek,\n akik nélkűl nem készíthettük volna el.\n\n\n Thank you for your support and help for our teachers and parents \nwho we could not have done without them.", getLabelStyle());
+        lbl = new Label(nyert+"", getLabelStyle());
         lbl.setPosition(getViewport().getWorldHeight()/2-lbl.getHeight(),getViewport().getWorldWidth()/2-lbl.getWidth()/2);
         addActor(lbl);
     }

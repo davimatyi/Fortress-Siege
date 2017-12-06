@@ -3,6 +3,7 @@ package com.mygdx.game.Actor;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.mygdx.game.MainScreen;
+import com.mygdx.game.Menu.MainMenuScreen;
 import com.mygdx.game.Stage.GameStage;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.InfoLabelActor;
@@ -63,8 +64,9 @@ public class VarActor extends OneSpriteStaticActor {
             setTexture(var3);
             varTopActor.setTexture(var3Top);
             //System.exit(0);
-            if(((GameStage) getStage()).getPalya()==1) {
-                ((MyStage)getStage()).game.setScreen(new VegeScreen(((GameStage) getStage()).game, false), false);
+            if(((GameStage) getStage()).getPalya()==2) {
+                ((MyStage)getStage()).game.setScreen(new VegeScreen(((MyStage)getStage()).game, false));
+                gameStage.clear();
             }
             //((MyStage)getStage()).game.setScreen(new MainScreen(((GameStage) getStage()).game, ((GameStage) getStage()).getPalya()+1), false);
         } else if(life<334){

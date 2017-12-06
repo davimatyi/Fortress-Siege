@@ -123,14 +123,19 @@ public class KatonaActor extends OneSpriteAnimatedActor {
         gameStage.setLblPoint(point+" point");
         coin = gameStage.getCoin();
         point = gameStage.getPoint();
-        if(point>=10000){
+        if(point>=10){
             //System.exit(0);
-            if(gameStage.getPalya() == 1) {
-                ((MyStage)getStage()).game.setScreen(new VegeScreen(((GameStage) getStage()).game, true), false);
+            if(((GameStage) getStage()).getPalya()==2) {
+                System.out.println("ciosghishgioxucghsrecgiehsithecrevzabvtbt");
+                ((MyStage)getStage()).game.setScreen(new VegeScreen(((MyStage)getStage()).game, true));
+                gameStage.clear();
+            } else {
+                System.out.println(point);
+                System.out.println("9999999999999999999999999999999999999999999999");
+                if(gameStage.getPalya()!=3)
+                    ((MyStage)getStage()).game.setScreen(new MainScreen(((GameStage) getStage()).game, ((GameStage) getStage()).getPalya()+1), false);
             }
-            System.out.println(point);
-            System.out.println("9999999999999999999999999999999999999999999999");
-            ((MyStage)getStage()).game.setScreen(new MainScreen(((GameStage) getStage()).game, ((GameStage) getStage()).getPalya()+1), false);
+
         }
     }
 
@@ -162,7 +167,11 @@ public class KatonaActor extends OneSpriteAnimatedActor {
         }
         if(mozoghat){
             setX(10.24f-elapsedTime/(float)v - getWidth()/2);
+
+            if(gameStage.getPalya()!=3)
             setY(lagrange.getY(10.24f-elapsedTime/(float)v) - 0.03f);
+
+
         }
 
         if(dead){

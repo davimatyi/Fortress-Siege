@@ -16,6 +16,7 @@ import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import com.mygdx.game.Szamitasok.*;
 import com.mygdx.game.UI.MyButton;
+import com.mygdx.game.Vege.VegeScreen;
 
 import java.util.Random;
 
@@ -53,6 +54,11 @@ public class GameStage extends MyStage {
     int point=0, coin=0;
     public Label lblCoin, lblPoint;
     TextButton btnHeal;
+    boolean nyert;
+
+    public void setNyert(boolean nyert) {
+        this.nyert = nyert;
+    }
 
     public int getPalya() {
         return palya;
@@ -258,13 +264,22 @@ public class GameStage extends MyStage {
                 lagrange.addpoint(2.5, 1.8343475);
                 break;
 
+            case 3:
+                game.setScreen(new VegeScreen(game, nyert), false);
+                this.dispose();
+                System.out.println("zaeuwrwzfw");
         }
 
 
 
 
-        bg.setSize(((ExtendViewport)getViewport()).getMinWorldWidth(), ((ExtendViewport)getViewport()).getMinWorldHeight());
-        addActor(bg);
+        if(palya!=3){
+            bg.setSize(((ExtendViewport)getViewport()).getMinWorldWidth(), ((ExtendViewport)getViewport()).getMinWorldHeight());
+            addActor(bg);
+
+        }
+
+
         addActor(new CloudActor(0.26f,((ExtendViewport) getViewport()).getMinWorldHeight()-1f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.004f));
         addActor(new CloudActor(7.42f,((ExtendViewport) getViewport()).getMinWorldHeight()-2f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.006f));
         addActor(new CloudActor(4.54f,((ExtendViewport) getViewport()).getMinWorldHeight()-3f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.002f));

@@ -23,7 +23,7 @@ public class MainScreen extends MyScreen {
 
     public MainScreen(FortressSiege game, int palya) {
         super(game);
-        setBackGroundColor(0.5f, 0.2f,0f);
+        setBackGroundColor(0, 0,0);
         gameStage = new GameStage(spriteBatch, game, palya);
         controlStage = new com.mygdx.game.Stage.ControlStage(spriteBatch, game, gameStage);
         sound.setVolume(0.4f);
