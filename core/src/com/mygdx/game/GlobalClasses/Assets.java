@@ -139,6 +139,10 @@ public class Assets {
 	public static final AssetDescriptor<TextureAtlas> WALK_TEXTURE
 			= new AssetDescriptor<TextureAtlas>("animacio/walk_02.atlas", TextureAtlas.class);
 
+	public static final AssetDescriptor<TextureAtlas> PUNCH_TEXTURE
+			= new AssetDescriptor<TextureAtlas>("animacio/punch.atlas", TextureAtlas.class);
+
+
 	public static final AssetDescriptor<TextureAtlas> RAVEN_TEXTURE
 			= new AssetDescriptor<TextureAtlas>("animacio/hollo.atlas", TextureAtlas.class);
 
@@ -208,6 +212,7 @@ public class Assets {
 
 		//Animált texturák atlaszai
 		manager.load(WALK_TEXTURE);
+		manager.load(PUNCH_TEXTURE);
 		manager.load(RAVEN_TEXTURE);
 
 		//Hangok

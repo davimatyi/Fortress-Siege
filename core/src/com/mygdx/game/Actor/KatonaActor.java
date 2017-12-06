@@ -1,5 +1,6 @@
 package com.mygdx.game.Actor;
 
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.mygdx.game.MainScreen;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
@@ -155,8 +156,10 @@ public class KatonaActor extends OneSpriteAnimatedActor {
         for (Actor a :getStage().getActors()) {
             if (a instanceof VarActor){
                 if(((VarActor)a).overlaps(ShapeType.Rectangle, this)){
+                    setTextureAtlas(Assets.manager.get(Assets.PUNCH_TEXTURE));
                     mozoghat=false;
-                    setFps(0);
+                    // TODO: 2017. 12. 06. Játszani az ütés fps-jével hogy eltérőbben üssenek. 
+                    setFps(16);
                     //System.out.println(getX());
                     if(getX()>2.46){
                         setX(getX()-0.01f);
