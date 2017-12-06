@@ -33,13 +33,13 @@ public class VarActor extends OneSpriteStaticActor {
     MyStage myStage;
 
 
-    public VarActor(Texture texture, MyStage myStage, VarTopActor varTopActor) {
+    public VarActor(MyStage myStage, VarTopActor varTopActor) {
 
 
-        super(texture);
+        super(Assets.manager.get(Assets.CASTLE_TEXTURE));
         setSize(2.5f, 2.3f);
         setPosition(-0.2f, 2f);
-        this.gameStage = gameStage;
+        this.gameStage = (GameStage) myStage;
         this.varTopActor = varTopActor;
     }
 
@@ -107,21 +107,12 @@ public class VarActor extends OneSpriteStaticActor {
         //System.out.println("ido1 = " + ido1);
         //System.out.println("ido2Katona = " + ido2Katona);
         //System.out.println("(ido1-ido2Katona) = " + (ido1-ido2Katona));
-        if(gameStage != null) {
             if (ido1Katona - ido2Katona > 5000) {
                 //System.out.println("Kész");
                 gameStage.addKatona();
                 ido2Katona = ido1Katona;
             }
             gameStage.addRaven(deadTime, canSpawnNewRaven);
-        }else{
-            if (ido1Katona - ido2Katona > 5000) {
-                //System.out.println("Kész");
-                //mStage.addKatona();
-                ido2Katona = ido1Katona;
-            }
-            //mStage.addRaven(deadTime, canSpawnNewRaven);
-        }
             //System.out.println(deadTime + " " +canSpawnNewRaven);
         decLife(0);
     }

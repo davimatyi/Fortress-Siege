@@ -42,7 +42,7 @@ public class KatonaActor extends OneSpriteAnimatedActor {
         //this.info = info;
         this.lagrange = lagrange;
         this.level=level;
-        this.gameStage = gameStage;
+        this.gameStage = (GameStage) myStage;
         setSize(0.5f, 0.5f);
         setPosition(x - getWidth() / 2, y - getHeight() / 2);
 
@@ -114,14 +114,11 @@ public class KatonaActor extends OneSpriteAnimatedActor {
         dead=true;
         int point=0;
         int coin=0;
-        if(gameStage != null){
             gameStage.addPoint(level*100);
             gameStage.addCoin(level);
             coin = gameStage.getCoin();
-            point = gameStage.getPoint();
-        }
-        ControlStage.lblCoin.setText(coin+" arany");
-        ControlStage.lblPoint.setText(point+" pont");
+        controlStage.setLblCoin(coin+" arany");
+        controlStage.setLblPoint(point+" pont");
         if(point>=10000){
             System.out.println("Nyertél");
             System.exit(0);

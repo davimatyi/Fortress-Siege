@@ -23,7 +23,7 @@ public class ControlStage extends MyStage {
 
     GameStage gameStage;
     float slider_ertek;
-    public static  Label lblCoin, lblPoint;
+    Label lblCoin, lblPoint;
     TextButton btnHeal;
 
 
@@ -31,12 +31,18 @@ public class ControlStage extends MyStage {
         return gameStage;
     }
 
-    public TextButton getBtnHeal() {
-        return btnHeal;
-    }
+
 
     public float getSlider() {
         return slider_ertek;
+    }
+
+    public void setLblCoin(String s) {
+        lblCoin.setText(s);
+    }
+
+    public void setLblPoint(String s) {
+        lblPoint.setText(s);
     }
 
     public ControlStage(Batch batch, FortressSiege game, final GameStage gameStage) {
@@ -102,23 +108,23 @@ public class ControlStage extends MyStage {
 //        lblPoint.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 105);
 //        lblPoint.setTouchable(Touchable.disabled);
         addActor(lblPoint);
+
         btnHeal = new MyButton("", game.btnHeal());
         btnHeal.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                //Todo: Áttenni a Gamestage-be
-                //VarActor.addHp(50);
                 if (GameStage.getCoin() >= 25) {
                     //Todo: Áttenni a Gamestage-be
-                    //VarActor.addHp(50);
-                    GameStage.removeCoin(25);
+                    gameStage.addHp(50);
+                    gameStage.removeCoin(25);
                     lblCoin.setText(GameStage.getCoin()+" arany");
                 }
 
             }
         });
         addActor(btnHeal);
+
 //        btnHeal.setPosition(10,10);
         resized();
     }
@@ -126,11 +132,12 @@ public class ControlStage extends MyStage {
     @Override
     protected void resized() {
         super.resized();
-        lblCoin.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 55);
+        lblCoin.setPosition(getViewport().getWorldWidth() - 1.50f, getViewport().getWorldHeight() - 0.55f);
         lblCoin.setTouchable(Touchable.disabled);
-        lblPoint.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 105);
+        lblPoint.setPosition(getViewport().getWorldWidth() - 1.50f, getViewport().getWorldHeight() - 1.05f);
         lblPoint.setTouchable(Touchable.disabled);
-        btnHeal.setPosition(10,10);
+        btnHeal.setPosition(0.10f,0.10f);
+        btnHeal.setSize(1,1);
 
     }
 }

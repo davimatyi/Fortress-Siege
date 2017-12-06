@@ -3,7 +3,9 @@ package com.mygdx.game.Stage;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.mygdx.game.Actor.*;
@@ -13,6 +15,7 @@ import com.mygdx.game.MyBaseClasses.Scene2D.MyActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import com.mygdx.game.Szamitasok.*;
+import com.mygdx.game.UI.MyButton;
 
 import java.util.Random;
 
@@ -48,12 +51,22 @@ public class GameStage extends MyStage {
     long ido1, ido2=0, idoKatona=System.currentTimeMillis();
     byte level = 1;
     static int point=0, coin=0;
+    public Label lblCoin, lblPoint;
+    TextButton btnHeal;
 
     public int getPalya() {
         return palya;
     }
 
     private int palya;
+
+    public void addHp(int a){
+        varActor.addHp(a);
+    }
+
+    public TextButton getBtnHeal() {
+        return btnHeal;
+    }
 
     public static int getPoint() {
         return point;
@@ -155,6 +168,7 @@ public class GameStage extends MyStage {
             case 1:
                 bg = new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND_TEXTURE));
 
+
                 satorX = 8.7f;
                 satorY = 2.5f;
 
@@ -197,7 +211,7 @@ public class GameStage extends MyStage {
                 satorX = 8.7f;
                 satorY = 2.5f;
 
-                // TODO: Normális lagrange
+                /*
                 lagrange = new Lagrange();
                 lagrange.addpoint(0.059999943, 1.91);
                 lagrange.addpoint(0.26000023, 1.9899999);
@@ -230,6 +244,14 @@ public class GameStage extends MyStage {
                 lagrange.addpoint(9.379999, 2.6799998);
                 lagrange.addpoint(9.94, 2.6699996);
                 lagrange.addpoint(10.16, 2.6599998);
+                */
+
+                lagrange = new Lagrange();
+                lagrange.addpoint(10.219999, 1.5542562);
+
+                lagrange.addpoint(7.0299997, 0.9940741);
+
+                lagrange.addpoint(2.5, 1.8343475);
                 break;
 
         }
@@ -246,10 +268,10 @@ public class GameStage extends MyStage {
 
         addActor(satorActor = new SatorActor(satorX, satorY));
         addActor(satorTopActor = new SatorTopActor(satorX, satorY+1));
-        addActor(varTopActor = new VarTopActor(Assets.manager.get(Assets.CASTLE_TOP_TEXTURE)));
-        addActor(varActor = new VarActor(Assets.manager.get(Assets.CASTLE_TEXTURE),getGameStage(),varTopActor));
+        addActor(varTopActor = new VarTopActor(varActor));
+        addActor(varActor = new VarActor(getGameStage(),varTopActor));
         addActor(ravenActor=new RavenActor(10, 5, lagrange, 3, level, getGameStage(), varActor));
-        addActor(hpActorFekete =new HPActorFekete(Assets.manager.get(Assets.HP_FEKETE_TEXTURE), varActor));
+        addActor(hpActorFekete =new HPActorFekete(varActor));
         addActor(hpActorPiros=new HPActorPiros(varActor));
 
         addListener(new ClickListener(){
@@ -317,9 +339,11 @@ public class GameStage extends MyStage {
         //setCameraMoveToXY(v.getWorldWidth()/2/f,v.getWorldHeight()/2,1/f,100000,100000);
         //setCameraZoomXY(v.getWorldWidth()/2/f,v.getWorldHeight()/2,1/f);
         fitWorldToWidth();
+
     }
 
     @Override
     public void init() {
+
     }
 }
