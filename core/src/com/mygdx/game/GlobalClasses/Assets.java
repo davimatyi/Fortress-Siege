@@ -165,6 +165,9 @@ public class Assets {
 	public static final AssetDescriptor<Sound> SEBESULES_SOUND
 			= new AssetDescriptor<Sound>("hangok/sebesules.wav", Sound.class);
 
+	public static final AssetDescriptor<Sound> TROMBITA_SOUND
+			= new AssetDescriptor<Sound>("hangok/trumpet.wav", Sound.class);
+
 
 	public static void prepare() {
 		manager = new AssetManager();
@@ -215,6 +218,7 @@ public class Assets {
 		manager.load(HALAL_SOUND);
 		manager.load(OSSZEOMLAS_SOUND);
 		manager.load(SEBESULES_SOUND);
+		manager.load(TROMBITA_SOUND);
 
         //Gomb texturák
 		manager.load(BLUE_TEXTURE);
