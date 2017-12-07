@@ -41,6 +41,9 @@ public class VarActor extends OneSpriteStaticActor {
 
         super(Assets.manager.get(Assets.CASTLE_TEXTURE));
         setSize(2.5f, 2.3f);
+        if(((GameStage)myStage).getPalya()==2)
+            setPosition(-0.2f, 1.7f);
+        else
         setPosition(-0.2f, 2f);
         this.gameStage = (GameStage) myStage;
         this.varTopActor = varTopActor;
