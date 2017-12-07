@@ -23,8 +23,10 @@ public class VegeScreen extends MyScreen {
     @Override
     public void render(float delta) {
         super.render(delta);
+        System.out.println(System.currentTimeMillis()-ido);
         if(System.currentTimeMillis()-ido>2500){
-           game.dispose();
+            game.setScreen(new MainMenuScreen(game));
+           dispose();
         }
         vegeStage.act(delta);
         vegeStage.draw();
