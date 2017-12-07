@@ -15,11 +15,9 @@ public class VegeScreen extends MyScreen {
 
     protected VegeStage vegeStage;
     long ido = System.currentTimeMillis();
-    boolean nyert;
 
-    public VegeScreen(FortressSiege game, boolean nyert) {
+    public VegeScreen(FortressSiege game) {
         super(game);
-        this.nyert = nyert;
     }
 
     @Override
@@ -47,7 +45,7 @@ public class VegeScreen extends MyScreen {
 
     @Override
     public void init() {
-        vegeStage = new VegeStage(new ExtendViewport(1280,720,new OrthographicCamera(1280,720)), spriteBatch, game, nyert);
+        vegeStage = new VegeStage(new ExtendViewport(1280,720,new OrthographicCamera(1280,720)), spriteBatch, game);
         Gdx.input.setInputProcessor(vegeStage);
         //rgb(0, 184, 230)
         //rgb(66, 98, 244)

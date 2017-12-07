@@ -263,11 +263,6 @@ public class GameStage extends MyStage {
 
                 lagrange.addpoint(2.5, 1.8343475);
                 break;
-
-            case 3:
-                game.setScreen(new VegeScreen(game, nyert), false);
-                this.dispose();
-                System.out.println("zaeuwrwzfw");
         }
 
 
