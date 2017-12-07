@@ -115,7 +115,7 @@ public class GameStage extends MyStage {
     }
 
 
-    float v0 = 10;
+    float v0 = 8;
     int i = 0;
 
     public float round(float f){

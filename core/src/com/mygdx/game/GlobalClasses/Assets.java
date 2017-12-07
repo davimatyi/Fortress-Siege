@@ -169,11 +169,9 @@ public class Assets {
 	public static final AssetDescriptor<Sound> SEBESULES_SOUND
 			= new AssetDescriptor<Sound>("hangok/sebesules.wav", Sound.class);
 
-	public static final AssetDescriptor<Sound> TROMBITA_1_SOUND
-			= new AssetDescriptor<Sound>("hangok/Trumpet_1.wav", Sound.class);
 
 	public static final AssetDescriptor<Sound> TROMBITA_2_SOUND
-			= new AssetDescriptor<Sound>("hangok/Trumpet_2.wav", Sound.class);
+			= new AssetDescriptor<Sound>("hangok/Trumpet_1.wav", Sound.class);
 
 	public static void prepare() {
 		manager = new AssetManager();
@@ -225,7 +223,6 @@ public class Assets {
 		manager.load(HALAL_SOUND);
 		manager.load(OSSZEOMLAS_SOUND);
 		manager.load(SEBESULES_SOUND);
-		manager.load(TROMBITA_1_SOUND);
 		manager.load(TROMBITA_2_SOUND);
 
         //Gomb texturák
