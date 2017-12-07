@@ -77,6 +77,12 @@ public class Assets {
 	public static final AssetDescriptor<Texture> BTN_EXIT_DOWN_TEXTURE
 			= new AssetDescriptor<Texture>("gombok/menu/exit_down.png", Texture.class);
 
+	public static final AssetDescriptor<Texture> BTN_TRYAGAIN_DOWN_TEXTURE
+			= new AssetDescriptor<Texture>("gombok/menu/tryagain_down.png", Texture.class);
+
+	public static final AssetDescriptor<Texture> BTN_TRYAGAIN_TEXTURE
+			= new AssetDescriptor<Texture>("gombok/menu/tryagain.png", Texture.class);
+
 	//Egyéb cuccok
 	public static final AssetDescriptor<Texture> BACKGROUND_TEXTURE
 			= new AssetDescriptor<Texture>("hatterek/background.png", Texture.class);
@@ -244,6 +250,8 @@ public class Assets {
 		manager.load(BTN_START_DOWN_TEXTURE);
 		manager.load(BTN_EXIT_TEXTURE);
 		manager.load(BTN_EXIT_DOWN_TEXTURE);
+		manager.load(BTN_TRYAGAIN_TEXTURE);
+		manager.load(BTN_TRYAGAIN_DOWN_TEXTURE);
 
 	}
 
