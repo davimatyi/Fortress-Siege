@@ -22,6 +22,8 @@ public class VarActor extends OneSpriteStaticActor {
     long ido1Katona, ido2Katona =System.currentTimeMillis(), ido1Raven, ido2Raven=System.currentTimeMillis();
     Sound osszeomlas = Assets.manager.get(Assets.OSSZEOMLAS_SOUND);
     Sound sebesules = Assets.manager.get(Assets.SEBESULES_SOUND);
+    Sound trumpet_1 = Assets.manager.get(Assets.TROMBITA_1_SOUND);
+    Sound trumpet_2 = Assets.manager.get(Assets.TROMBITA_2_SOUND);
     Texture var2 = Assets.manager.get(Assets.VAR2_TEXTURE);
     Texture var1 = Assets.manager.get(Assets.VAR1_TEXTURE);
     Texture var3 = Assets.manager.get(Assets.VAR3_TEXTURE);
@@ -63,6 +65,7 @@ public class VarActor extends OneSpriteStaticActor {
             osszeomlas.play();
             setTexture(var3);
             varTopActor.setTexture(var3Top);
+            trumpet_1.play();
             //System.exit(0);
            ((MyStage)getStage()).game.setScreen(new MainScreen(((GameStage) getStage()).game, ((GameStage) getStage()).getPalya()), false);
             //((MyStage)getStage()).game.setScreen(new MainScreen(((GameStage) getStage()).game, ((GameStage) getStage()).getPalya()+1), false);
