@@ -14,6 +14,8 @@ import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteAnimatedActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.ShapeType;
 import com.mygdx.game.Vege.VegeScreen;
 
+import java.util.Random;
+
 /**
  * Created by tanulo on 2017. 10. 26..
  */
@@ -29,6 +31,7 @@ public class KatonaActor extends OneSpriteAnimatedActor {
     double v=2;
     boolean dead = false, mozoghat = true;
     byte level;
+    int randomFps;
 
 
     //public static boolean letrehozta=true;
@@ -48,7 +51,8 @@ public class KatonaActor extends OneSpriteAnimatedActor {
         this.gameStage = (GameStage) myStage;
         setSize(0.5f, 0.5f);
         setPosition(x - getWidth() / 2, y - getHeight() / 2);
-
+        Random random = new Random();
+        randomFps = random.nextInt(3)+15;
         //this.gameStage = gameStage;
         /*final Label lblMagassag = new Label("", gameStage.getLabelStyle()){
 
@@ -127,14 +131,12 @@ public class KatonaActor extends OneSpriteAnimatedActor {
         if(point>=10){
             //System.exit(0);
             if(((GameStage) getStage()).getPalya()==2) {
-                System.out.println("ciosghishgioxucghsrecgiehsithecrevzabvtbt");
-                ((MyStage)getStage()).game.setScreen(new VegeScreen(((MyStage)getStage()).game, true));
+                ((MyStage)getStage()).game.setScreen(new VegeScreen(((MyStage)getStage()).game));
                 gameStage.clear();
-            } else {
-                System.out.println(point);
-                System.out.println("9999999999999999999999999999999999999999999999");
-                if(gameStage.getPalya()!=3)
-                    ((MyStage)getStage()).game.setScreen(new MainScreen(((GameStage) getStage()).game, ((GameStage) getStage()).getPalya()+1), false);
+            }
+            else if(gameStage.getPalya()==1) {
+                ((MyStage)getStage()).game.setScreen(new MainScreen(((GameStage) getStage()).game, ((GameStage) getStage()).getPalya()+1), false);
+                gameStage.clear();
             }
 
         }
@@ -158,8 +160,7 @@ public class KatonaActor extends OneSpriteAnimatedActor {
                 if(((VarActor)a).overlaps(ShapeType.Rectangle, this)){
                     setTextureAtlas(Assets.manager.get(Assets.PUNCH_TEXTURE));
                     mozoghat=false;
-                    // TODO: 2017. 12. 06. Játszani az ütés fps-jével hogy eltérőbben üssenek. 
-                    setFps(16);
+                    setFps(randomFps);
                     //System.out.println(getX());
                     if(getX()>2.46){
                         setX(getX()-0.01f);
