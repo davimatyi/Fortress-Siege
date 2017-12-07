@@ -78,10 +78,10 @@ public class Assets {
 			= new AssetDescriptor<Texture>("gombok/menu/exit_down.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> BTN_TRYAGAIN_DOWN_TEXTURE
-			= new AssetDescriptor<Texture>("gombok/menu/tryagain_down.png", Texture.class);
+			= new AssetDescriptor<Texture>("gombok/tryagain_down.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> BTN_TRYAGAIN_TEXTURE
-			= new AssetDescriptor<Texture>("gombok/menu/tryagain.png", Texture.class);
+			= new AssetDescriptor<Texture>("gombok/tryagain.png", Texture.class);
 
 	//Egyéb cuccok
 	public static final AssetDescriptor<Texture> BACKGROUND_TEXTURE

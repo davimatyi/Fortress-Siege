@@ -13,15 +13,6 @@ public class ExplosionActor extends OneSpriteAnimatedActor {
         //super("explosion.atlas");
         super(Assets.manager.get(Assets.EXPLOSION_TEXTURE));
         setFps(20);
-
-        addListener(new ClickListener()
-        {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                super.clicked(event, x, y);
-                running = !running;
-            }
-        });
     }
 
     @Override

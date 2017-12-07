@@ -50,7 +50,7 @@ public class FortressSiege extends MyGame {
         return textButtonStyle;
     }
 
-    public TextButton.TextButtonStyle btnTryAgain() {
+    public Button.ButtonStyle btnTryAgain() {
         TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
         textButtonStyle.font = Assets.manager.get(Assets.ARIAL_30_FONT);
         textButtonStyle.up = new TextureRegionDrawable(new TextureRegion(Assets.manager.get(Assets.BTN_TRYAGAIN_TEXTURE)));

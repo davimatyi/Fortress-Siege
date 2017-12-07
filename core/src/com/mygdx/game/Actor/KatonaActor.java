@@ -120,30 +120,12 @@ public class KatonaActor extends OneSpriteAnimatedActor {
         Assets.manager.get(Assets.HALAL_SOUND).play(-100f);
         setFps(0);
         dead=true;
-        int point=0;
-        int coin=0;
-            gameStage.addPoint(level*100);
-            gameStage.addCoin(level);
-            coin = gameStage.getCoin();
-        gameStage.setLblCoin(coin+" gold");
-        gameStage.setLblPoint(point+" point");
-        coin = gameStage.getCoin();
-        point = gameStage.getPoint();
-        //7500
-        if(point>=100){
-            //System.exit(0);
-            if(((GameStage) getStage()).getPalya()==2) {
-                ((MyStage)getStage()).game.setScreen(new VegeScreen(((MyStage)getStage()).game));
-                gameStage.clear();
-                gameStage.dispose();
-            }
-            else if(gameStage.getPalya()==1) {
-                ((MyStage)getStage()).game.setScreen(new MainScreen(((GameStage) getStage()).game, ((GameStage) getStage()).getPalya()+1), false);
-                gameStage.clear();
-                gameStage.dispose();
-            }
+        gameStage.addPoint(level*100);
+        gameStage.addCoin(level);
 
-        }
+        //int point=0;
+        //int coin=0;
+
     }
 
 /*

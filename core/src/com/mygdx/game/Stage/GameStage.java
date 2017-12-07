@@ -1,9 +1,10 @@
 package com.mygdx.game.Stage;
 
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.Touchable;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -11,11 +12,11 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.mygdx.game.Actor.*;
 import com.mygdx.game.FortressSiege;
 import com.mygdx.game.GlobalClasses.Assets;
+import com.mygdx.game.MainScreen;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyActor;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import com.mygdx.game.Szamitasok.*;
-import com.mygdx.game.UI.MyButton;
 import com.mygdx.game.Vege.VegeScreen;
 
 import java.util.Random;
@@ -28,6 +29,11 @@ public class GameStage extends MyStage {
 
     Ballistics ballistics;
     Lagrange lagrange;
+    ClickListener stageClickListener;
+
+    Sound osszeomlas = Assets.manager.get(Assets.OSSZEOMLAS_SOUND);
+    Sound trumpet_2 = Assets.manager.get(Assets.TROMBITA_2_SOUND);
+    Button tryAgaiunTextButton;
 
     public void setControlStage(ControlStage controlStage) {
         this.controlStage = controlStage;
@@ -79,12 +85,19 @@ public class GameStage extends MyStage {
         return point;
     }
 
-    public void addPoint(int point){this.point+=point;}
+    public void addPoint(int point){
+        this.point+=point;
+        setLblPoint(point+" point");
+        setLblCoin(coin+" gold");
+    }
 
-    public int getCoin() {return coin;}
+    public int getCoin() {
+        return coin;
+    }
 
     public int removeCoin(int coinminus){
         coin-=coinminus;
+        setLblCoin(coin+" gold");
         System.out.println(coin);
         return coin;
     }
@@ -292,7 +305,7 @@ public class GameStage extends MyStage {
         addActor(hpActorPiros=new HPActorPiros(varActor));
 
 
-        addListener(new ClickListener(){
+        addListener(stageClickListener = new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
@@ -377,5 +390,44 @@ public class GameStage extends MyStage {
     @Override
     public void init() {
 
+    }
+
+
+    @Override
+    public void act(float delta) {
+        super.act(delta);
+        if (varActor.getLife()<=0 && tryAgaiunTextButton == null) {
+
+            removeListener(stageClickListener);
+            osszeomlas.play();
+            trumpet_2.play();
+            controlStage.addActor(tryAgaiunTextButton = new Button(game.btnTryAgain()));
+            tryAgaiunTextButton.setSize(565,110);
+            ExtendViewport ev = (ExtendViewport)controlStage.getViewport();
+            tryAgaiunTextButton.setPosition(ev.getWorldWidth()/2-tryAgaiunTextButton.getWidth()/2, ev.getWorldHeight()/2-tryAgaiunTextButton.getHeight()/2);
+            tryAgaiunTextButton.addListener(new ClickListener(){
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    super.clicked(event, x, y);
+                    game.setScreen(new MainScreen(game, getPalya()), false);
+                }
+            });
+        }else{
+            //7500
+            if(point>=7500){
+                //System.exit(0);
+                if(getPalya()==2) {
+                    game.setScreen(new VegeScreen(game));
+                    clear();
+                    dispose();
+                }
+                else if(getPalya()==1) {
+                    game.setScreen(new MainScreen(game, getPalya()+1), false);
+                    clear();
+                    dispose();
+                }
+
+            }
+        }
     }
 }
