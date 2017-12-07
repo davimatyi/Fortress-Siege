@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.mygdx.game.Actor.CloudActor;
 import com.mygdx.game.FortressSiege;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
@@ -20,6 +21,7 @@ import com.mygdx.game.UI.MyButton;
 public class VegeStage extends MyStage {
 
     public static Label lbl;
+    CloudActor cloudActor;
 
     public VegeStage(Viewport viewport, Batch batch, FortressSiege game) {
         super(viewport, batch, game);
@@ -35,8 +37,13 @@ public class VegeStage extends MyStage {
 
     @Override
     public void init() {
+        addActor(cloudActor = new CloudActor(0, getHeight()-Assets.manager.get(Assets.CLOUD_TEXTURE).getHeight()-120,170f*1.3f, 100f*1.3f,Assets.manager.get(Assets.CLOUD_TEXTURE),0.5f));
+        addActor(cloudActor = new CloudActor(getWidth()-Assets.manager.get(Assets.CLOUD_TEXTURE).getWidth(), getHeight()-460,170f*1.3f, 100f*1.3f,Assets.manager.get(Assets.CLOUD_TEXTURE),0.5f));
+        addActor(cloudActor = new CloudActor(0, getHeight()-660,170f*1.3f, 100f*1.3f,Assets.manager.get(Assets.CLOUD_TEXTURE),0.5f));
+        addActor(cloudActor = new CloudActor(getWidth()-Assets.manager.get(Assets.CLOUD_TEXTURE).getWidth(), getHeight()-910,170f*1.3f, 100f*1.3f,Assets.manager.get(Assets.CLOUD_TEXTURE),0.5f));
+
         //lbl = new Label("Köszönet szüleinknek akik nélkül ez nem jöhetett volna létre", getLabelStyle());
-        lbl = new Label("Nyertél", getLabelStyle());
+        lbl = new Label("You won", getLabelStyle());
         lbl.setPosition(getViewport().getWorldHeight()/2-lbl.getHeight(),getViewport().getWorldWidth()/2-lbl.getWidth()/2);
         addActor(lbl);
     }

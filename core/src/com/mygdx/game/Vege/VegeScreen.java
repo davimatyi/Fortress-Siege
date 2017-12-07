@@ -24,7 +24,7 @@ public class VegeScreen extends MyScreen {
     public void render(float delta) {
         super.render(delta);
         System.out.println(System.currentTimeMillis()-ido);
-        if(System.currentTimeMillis()-ido>2500){
+        if(System.currentTimeMillis()-ido>5000){
             game.setScreen(new MainMenuScreen(game));
            dispose();
         }
@@ -51,7 +51,7 @@ public class VegeScreen extends MyScreen {
         Gdx.input.setInputProcessor(vegeStage);
         //rgb(0, 184, 230)
         //rgb(66, 98, 244)
-        setBackGroundColor(0,0,0);
+        setBackGroundColor(0f, 0.31f, 1);
 
     }
 }

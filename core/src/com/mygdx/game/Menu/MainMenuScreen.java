@@ -40,6 +40,7 @@ public class MainMenuScreen extends MyScreen {
 
     @Override
     public void init() {
+
         mainMenuStage = new MainMenuStage(new ExtendViewport(1280,720,new OrthographicCamera(1280,720)), spriteBatch, game);
         Gdx.input.setInputProcessor(mainMenuStage);
         //rgb(0, 184, 230)

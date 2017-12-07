@@ -134,10 +134,12 @@ public class KatonaActor extends OneSpriteAnimatedActor {
             if(((GameStage) getStage()).getPalya()==2) {
                 ((MyStage)getStage()).game.setScreen(new VegeScreen(((MyStage)getStage()).game));
                 gameStage.clear();
+                gameStage.dispose();
             }
             else if(gameStage.getPalya()==1) {
                 ((MyStage)getStage()).game.setScreen(new MainScreen(((GameStage) getStage()).game, ((GameStage) getStage()).getPalya()+1), false);
                 gameStage.clear();
+                gameStage.dispose();
             }
 
         }

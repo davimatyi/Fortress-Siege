@@ -14,9 +14,9 @@ public class CannonActor extends OneSpriteStaticActor {
     public CannonActor(MyStage myStage) {
         super(Assets.manager.get(Assets.CANNON_TEXTURE));
         if(((GameStage)myStage).getPalya()==2)
-            setPosition(0.55999994f, 4.3569f);
+            setPosition(0.55999994f, 4.3569f-0.49f);
         else
-        setPosition(0.55999994f, 4.6599994f);
+        setPosition(0.55999994f, 4.6599994f-0.49f);
         setSize(getWidth()/275/1.5f,getHeight()/275/1.5f);
     }
 

@@ -46,8 +46,9 @@ public class GameStage extends MyStage {
     CloudActor cloudActor;
     MyActor actor;
     CannonActor cannonActor;
-    float offsetX = 0.8f;
-    float offsetY = 5.879f;
+    CannonTopActor cannonTopActor;
+    float offsetX = 0.9499998f;
+    float offsetY = 5.5199995f;
     public float timeScale = 1;
     long ido1, ido2=0, idoKatona=System.currentTimeMillis();
     byte level = 1;
@@ -274,8 +275,7 @@ public class GameStage extends MyStage {
 
         }
 
-        addActor(cannonActor=new CannonActor(getGameStage()));
-        addActor(new CannonTopActor(cannonActor));
+
         addActor(new CloudActor(0.26f,((ExtendViewport) getViewport()).getMinWorldHeight()-1f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.004f));
         addActor(new CloudActor(7.42f,((ExtendViewport) getViewport()).getMinWorldHeight()-2f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.006f));
         addActor(new CloudActor(4.54f,((ExtendViewport) getViewport()).getMinWorldHeight()-3f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.002f));
@@ -283,11 +283,14 @@ public class GameStage extends MyStage {
 
         addActor(satorActor = new SatorActor(satorX, satorY));
         addActor(satorTopActor = new SatorTopActor(satorX, satorY+1));
+        addActor(cannonActor=new CannonActor(getGameStage()));
+        addActor(cannonTopActor=new CannonTopActor(cannonActor));
         addActor(varTopActor = new VarTopActor(varActor,getGameStage()));
         addActor(varActor = new VarActor(getGameStage(),varTopActor));
         addActor(ravenActor=new RavenActor(10, 5, lagrange, 3, level, getGameStage(), varActor));
         addActor(hpActorFekete =new HPActorFekete(varActor));
         addActor(hpActorPiros=new HPActorPiros(varActor));
+
 
         addListener(new ClickListener(){
             @Override
@@ -302,7 +305,9 @@ public class GameStage extends MyStage {
                         ido1 = System.currentTimeMillis();
                         System.out.println(ido1);
                         if (ido1 - ido2 > 2000) {
-                            addActor(new LovedekActor(new com.mygdx.game.Szamitasok.Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 0, getGameStage(), varActor, satorActor, ravenActor, lagrange));
+                            ballistics = new com.mygdx.game.Szamitasok.Ballistics(x - getOffsetX(), y - getOffsetY(), v0);
+                            cannonTopActor.shot(ballistics.getDeg()[0]);
+                            addActor(new LovedekActor(ballistics, 0, getGameStage(), varActor, satorActor, ravenActor, lagrange));
                             ido2=ido1;
                         }
                         //addActor(new LovedekActor(new Ballistics(x - getOffsetX(), y - getOffsetY(), v0), 1, getGameStage()));

@@ -16,4 +16,8 @@ public class CannonTopActor extends OneSpriteStaticActor {
         setRotation(80);
         setPosition(cannonActor.getX()-0.45f,cannonActor.getY()+0.57f);
     }
+
+    public void shot(float f){
+        setRotation(f);
+    }
 }
