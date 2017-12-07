@@ -1,6 +1,7 @@
 package com.mygdx.game.Vege;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -21,6 +22,8 @@ public class VegeStage extends MyStage {
 
     public static Label lbl;
 
+    Sound winner = Assets.manager.get(Assets.WINNER_SOUND);
+
     public VegeStage(Viewport viewport, Batch batch, FortressSiege game) {
         super(viewport, batch, game);
     }
@@ -35,6 +38,7 @@ public class VegeStage extends MyStage {
 
     @Override
     public void init() {
+        winner.play();
         //lbl = new Label("Köszönet szüleinknek akik nélkül ez nem jöhetett volna létre", getLabelStyle());
         lbl = new Label("Nyertél", getLabelStyle());
         lbl.setPosition(getViewport().getWorldHeight()/2-lbl.getHeight(),getViewport().getWorldWidth()/2-lbl.getWidth()/2);
