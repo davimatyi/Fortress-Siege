@@ -44,11 +44,23 @@ public class LovedekActor extends OneSpriteStaticActor {
         this.satorActor = satorActor;
         this.ravenActor = ravenActor;
         this.lagrange = lagrange;
+    }
+
+    public void robbanas(){
+        if (getStage()!=null) {
+            ExplosionActor explosionActor;
+            getStage().addActor(explosionActor = new ExplosionActor());
+            explosionActor.setPosition(getX()-getWidth(),getY()-getHeight());
+            explosionActor.setSize(getWidth()*3, getHeight()*3);
+        }
 
     }
 
     public void felrobban(){
-        getStage().getActors().removeValue(this, true);
+        if (getStage()!=null) {
+            robbanas();
+            getStage().getActors().removeValue(this, true);
+        }
     }
 
 
@@ -75,18 +87,27 @@ public class LovedekActor extends OneSpriteStaticActor {
         }
         if(varActor.overlaps(ShapeType.Rectangle, this)){
             becsapodas.play();
-            getStage().getActors().removeValue(this, true);
+            //getStage().getActors().removeValue(this, true);
+            felrobban();
             varActor.decLife(100);
         }
         if(satorActor.overlaps(ShapeType.Rectangle, this)){
-            getStage().getActors().removeValue(this, true);
-                satorActor.decLife(100);
+            //getStage().getActors().removeValue(this, true);
+            felrobban();
+            satorActor.decLife(100);
         }
         if(ravenActor.overlaps(ShapeType.Rectangle, this)){
-            getStage().getActors().removeValue(this, true);
+            //getStage().getActors().removeValue(this, true);
+            felrobban();
             ravenActor.dead();
         }
-        if(getY() <= lagrange.getY(getX())) getStage().getActors().removeValue(this, true);
+        if(getY() <= lagrange.getY(getX())){
+            felrobban();
+            //getStage().getActors().removeValue(this, true);
+        }
+        if (elapsedTime==delta){
+            robbanas();
+        }
         //System.out.println("X=" + pos[0]+" Y="  + pos[1]);
     }
 }
