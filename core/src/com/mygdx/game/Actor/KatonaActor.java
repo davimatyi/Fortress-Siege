@@ -116,6 +116,7 @@ public class KatonaActor extends OneSpriteAnimatedActor {
 
 
     public void halal(){
+        mozoghat=false;
         Assets.manager.get(Assets.HALAL_SOUND).play(-100f);
         setFps(0);
         dead=true;
