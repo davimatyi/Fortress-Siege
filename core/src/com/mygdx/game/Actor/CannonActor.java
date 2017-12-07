@@ -1,6 +1,7 @@
 package com.mygdx.game.Actor;
 
 import com.badlogic.gdx.graphics.Texture;
+import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 
 /**
@@ -8,10 +9,10 @@ import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
  */
 
 public class CannonActor extends OneSpriteStaticActor {
-    public CannonActor(Texture texture, float x, float y) {
-        super(texture);
+    public CannonActor(float x, float y) {
+        super(Assets.manager.get(Assets.CANNON_TEXTURE));
         setX(x); setY(y);
-        setSize(getWidth()/275,getHeight()/275);
+        setSize(getWidth()/275/1.5f,getHeight()/275/1.5f);
     }
 
     @Override

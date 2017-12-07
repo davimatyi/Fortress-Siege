@@ -46,8 +46,8 @@ public class GameStage extends MyStage {
     CloudActor cloudActor;
     MyActor actor;
     CannonActor cannonActor;
-    float offsetX = 0.23f;
-    float offsetY = 5.8f;
+    float offsetX = 0.8f;
+    float offsetY = 5.879f;
     public float timeScale = 1;
     long ido1, ido2=0, idoKatona=System.currentTimeMillis();
     byte level = 1;
@@ -115,7 +115,7 @@ public class GameStage extends MyStage {
     }
 
 
-    float v0 = 10;
+    float v0 = 9.8244726472647f;
     int i = 0;
 
     public float round(float f){
@@ -274,7 +274,8 @@ public class GameStage extends MyStage {
 
         }
 
-
+        addActor(cannonActor=new CannonActor(0.55999994f, 4.6599994f));
+        addActor(new CannonTopActor(cannonActor));
         addActor(new CloudActor(0.26f,((ExtendViewport) getViewport()).getMinWorldHeight()-1f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.004f));
         addActor(new CloudActor(7.42f,((ExtendViewport) getViewport()).getMinWorldHeight()-2f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.006f));
         addActor(new CloudActor(4.54f,((ExtendViewport) getViewport()).getMinWorldHeight()-3f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.002f));

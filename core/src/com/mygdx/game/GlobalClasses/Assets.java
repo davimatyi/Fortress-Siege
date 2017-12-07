@@ -94,6 +94,9 @@ public class Assets {
 	public static final AssetDescriptor<Texture> CANNON_TEXTURE
             = new AssetDescriptor<Texture>("actorok/cannonS.png", Texture.class);
 
+	public static final AssetDescriptor<Texture> CANNON_TOP_TEXTURE
+			= new AssetDescriptor<Texture>("actorok/cannon.png", Texture.class);
+
     public static final AssetDescriptor<Texture> LOVEDEK_TEXTURE
             = new AssetDescriptor<Texture>("actorok/cannonBall.png", Texture.class);
 
@@ -200,6 +203,7 @@ public class Assets {
         manager.load(TENT_TEXTURE);
 		manager.load(TENT_TOP_TEXTURE);
 		manager.load(CLOUD_TEXTURE);
+		manager.load(CANNON_TOP_TEXTURE);
 
 		//Vár texturái
 		manager.load(CASTLE_TOP_TEXTURE);
