@@ -159,32 +159,33 @@ public class KatonaActor extends OneSpriteAnimatedActor {
     @Override
     public void act(float delta) {
         super.act(delta);
-        for (Actor a :getStage().getActors()) {
-            if (a instanceof VarActor){
-                if(((VarActor)a).overlaps(ShapeType.Rectangle, this)){
-                    setTextureAtlas(Assets.manager.get(Assets.PUNCH_TEXTURE));
-                    mozoghat=false;
-                    setFps(randomFps);
-                    //System.out.println(getX());
-                    if(getX()>2.46){
-                        setX(getX()-0.01f);
+        if (getStage() != null) {
+            for (Actor a : getStage().getActors()) {
+                if (a instanceof VarActor) {
+                    if (((VarActor) a).overlaps(ShapeType.Rectangle, this)) {
+                        setTextureAtlas(Assets.manager.get(Assets.PUNCH_TEXTURE));
+                        mozoghat = false;
+                        setFps(randomFps);
+                        //System.out.println(getX());
+                        if (getX() > 2.46) {
+                            setX(getX() - 0.01f);
+                        } else ((VarActor) a).decLife(level / 4.5f);
                     }
-                    else ((VarActor)a).decLife(level/4.5f);
                 }
             }
-        }
-        if(mozoghat){
-            setX(10.24f-elapsedTime/(float)v - getWidth()/2);
+            if (mozoghat) {
+                setX(10.24f - elapsedTime / (float) v - getWidth() / 2);
 
-            if(gameStage.getPalya()!=3)
-            setY(lagrange.getY(10.24f-elapsedTime/(float)v) - 0.03f);
+                if (gameStage.getPalya() != 3)
+                    setY(lagrange.getY(10.24f - elapsedTime / (float) v) - 0.03f);
 
 
-        }
+            }
 
-        if(dead){
-            rotateBy(-3);
-            if(getRotation()<=-90) getStage().getActors().removeValue(this, true);
+            if (dead) {
+                rotateBy(-3);
+                if (getRotation() <= -90) getStage().getActors().removeValue(this, true);
+            }
         }
 
 

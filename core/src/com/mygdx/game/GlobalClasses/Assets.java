@@ -148,6 +148,9 @@ public class Assets {
 	public static final AssetDescriptor<TextureAtlas> WALK_TEXTURE
 			= new AssetDescriptor<TextureAtlas>("animacio/walk_02.atlas", TextureAtlas.class);
 
+	public static final AssetDescriptor<TextureAtlas> EXPLOSION_TEXTURE
+			= new AssetDescriptor<TextureAtlas>("animacio/explosion.atlas", TextureAtlas.class);
+
 	public static final AssetDescriptor<TextureAtlas> PUNCH_TEXTURE
 			= new AssetDescriptor<TextureAtlas>("animacio/punch.atlas", TextureAtlas.class);
 
@@ -228,6 +231,7 @@ public class Assets {
 		manager.load(WALK_TEXTURE);
 		manager.load(PUNCH_TEXTURE);
 		manager.load(RAVEN_TEXTURE);
+		manager.load(EXPLOSION_TEXTURE);
 
 		//Hangok
 		manager.load(HATTER_SOUND);
