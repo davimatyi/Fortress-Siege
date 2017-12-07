@@ -143,7 +143,7 @@ public class GameStage extends MyStage {
                     level++;
                     idoKatona = System.currentTimeMillis();
                 }
-                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+4, level, getGameStage()));
+                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+3, level, getGameStage()));
                 break;
             }
             case 2: {
@@ -151,7 +151,7 @@ public class GameStage extends MyStage {
                     level++;
                     idoKatona = System.currentTimeMillis();
                 }
-                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+3, level, getGameStage()));
+                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+2, level, getGameStage()));
                 break;
             }
             case 3: {
@@ -159,11 +159,11 @@ public class GameStage extends MyStage {
                     level++;
                     idoKatona = System.currentTimeMillis();
                 }
-                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+2, level, getGameStage()));
+                addActor(new KatonaActor(0,0, lagrange, new Random().nextDouble()+1, level, getGameStage()));
                 break;
             }
             case 4: {
-                addActor(new KatonaActor(0, 0, lagrange, new Random().nextDouble()+1, level, getGameStage()));
+                addActor(new KatonaActor(0, 0, lagrange, 0.5, level, getGameStage()));
             }
         }
         }
@@ -274,7 +274,7 @@ public class GameStage extends MyStage {
 
         }
 
-        addActor(cannonActor=new CannonActor(0.55999994f, 4.6599994f));
+        addActor(cannonActor=new CannonActor(getGameStage()));
         addActor(new CannonTopActor(cannonActor));
         addActor(new CloudActor(0.26f,((ExtendViewport) getViewport()).getMinWorldHeight()-1f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.004f));
         addActor(new CloudActor(7.42f,((ExtendViewport) getViewport()).getMinWorldHeight()-2f,1.7f,1,Assets.manager.get(Assets.CLOUD_TEXTURE),0.006f));
@@ -283,7 +283,7 @@ public class GameStage extends MyStage {
 
         addActor(satorActor = new SatorActor(satorX, satorY));
         addActor(satorTopActor = new SatorTopActor(satorX, satorY+1));
-        addActor(varTopActor = new VarTopActor(varActor));
+        addActor(varTopActor = new VarTopActor(varActor,getGameStage()));
         addActor(varActor = new VarActor(getGameStage(),varTopActor));
         addActor(ravenActor=new RavenActor(10, 5, lagrange, 3, level, getGameStage(), varActor));
         addActor(hpActorFekete =new HPActorFekete(varActor));
@@ -347,7 +347,7 @@ public class GameStage extends MyStage {
     }
 
     public void setLblCoin(String s){
-        controlStage.setLblCoin(coin+" arany");
+        controlStage.setLblCoin(coin+" gold");
     }
 
     public void setLblPoint(String s){

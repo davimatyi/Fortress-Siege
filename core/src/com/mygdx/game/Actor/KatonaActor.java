@@ -116,6 +116,7 @@ public class KatonaActor extends OneSpriteAnimatedActor {
 
 
     public void halal(){
+        mozoghat=false;
         Assets.manager.get(Assets.HALAL_SOUND).play(-100f);
         setFps(0);
         dead=true;
@@ -128,7 +129,7 @@ public class KatonaActor extends OneSpriteAnimatedActor {
         gameStage.setLblPoint(point+" point");
         coin = gameStage.getCoin();
         point = gameStage.getPoint();
-        if(point>=10000){
+        if(point>=7500){
             //System.exit(0);
             if(((GameStage) getStage()).getPalya()==2) {
                 ((MyStage)getStage()).game.setScreen(new VegeScreen(((MyStage)getStage()).game));
