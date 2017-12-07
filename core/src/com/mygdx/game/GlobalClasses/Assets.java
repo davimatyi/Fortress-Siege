@@ -181,6 +181,8 @@ public class Assets {
 		Texture.setAssetManager(manager);
 	}
 
+
+
 	public static void load() {
 		FileHandleResolver resolver = new InternalFileHandleResolver();
 		manager.setLoader(FreeTypeFontGenerator.class, new FreeTypeFontGeneratorLoader(resolver));
