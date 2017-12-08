@@ -121,11 +121,11 @@ public class ControlStage extends MyStage {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                if (gameStage.getCoin() >= 25 && gameStage.getLife()<=975.0) {
+                if (gameStage.getCoin() >= 25 && gameStage.getLife()<=850.0) {
                     gameStage.addHp(150);
                     gameStage.removeCoin(25);
                     lblCoin.setText(gameStage.getCoin()+" gold");
-                } else if(gameStage.getLife()>975.0) {
+                } else if(gameStage.getLife()>850.0) {
                     lblError.setText("Too much health to restore!");
                     ido=System.currentTimeMillis();
                 } else if(gameStage.getCoin()<25){
