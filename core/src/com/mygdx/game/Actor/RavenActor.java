@@ -73,7 +73,7 @@ public class RavenActor extends OneSpriteAnimatedActor {
             varActor.deadTime= System.currentTimeMillis();
             if(getY()<=0){
                 getStage().getActors().removeValue(this, true);
-                VarActor.canSpawnNewRaven = true;
+                varActor.setCanSpawnNewRaven(true);
             }
         }
 

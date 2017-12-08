@@ -33,6 +33,7 @@ public class ControlStage extends MyStage {
 
 
 
+
     public float getSlider() {
         return slider_ertek;
     }

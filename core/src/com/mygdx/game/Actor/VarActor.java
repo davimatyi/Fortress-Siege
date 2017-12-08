@@ -11,6 +11,8 @@ import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
 import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import com.mygdx.game.Vege.VegeScreen;
 
+import java.util.Random;
+
 /**
  * Created by Majzer on 27/10/2017.
  */
@@ -26,18 +28,22 @@ public class VarActor extends OneSpriteStaticActor {
     Texture var3 = Assets.manager.get(Assets.VAR3_TEXTURE);
     Texture var2Top = Assets.manager.get(Assets.VAR2_TOP_TEXTURE);
     Texture var3Top = Assets.manager.get(Assets.VAR3_TOP_TEXTURE);
-    public static boolean elso1 = true, elso2 = true, elso3 = true, first=true, canSpawnNewRaven=false;
+    public boolean canSpawnNewRaven=false, robbanhat=false;
     static long deadTime= System.currentTimeMillis();
     GameStage gameStage;
     static VarActor varActor;
     VarTopActor varTopActor;
+    CannonActor cannonActor;
     MyStage myStage;
+    long ido = System.currentTimeMillis();
+    Random random = new Random();
 
 
-    public VarActor(MyStage myStage, VarTopActor varTopActor) {
+    public VarActor(MyStage myStage, VarTopActor varTopActor, CannonActor cannonActor) {
 
 
         super(Assets.manager.get(Assets.CASTLE_TEXTURE));
+        this.cannonActor=cannonActor;
         setSize(2.5f, 2.3f);
         if(((GameStage)myStage).getPalya()==2){
             //-0.2f, 1.7f
@@ -69,6 +75,8 @@ public class VarActor extends OneSpriteStaticActor {
             life = 0;
             setTexture(var3);
             varTopActor.setTexture(var3Top);
+            cannonActor.felrobban();
+            robbanhat=true;
             //((MyStage)getStage()).game.setScreen(new MainScreen(((GameStage) getStage()).game, ((GameStage) getStage()).getPalya()), false);
         } else if(life<334){
             if(hang334){
@@ -95,14 +103,16 @@ public class VarActor extends OneSpriteStaticActor {
 
     boolean hang667=true, hang334=true;
 
-    int sebesulesHang(int db){
-        db++;
-        sebesules.play();
-        return db;
+    public void setCanSpawnNewRaven(boolean canSpawnNewRaven) {
+        this.canSpawnNewRaven = canSpawnNewRaven;
     }
 
     public boolean isTextureChanged(Texture texture){
         return texture == this.getTexture();
+    }
+
+    public void setRobbanhat(boolean robbanhat) {
+        this.robbanhat = robbanhat;
     }
 
     @Override
@@ -121,6 +131,24 @@ public class VarActor extends OneSpriteStaticActor {
             gameStage.addRaven(deadTime, canSpawnNewRaven);
             //System.out.println(deadTime + " " +canSpawnNewRaven);
         decLife(0);
+
+
+        System.out.println(robbanhat);
+        if(robbanhat){
+                if (getStage()!=null) {
+                    if(System.currentTimeMillis()-ido>120){
+                        felrobban();
+                    }
+                }
+        }
+    }
+
+    public void felrobban(){
+        ExplosionActor explosionActor;
+        getStage().addActor(explosionActor = new ExplosionActor());
+        explosionActor.setPosition(random.nextFloat()+random.nextInt(2), random.nextFloat()+random.nextInt(2)+2);
+        explosionActor.setSize(1, 1);
+        ido=System.currentTimeMillis();
     }
 
 }

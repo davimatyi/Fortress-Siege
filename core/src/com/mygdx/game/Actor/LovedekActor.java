@@ -89,7 +89,7 @@ public class LovedekActor extends OneSpriteStaticActor {
             becsapodas.play();
             //getStage().getActors().removeValue(this, true);
             felrobban();
-            varActor.decLife(100);
+            varActor.decLife(1000);
         }
         if(satorActor.overlaps(ShapeType.Rectangle, this)){
             //getStage().getActors().removeValue(this, true);

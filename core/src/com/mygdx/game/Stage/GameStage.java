@@ -144,7 +144,7 @@ public class GameStage extends MyStage {
         //System.out.println(System.currentTimeMillis()+" "+ido + " " + (System.currentTimeMillis()-ido) + " " + canSpawnNewRaven);
         if(System.currentTimeMillis() - ido > 5000 && canSpawnNewRaven) {
             addActor(ravenActor=new RavenActor(10, (float)(new Random().nextInt(2)+5+new Random().nextDouble()), lagrange, 3, level, getGameStage(), varActor));
-            VarActor.canSpawnNewRaven = false;
+            varActor.setCanSpawnNewRaven(false);
 
         }
     }
@@ -299,7 +299,7 @@ public class GameStage extends MyStage {
         addActor(cannonActor=new CannonActor(getGameStage()));
         addActor(cannonTopActor=new CannonTopActor(cannonActor));
         addActor(varTopActor = new VarTopActor(varActor,getGameStage()));
-        addActor(varActor = new VarActor(getGameStage(),varTopActor));
+        addActor(varActor = new VarActor(getGameStage(),varTopActor, cannonActor));
         addActor(ravenActor=new RavenActor(10, 5, lagrange, 3, level, getGameStage(), varActor));
         addActor(hpActorFekete =new HPActorFekete(varActor));
         addActor(hpActorPiros=new HPActorPiros(varActor));
@@ -409,6 +409,7 @@ public class GameStage extends MyStage {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
                     super.clicked(event, x, y);
+                    varActor.setRobbanhat(false);
                     game.setScreen(new MainScreen(game, getPalya()), false);
                 }
             });
