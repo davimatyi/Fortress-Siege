@@ -1,6 +1,7 @@
 package com.mygdx.game.Menu;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -23,21 +24,26 @@ public class MainMenuStage extends MyStage {
     TextButton btnStart, btnExit;
     CloudActor cloudActor;
     OneSpriteStaticActor kep;
+    public Music nature = Assets.manager.get(Assets.MENU_SOUND);
 
     public MainMenuStage(Viewport viewport, Batch batch, FortressSiege game) {
         super(viewport, batch, game);
+        nature.setVolume(0.4f);
+        nature.setLooping(true);
+        nature.play();
+
     }
 
 
     @Override
     public void init() {
-        kep=new OneSpriteStaticActor(Assets.manager.get(Assets.ICON_TEXTURE));
-        kep.setPosition(getWidth()/2-kep.getWidth()/2,0);
-        addActor(kep);
-        addActor(cloudActor = new CloudActor(0, getHeight()-Assets.manager.get(Assets.CLOUD_TEXTURE).getHeight()-120,170f*1.3f, 100f*1.3f,Assets.manager.get(Assets.CLOUD_TEXTURE),0.5f));
-        addActor(cloudActor = new CloudActor(getWidth()-Assets.manager.get(Assets.CLOUD_TEXTURE).getWidth(), getHeight()-460,170f*1.3f, 100f*1.3f,Assets.manager.get(Assets.CLOUD_TEXTURE),0.5f));
-        addActor(cloudActor = new CloudActor(0, getHeight()-660,170f*1.3f, 100f*1.3f,Assets.manager.get(Assets.CLOUD_TEXTURE),0.5f));
-        addActor(cloudActor = new CloudActor(getWidth()-Assets.manager.get(Assets.CLOUD_TEXTURE).getWidth(), getHeight()-910,170f*1.3f, 100f*1.3f,Assets.manager.get(Assets.CLOUD_TEXTURE),0.5f));
+        //kep=new OneSpriteStaticActor(Assets.manager.get(Assets.ICON_TEXTURE));
+        //kep.setPosition(getWidth()/2-kep.getWidth()/2,0);
+        //addActor(kep);
+        addActor(cloudActor = new CloudActor(0, getHeight()-Assets.manager.get(Assets.CLOUD_TEXTURE).getHeight()-120,170f*1.7f, 100f*1.7f,Assets.manager.get(Assets.CLOUD_TEXTURE),0.5f));
+        addActor(cloudActor = new CloudActor(getWidth()-Assets.manager.get(Assets.CLOUD_TEXTURE).getWidth(), getHeight()-460,170f*1.7f, 100f*1.7f,Assets.manager.get(Assets.CLOUD_TEXTURE),0.5f));
+        addActor(cloudActor = new CloudActor(0, getHeight()-660,170f*1.7f, 100f*1.7f,Assets.manager.get(Assets.CLOUD_TEXTURE),0.5f));
+        addActor(cloudActor = new CloudActor(getWidth()-Assets.manager.get(Assets.CLOUD_TEXTURE).getWidth(), getHeight()-910,170f*1.7f, 100f*1.7f,Assets.manager.get(Assets.CLOUD_TEXTURE),0.5f));
 
         btnStart = new MyButton("", game.btnStart());
         btnStart.addListener(new ClickListener() {
@@ -45,6 +51,7 @@ public class MainMenuStage extends MyStage {
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
                 game.setScreen(new MainScreen(game,1));
+                nature.stop();
             }
         });
         addActor(btnStart);

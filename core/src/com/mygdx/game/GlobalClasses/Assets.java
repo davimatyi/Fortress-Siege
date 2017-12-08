@@ -166,6 +166,9 @@ public class Assets {
     public static final AssetDescriptor<Music> HATTER_SOUND
             = new AssetDescriptor<Music>("hangok/zene.mp3", Music.class);
 
+	public static final AssetDescriptor<Music> MENU_SOUND
+			= new AssetDescriptor<Music>("hangok/nature.mp3", Music.class);
+
 	public static final AssetDescriptor<Sound> BECSAPODAS_SOUND
 			= new AssetDescriptor<Sound>("hangok/impact_sound.wav", Sound.class);
 
@@ -239,6 +242,7 @@ public class Assets {
 
 		//Hangok
 		manager.load(HATTER_SOUND);
+		manager.load(MENU_SOUND);
 		manager.load(KILOVES_SOUND);
 		manager.load(BECSAPODAS_SOUND);
 		manager.load(HOLLO_SOUND);

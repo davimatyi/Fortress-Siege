@@ -108,7 +108,7 @@ public class ControlStage extends MyStage {
 //        lblCoin.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 55);
 //        lblCoin.setTouchable(Touchable.disabled);
         addActor(lblCoin);
-        lblPoint = new Label("0 point", getLabelStyle());
+        lblPoint = new Label("0/7500 point", getLabelStyle());
 //        lblPoint.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 105);
 //        lblPoint.setTouchable(Touchable.disabled);
         addActor(lblPoint);
@@ -144,12 +144,14 @@ public class ControlStage extends MyStage {
     @Override
     protected void resized() {
         super.resized();
-        lblCoin.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 55);
+        lblCoin.setPosition(getViewport().getWorldWidth() - 300, getViewport().getWorldHeight() - lblCoin.getHeight()-20);
+        lblCoin.setSize(200,20);
         lblCoin.setTouchable(Touchable.disabled);
-        lblPoint.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 105);
+        lblPoint.setPosition(getViewport().getWorldWidth() - 300, getViewport().getWorldHeight() - lblCoin.getHeight()- lblPoint.getHeight()-35);
+        lblPoint.setSize(200,20);
         lblPoint.setTouchable(Touchable.disabled);
         lblError.setPosition(btnHeal.getWidth()+lblError.getWidth()+15, getHeight()-lblError.getHeight()-30);
         btnHeal.setPosition(5,getHeight()-btnHeal.getHeight()-5);
-        //btnHeal.setSize(1,1);
+        btnHeal.setSize(80,80);
      }
 }

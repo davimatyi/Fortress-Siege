@@ -1,10 +1,12 @@
 package com.mygdx.game.Menu;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.mygdx.game.FortressSiege;
+import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyScreen;
 
 /**
@@ -13,6 +15,7 @@ import com.mygdx.game.MyBaseClasses.Scene2D.MyScreen;
 
 public class MainMenuScreen extends MyScreen {
     protected MainMenuStage mainMenuStage;
+    public Music nature = Assets.manager.get(Assets.MENU_SOUND);
 
     public MainMenuScreen(FortressSiege game) {
         super(game);

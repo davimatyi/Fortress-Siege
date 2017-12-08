@@ -5,6 +5,7 @@ import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.mygdx.game.GlobalClasses.Assets;
+import com.mygdx.game.Menu.MainMenuScreen;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyScreen;
 import com.mygdx.game.Stage.GameStage;
 
@@ -16,6 +17,7 @@ public class MainScreen extends MyScreen {
 
     com.mygdx.game.Stage.GameStage gameStage;
     com.mygdx.game.Stage.ControlStage controlStage;
+    com.mygdx.game.Menu.MainMenuScreen mainMenuScreen;
     Music sound = Assets.manager.get(Assets.HATTER_SOUND);
 
     //Texture hatter = Assets.manager.get(Assets.BACKGROUND_TEXTURE);

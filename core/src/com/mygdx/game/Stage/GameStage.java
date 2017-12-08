@@ -353,7 +353,7 @@ public class GameStage extends MyStage {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                System.out.println("lagrange.addpoint(" + x + ", " + y + ");");
+                //System.out.println("lagrange.addpoint(" + x + ", " + y + ");");
             }
         });
         setDebugAll(true);
@@ -372,7 +372,7 @@ public class GameStage extends MyStage {
     }
 
     public void setLblPoint(String s){
-        controlStage.setLblPoint(point+" point");
+        controlStage.setLblPoint(point+"/7500 point");
     }
 
     public double getLife(){
@@ -405,7 +405,7 @@ public class GameStage extends MyStage {
             osszeomlas.play();
             trumpet_2.play();
             controlStage.addActor(tryAgaiunTextButton = new Button(game.btnTryAgain()));
-            tryAgaiunTextButton.setSize(565/1.5f,110/1.5f);
+            tryAgaiunTextButton.setSize(565,110);
             ExtendViewport ev = (ExtendViewport)controlStage.getViewport();
             tryAgaiunTextButton.setPosition(ev.getWorldWidth()/2-tryAgaiunTextButton.getWidth()/2, ev.getWorldHeight()/2-tryAgaiunTextButton.getHeight()/2);
             tryAgaiunTextButton.addListener(new ClickListener(){
