@@ -356,7 +356,7 @@ public class GameStage extends MyStage {
                 //System.out.println("lagrange.addpoint(" + x + ", " + y + ");");
             }
         });
-        setDebugAll(true);
+        //setDebugAll(true);
     }
 
     public Label.LabelStyle getLabelStyle() {

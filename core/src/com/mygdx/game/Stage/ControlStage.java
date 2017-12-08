@@ -31,19 +31,19 @@ public class ControlStage extends MyStage {
         return gameStage;
     }
 
+    public void setLblCoin(String s){
+        lblCoin.setText(s);
+    }
+
+    public void setLblPoint(String s){
+        lblPoint.setText(s);
+    }
+
 
 
 
     public float getSlider() {
         return slider_ertek;
-    }
-
-    public void setLblCoin(String s) {
-        lblCoin.setText(s);
-    }
-
-    public void setLblPoint(String s) {
-        lblPoint.setText(s);
     }
 
     public ControlStage(Batch batch, FortressSiege game, final GameStage gameStage) {
@@ -125,12 +125,13 @@ public class ControlStage extends MyStage {
                     gameStage.addHp(150);
                     gameStage.removeCoin(25);
                     lblCoin.setText(gameStage.getCoin()+" gold");
-                } else if(gameStage.getLife()>850.0) {
-                    lblError.setText("Too much health to restore!");
-                    ido=System.currentTimeMillis();
                 } else if(gameStage.getCoin()<25){
                     lblError.setText("Not enough gold! 25 gold needed, to restore health!");
                     ido=System.currentTimeMillis();
+
+                }   else if(gameStage.getLife()>850.0) {
+                    lblError.setText("Too much health to restore!");
+                    ido = System.currentTimeMillis();
                 }
 
             }
