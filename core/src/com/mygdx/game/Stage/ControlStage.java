@@ -116,12 +116,13 @@ public class ControlStage extends MyStage {
         addActor(lblError);
 
         btnHeal = new MyButton("", game.btnHeal());
+
         btnHeal.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
                 if (gameStage.getCoin() >= 25 && gameStage.getLife()<=975.0) {
-                    gameStage.addHp(50);
+                    gameStage.addHp(150);
                     gameStage.removeCoin(25);
                     lblCoin.setText(gameStage.getCoin()+" gold");
                 } else if(gameStage.getLife()>975.0) {
@@ -147,8 +148,8 @@ public class ControlStage extends MyStage {
         lblCoin.setTouchable(Touchable.disabled);
         lblPoint.setPosition(getViewport().getWorldWidth() - 150, getViewport().getWorldHeight() - 105);
         lblPoint.setTouchable(Touchable.disabled);
-        lblError.setPosition(50, 13);
-        btnHeal.setPosition(1,1);
+        lblError.setPosition(btnHeal.getWidth()+lblError.getWidth()+15, getHeight()-lblError.getHeight()-30);
+        btnHeal.setPosition(5,getHeight()-btnHeal.getHeight()-5);
         //btnHeal.setSize(1,1);
      }
 }

@@ -402,7 +402,7 @@ public class GameStage extends MyStage {
             osszeomlas.play();
             trumpet_2.play();
             controlStage.addActor(tryAgaiunTextButton = new Button(game.btnTryAgain()));
-            tryAgaiunTextButton.setSize(565,110);
+            tryAgaiunTextButton.setSize(565/1.5f,110/1.5f);
             ExtendViewport ev = (ExtendViewport)controlStage.getViewport();
             tryAgaiunTextButton.setPosition(ev.getWorldWidth()/2-tryAgaiunTextButton.getWidth()/2, ev.getWorldHeight()/2-tryAgaiunTextButton.getHeight()/2);
             tryAgaiunTextButton.addListener(new ClickListener(){

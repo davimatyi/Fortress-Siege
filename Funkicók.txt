@@ -1,0 +1,11 @@
+https://github.com/Majzer/Fortress-Siege
+
+-Speciális effektek
+-2 pálya, a második pálya az elsõ pálya megnyerése után következik
+-Intelligens gép ellenfél
+-Többféle célpont
+-Egyedi textúrák és animációk
+-Hangeffektek
+-Fõmenû animált háttérrel.
+
+
