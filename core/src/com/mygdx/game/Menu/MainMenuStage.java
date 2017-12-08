@@ -11,6 +11,7 @@ import com.mygdx.game.FortressSiege;
 import com.mygdx.game.GlobalClasses.Assets;
 import com.mygdx.game.MainScreen;
 import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
+import com.mygdx.game.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import com.mygdx.game.UI.MyButton;
 
 /**
@@ -21,6 +22,7 @@ public class MainMenuStage extends MyStage {
 
     TextButton btnStart, btnExit;
     CloudActor cloudActor;
+    OneSpriteStaticActor kep;
 
     public MainMenuStage(Viewport viewport, Batch batch, FortressSiege game) {
         super(viewport, batch, game);
@@ -29,7 +31,9 @@ public class MainMenuStage extends MyStage {
 
     @Override
     public void init() {
-
+        kep=new OneSpriteStaticActor(Assets.manager.get(Assets.ICON_TEXTURE));
+        kep.setPosition(getWidth()/2-kep.getWidth()/2,0);
+        addActor(kep);
         addActor(cloudActor = new CloudActor(0, getHeight()-Assets.manager.get(Assets.CLOUD_TEXTURE).getHeight()-120,170f*1.3f, 100f*1.3f,Assets.manager.get(Assets.CLOUD_TEXTURE),0.5f));
         addActor(cloudActor = new CloudActor(getWidth()-Assets.manager.get(Assets.CLOUD_TEXTURE).getWidth(), getHeight()-460,170f*1.3f, 100f*1.3f,Assets.manager.get(Assets.CLOUD_TEXTURE),0.5f));
         addActor(cloudActor = new CloudActor(0, getHeight()-660,170f*1.3f, 100f*1.3f,Assets.manager.get(Assets.CLOUD_TEXTURE),0.5f));

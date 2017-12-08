@@ -96,6 +96,9 @@ public class Assets {
 	public static final AssetDescriptor<Texture> SLIDER_TEXTURE
 			= new AssetDescriptor<Texture>("slider/slider.png", Texture.class);
 
+	public static final AssetDescriptor<Texture> ICON_TEXTURE
+			= new AssetDescriptor<Texture>("icon.png", Texture.class);
+
 	//Actorok
 	public static final AssetDescriptor<Texture> CANNON_TEXTURE
             = new AssetDescriptor<Texture>("actorok/cannonS.png", Texture.class);
@@ -209,6 +212,7 @@ public class Assets {
 		manager.load(SLIDER_TEXTURE);
 		manager.load(HP_FEKETE_TEXTURE);
 		manager.load(HP_PIROS_TEXTURE);
+		manager.load(ICON_TEXTURE);
 
 		//Actorok
         manager.load(CANNON_TEXTURE);
