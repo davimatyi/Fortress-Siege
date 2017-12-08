@@ -44,7 +44,7 @@ public class VegeStage extends MyStage {
 
         //lbl = new Label("Köszönet szüleinknek akik nélkül ez nem jöhetett volna létre", getLabelStyle());
         lbl = new Label("You won", getLabelStyle());
-        lbl.setPosition(getViewport().getWorldHeight()/2-lbl.getHeight(),getViewport().getWorldWidth()/2-lbl.getWidth()/2);
+        lbl.setPosition(getWidth()/2,getHeight()/2);
         addActor(lbl);
     }
 

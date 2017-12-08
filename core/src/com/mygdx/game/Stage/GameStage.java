@@ -47,8 +47,8 @@ public class GameStage extends MyStage {
     SatorTopActor satorTopActor;
     SatorActor satorActor;
     RavenActor ravenActor;
-    HPActorFekete hpActorFekete;
-    HPActorPiros hpActorPiros;
+    HPActorFekete hpActorFekete, hpActorFekete1;
+    HPActorPiros hpActorPiros, hpActorPiros1;
     CloudActor cloudActor;
     MyActor actor;
     CannonActor cannonActor;
@@ -302,7 +302,10 @@ public class GameStage extends MyStage {
         addActor(varActor = new VarActor(getGameStage(),varTopActor, cannonActor));
         addActor(ravenActor=new RavenActor(10, 5, lagrange, 3, level, getGameStage(), varActor));
         addActor(hpActorFekete =new HPActorFekete(varActor));
+        addActor(hpActorFekete1 =new HPActorFekete(satorActor));
         addActor(hpActorPiros=new HPActorPiros(varActor));
+        addActor(hpActorPiros1=new HPActorPiros(satorActor));
+
 
 
         addListener(stageClickListener = new ClickListener(){

@@ -11,12 +11,15 @@ import com.mygdx.game.Actor.VarActor;
 
 public class HPActorFekete extends OneSpriteStaticActor{
 
-    VarActor varActor;
-
     public HPActorFekete(VarActor varActor) {
         super(Assets.manager.get(Assets.HP_FEKETE_TEXTURE));
-        this.varActor = varActor;
         setPosition(0.4f,1.2f);
+        setSize(1.5f,0.1f);
+    }
+
+    public HPActorFekete(SatorActor satorActor){
+        super(Assets.manager.get(Assets.HP_FEKETE_TEXTURE));
+        setPosition(satorActor.getX()-satorActor.getWidth()/4,satorActor.getY()-0.4f);
         setSize(1.5f,0.1f);
     }
 

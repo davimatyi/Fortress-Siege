@@ -133,7 +133,7 @@ public class VarActor extends OneSpriteStaticActor {
         decLife(0);
 
 
-        System.out.println(robbanhat);
+        //System.out.println(robbanhat);
         if(robbanhat){
                 if (getStage()!=null) {
                     if(System.currentTimeMillis()-ido>120){

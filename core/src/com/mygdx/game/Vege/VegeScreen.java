@@ -23,7 +23,7 @@ public class VegeScreen extends MyScreen {
     @Override
     public void render(float delta) {
         super.render(delta);
-        System.out.println(System.currentTimeMillis()-ido);
+        //System.out.println(System.currentTimeMillis()-ido);
         if(System.currentTimeMillis()-ido>5000){
             game.setScreen(new MainMenuScreen(game));
            dispose();
