@@ -36,7 +36,7 @@ public class RavenActor extends OneSpriteAnimatedActor {
         this.gameStage = gameStage;
         this.varActor=varActor;
         setSize(0.5f, 0.5f);
-        setPosition(x,y);
+        setPosition(-5,-5);
 
     }
 
@@ -51,6 +51,7 @@ public class RavenActor extends OneSpriteAnimatedActor {
     @Override
     public void act(float delta) {
         super.act(delta);
+        /*
         if(balra) {
             setX(getX() - 0.02f);
             sprite.setFlip(false, false);
@@ -76,6 +77,7 @@ public class RavenActor extends OneSpriteAnimatedActor {
                 varActor.setCanSpawnNewRaven(true);
             }
         }
+        */
 
     }
 }
