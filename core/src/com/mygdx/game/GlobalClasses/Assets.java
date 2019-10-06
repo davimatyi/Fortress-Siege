@@ -25,6 +25,9 @@ public class Assets {
 	public static AssetManager manager;
 	public static final String CHARS = "0123456789öüóqwertzuiopőúasdfghjkléáűíyxcvbnm'+!%/=()ÖÜÓQWERTZUIOPŐÚASDFGHJKLÉÁŰÍYXCVBNM?:_*<>#&@{}[],-.";
 
+	public static final int SCREEN_WIDTH = 1280;
+	public static final int SCREEN_HEIGHT = 720;
+
 
 	static final FreetypeFontLoader.FreeTypeFontLoaderParameter fontParameter = new FreetypeFontLoader.FreeTypeFontLoaderParameter();
 	static {
@@ -268,7 +271,7 @@ public class Assets {
 	}
 
     public static void afterLoaded() {
-        //manager.get(MUSIC).setLooping(true);
+        manager.get(MUSIC).setLooping(true);
     }
 
 	public static void unload() {

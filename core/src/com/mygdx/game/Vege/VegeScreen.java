@@ -47,7 +47,7 @@ public class VegeScreen extends MyScreen {
 
     @Override
     public void init() {
-        vegeStage = new VegeStage(new ExtendViewport(1280,720,new OrthographicCamera(1280,720)), spriteBatch, game);
+        vegeStage = new VegeStage(new ExtendViewport(Assets.SCREEN_WIDTH,Assets.SCREEN_HEIGHT,new OrthographicCamera(Assets.SCREEN_WIDTH,HEIGHT)), spriteBatch, game);
         Gdx.input.setInputProcessor(vegeStage);
         //rgb(0, 184, 230)
         //rgb(66, 98, 244)

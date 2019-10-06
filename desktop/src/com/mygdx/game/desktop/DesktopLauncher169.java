@@ -11,8 +11,8 @@ import com.mygdx.game.FortressSiege;
 public class DesktopLauncher169 {
     public static void main (String[] arg) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-        config.height = 576;
-        config.width = 1024;
+        config.height = 720;
+        config.width = 1280;
         new LwjglApplication(new FortressSiege(), config);
     }
 }
